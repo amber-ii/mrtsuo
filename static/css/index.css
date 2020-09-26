@@ -1,0 +1,155 @@
+/* padding */
+.m-padded-tb-mini{
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+.m-padded-tb-zero{
+    padding: 0em !important;
+    /* 商品介紹 */
+}
+
+.m-padded-tb-tiny{
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+}
+.m-padded-tb-small{
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+.m-padded-tb-small2{
+    padding-top: 0.8em !important;
+    padding-bottom: 0.8em !important;
+}
+.m-padded-tb{
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+.m-padded-tb-large{
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+.m-padded-large{
+    padding-top: 2em !important;
+    padding-left: 4em !important;
+    /* 每頁標題 */
+}
+.m-padded-tb-big{
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+.m-padded-tb-huge{
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+.m-padded-tb-massive{
+    padding-top: 5em !important;
+    padding-bottom: 5em !important;
+}
+.m-padded-tb-massive-left{
+    padding-left: 15em !important;
+    padding-right: 15em !important;
+}
+.m-padded-tb-massive-left-large{
+    padding-left: 17em !important;
+    padding-right: 4em !important;
+    padding-top: 2em !important;
+}
+
+/* text */
+/* 字的粗細 */
+.m-text-thin{
+    font-weight: 300 !important;
+}
+.m-text-thin-mini{
+    font-weight: 400 !important;
+}
+/* 字間距 */
+.m-text-spaced{
+    letter-spacing: 1px !important;
+}
+
+.text-size{
+    font-size: 34px !important;
+    margin-bottom: 1em !important;
+}
+.text-size-mini{
+    font-size: 14px !important;
+}
+
+/* 行間距 */
+.m-text-lined{
+    line-height: 1.8px;
+}
+.m-opacity-mini{
+    opacity: 0.8 !important;
+}
+.m-opacity-mini2{
+    opacity: 0.6 !important;
+}
+.news-font-size{
+    font-size: 32px !important;
+    
+}
+.m-text{
+    color: dimgray !important;
+
+}
+
+.product-font-size{
+    font-size: small !important;
+}
+.m-right-top{
+    top: 0;
+    right: 0;
+    position: absolute;
+
+}
+
+.m-moblie-show{
+    display: none !important;
+}
+.m-productselect-hide{
+    display: none !important;
+}
+
+@media screen and (max-width:768px){
+    .m-mobile-hide{
+        display: none !important;
+    }
+    .m-moblie-show{
+        display: block !important;
+    }
+}
+/* body{
+    background: url('../image/cici\ copy.png') !important;
+    
+} */
+
+ /* html,
+body {
+    height: 100%;
+
+}  */
+
+.maincontainer{
+  height:auto;
+ /* 首頁container邊界 */
+}
+
+/* 
+ .wrapper{
+  height:100%;
+} 
+
+.ui.grid {
+    min-height: 100%; 
+} */
+.m-margin-home{
+    margin-top: 2em !important;
+  margin-bottom: 10em !important;
+}
+.m-margin-footer{
+    margin-top: 2em !important;
+  
+}
+
