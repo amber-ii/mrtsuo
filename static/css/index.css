@@ -80,6 +80,8 @@
 .m-text-lined{
     line-height: 1.8px;
 }
+
+
 .m-opacity-mini{
     opacity: 0.8 !important;
 }
@@ -89,6 +91,9 @@
 .news-font-size{
     font-size: 32px !important;
     
+}
+.font-size-29{
+    font-size: 29px !important;
 }
 .m-text{
     color: dimgray !important;
@@ -152,4 +157,18 @@ body {
     margin-top: 2em !important;
   
 }
-
+.image-size{
+    width: 188px !important;
+    height: 140px !important;
+    /* 528 × 442 */
+}
+#content{
+    margin-left:220px !important;
+    margin-right:120px !important;
+    margin-bottom: auto !important;
+    margin-top: auto !important;
+}
+.margrin-4em{
+    margin-bottom: 3em !important;
+    margin-top: 3em !important;
+}
