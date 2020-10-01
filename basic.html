@@ -10,26 +10,19 @@
 </head>
 
 <body>
-    <div class="box"></div>
     <!-- 導航 -->
-    <nav class="ui inverted attached segment m-padded-tb-mini">
+    <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui blue header item">MR.TSUO PATISSERIE</h2>
                 <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首頁</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="warehouse icon"></i>門市查詢</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="bullhorn icon"></i>最新消息</a>
-
-
-
-
-
-                <div class="ui simple dropdown item m-padded-tb-zero">
+                <div class="ui dropdown item m-padded-tb-zero">
                     <a href="#" class="m-item item m-mobile-hide"><i class="coffee icon"></i>商品專區<i
                             class="dropdown icon"></i></a>
-
                     <div class="menu ">
-                        <a href="#" class="item"> 咖啡</p></a>
+                        <a href="#" class="item">咖啡</p></a>
                         <a href="#" class="item">茶飲及其他飲品</p></a>
                         <a href="#" class="item">手做蛋糕</p></a>
                         <a href="#" class="item">輕食早午餐</p></a>
@@ -37,44 +30,34 @@
                         <a href="#" class="item">季節禮盒</p></a>
                     </div>
                 </div>
+                <a href="#" class="m-item item m-mobile-hide"><i class="dollar sign icon"></i>購買專區</a>
 
-               
-
-
-
-
-                <a href="#" class="m-item item m-mobile-hide"><i class="phone icon"></i>聯繫我們</a>
                 <div class="m-item right item m-mobile-hide">
-
-
                     <div class="ui icon inverted transparent input">
                         <input type="text" placeholder="搜尋...">
                         <i class=" search link icon"></i>
                     </div>
                 </div>
             </div>
-
             <a href="#" class="ui toggle menu black icon button m-right-top m-moblie-show">
                 <i class="sidebar icon"></i>
             </a>
         </div>
     </nav>
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br>
+    
 
     <!-- 底部 -->
     <footer>
-        <div class="ui inverted vertical segment">
+        <div class="ui inverted segment">
             <div class="ui center aligned container">
                 <div class="ui inverted stackable grid">
-                    <div class="two wide column">
+                    <div class="three wide column">
                     </div>
                     <div class="two wide column">
-                        <div class="item"><img src="static/image/logo_footer.jpg" class="ui circular image" alt="">
-                        </div>
+                        <img src="static/image/logo_footer.jpg" class="ui circular image" alt=""  width="120px">
                     </div>
-                    <div class="one wide column">
-                    </div>
+
 
 
                     <div class="four wide column">
@@ -100,14 +83,10 @@
                                         class="youtube icon"></i>mr.tsuo_patisserie</a></p>
                         </div>
                     </div>
-                    <div class="three wide column"></div>
+                    <div class="two wide column"></div>
                 </div>
                 <div class="ui inverted section divider"></div>
-
             </div>
-
-
-
             <div class="ui inverted vertical segment">
                 <div class="ui center aligned container">
 
@@ -126,8 +105,11 @@
         $('.toggle.menu').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');
         });
+        $('.ui.dropdown').dropdown({
+             on : 'hover'
+        });
     </script>
-    
+
 </body>
 
 </html>
