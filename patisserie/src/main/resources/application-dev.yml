@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mrtsuo?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 1105dddd
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    root: info
+    com.mrtsuo: debug
+  file: log/patisserie-dev.log
+  
