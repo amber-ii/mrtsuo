@@ -8,10 +8,10 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-
 logging:
   level:
     root: info
     com.mrtsuo: debug
-  file: log/patisserie-dev.log
-  
+  file: log/blog-dev.log
+
+
