@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="fragments :: head(~{::title})">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>最新消息</title>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/index.css" th:href="@{/css/index.css}">
+</head>
+
+<body>
+	<!-- 導航 -->
+	<nav th:replace="fragments :: menu(3)"
+		class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+		<div class="ui container">
+			<div class="ui inverted secondary stackable menu">
+				<h2 class="ui blue header item">MR.TSUO PATISSERIE</h2>
+				<a href="#" class="m-item item m-mobile-hide"><i
+					class="home icon"></i>首頁</a> <a href="#"
+					class="m-item item m-mobile-hide"><i class="warehouse icon"></i>門市查詢</a>
+				<a href="#" class="m-item item m-mobile-hide"><i
+					class="bullhorn icon"></i>最新消息</a>
+				<div class="ui simple dropdown item m-padded-tb-zero">
+					<a href="#" class="m-item item m-mobile-hide"><i
+						class="coffee icon"></i>商品專區<i class="dropdown icon"></i></a>
+					<div class="menu ">
+						<a href="#" class="item">咖啡</a> <a href="#" class="item">茶飲及其他飲品</a>
+						<a href="#" class="item">手做蛋糕</a> <a href="#" class="item">輕食早午餐</a>
+						<a href="#" class="item">會議型糕點</a> <a href="#" class="item">季節禮盒</a>
+					</div>
+				</div>
+				<a href="#" class="m-item item m-mobile-hide"><i
+					class="dollar sign icon"></i>購買專區</a>
+
+				<div class="m-item right item m-mobile-hide">
+					<div class="ui icon inverted transparent input">
+						<input type="text" placeholder="搜尋..."> <i
+							class=" search link icon"></i>
+					</div>
+				</div>
+			</div>
+			<a href="#"
+				class="ui toggle menu black icon button m-right-top m-moblie-show">
+				<i class="sidebar icon"></i>
+			</a>
+		</div>
+	</nav>
+	<!-- 每頁標題 -->
+	<div class="m-padded-large">
+		<div class="ui container">
+			<h2 class="ui blue header ">最新消息</h2>
+		</div>
+	</div>
+	<!-- 每頁標題END -->
+
+	<!-- 中間內容 -->
+	<div class="m-padded-tb-massive">
+		<div class="ui container">
+			<div class="ui grid">
+				<div class="ui three wide column"></div>
+				<div class="ui ten wide column m-padded-tb">
+					<h3
+						class="ui header center aligned m-text-spaced text-size-mini m-text-thin">SEP
+						8TH , 2020</h3>
+					<h3
+						class="ui header center aligned m-text-spaced text-size m-text-thin">2020試吃活動
+						正式開跑</h3>
+					<img src="image/starball.jpg" alt="" width="100%"
+						class="ui rounded image">
+					<div
+						class="m-text m-text-lined m-text-spaced m-text-thin m-padded-tb">
+						<p>大家拭目以待的試吃活動登場啦👏🏻👏🏻👏🏻 這次我們將在相關企業裡做活動，有興趣的朋友們快來找我們吧</p>
+
+						<p>第一站 🥇左爺爺咖啡MR.TSUO COFFEE 9/10（四）13:30-14:30
+							位置：台北市大安區光復南路102號 捷運國父紀念館站1號出口走路兩分鐘就到嘍</p>
+						<br>
+						<p>第二站🥈左爺爺港式茶餐廳愛國店 9/11（五）兩梯次活動時間 12:00-13:30 /18:30-19:30
+							地址：台北市大安區愛國東路101號 捷運東門站3號出口步行三分鐘</p>
+						<br>
+						<p>第三站🥉左爺爺港式茶餐廳芝山店 9/12（六）兩梯次活動時間 12:00-13:30 / 18:30-19:30
+							地址：台北市士林區福華路144號 捷運芝山站 1號出來後往右手邊走 2號出來後往左手邊走</p>
+					</div>
+					<div class="ui right aligned basic segment">
+						<div id="share">
+							<div class="ui blue label">
+								<a class="fb"><i class="facebook icon"></i>分享到 Facebook</a>
+							</div>
+							<div class="ui green label">
+								<a class="line"><i class="linechat icon"></i>分享到 line</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="ui divider m-padded-tb-big"></div>
+
+					<!-- 第二個 -->
+					<h3
+						class="ui header center aligned m-text-spaced text-size-mini m-text-thin">SEP
+						8TH , 2020</h3>
+					<h3
+						class="ui header center aligned m-text-spaced text-size m-text-thin">2020試吃活動
+						正式開跑</h3>
+					<img src="image/starball.jpg" alt="" width="100%"
+						class="ui rounded image">
+					<div
+						class="m-text m-text-lined m-text-spaced m-text-thin m-padded-tb">
+						<p>大家拭目以待的試吃活動登場啦👏🏻👏🏻👏🏻 這次我們將在相關企業裡做活動，有興趣的朋友們快來找我們吧</p>
+
+						<p>第一站 🥇左爺爺咖啡MR.TSUO COFFEE 9/10（四）13:30-14:30
+							位置：台北市大安區光復南路102號 捷運國父紀念館站1號出口走路兩分鐘就到嘍</p>
+						<br>
+						<p>第二站🥈左爺爺港式茶餐廳愛國店 9/11（五）兩梯次活動時間 12:00-13:30 /18:30-19:30
+							地址：台北市大安區愛國東路101號 捷運東門站3號出口步行三分鐘</p>
+						<br>
+						<p>第三站🥉左爺爺港式茶餐廳芝山店 9/12（六）兩梯次活動時間 12:00-13:30 / 18:30-19:30
+							地址：台北市士林區福華路144號 捷運芝山站 1號出來後往右手邊走 2號出來後往左手邊走</p>
+					</div>
+					<div class="ui divider m-padded-tb-big"></div>
+
+
+
+
+					<div class="ui three wide column"></div>
+					<!-- footer按鈕 -->
+					<div class="ui bottom attached">
+						<div class="ui two column grid">
+							<div class="column">
+								<a href="#" class="ui mini blue basic button">上一頁</a>
+							</div>
+							<div class="right aligned column">
+								<a href="#" class="ui mini blue basic button">下一頁</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 底部 -->
+	<footer th:replace="_fragments :: footer">
+		<div class="ui inverted segment">
+			<div class="ui center aligned container">
+				<div class="ui inverted stackable grid">
+					<div class="three wide column"></div>
+					<div class="two wide column">
+						<img src="image/logo_footer.jpg" class="ui circular image" alt=""
+							width="120px">
+					</div>
+
+
+
+					<div class="four wide column">
+						<h4 class="ui inverted header">優惠訊息</h4>
+						<div class="ui divider"></div>
+						<div class="ui inverted link list">
+							<a href="#" class="item">中秋節禮盒訂購</a> <a href="#" class="item">最新</a>
+							<a href="#" class="item">最新</a>
+						</div>
+					</div>
+					<div class="four wide column">
+						<h4 class="ui inverted header">官方帳號</h4>
+						<div class="ui divider"></div>
+						<div class="ui inverted link list">
+							<p class="m-text-lined">
+								<a
+									href="https://www.facebook.com/MrTsuo-%E5%B7%A6%E7%88%BA%E7%88%BA%E7%83%98%E7%84%99%E5%9D%8A-102769028157142"
+									class="ui facebook button"> <i class="facebook icon"></i>Mr.Tsuo
+									左爺爺烘焙坊
+								</a>
+							</p>
+							<p class="m-text-lined">
+								<a href="https://www.instagram.com/mr.tsuo_patisserie/"
+									class="ui instagram button"> <i class="instagram icon"></i>mr.tsuo_patisserie
+								</a>
+							</p>
+							<p class="m-text-lined">
+								<a href="#" class="ui youtube button"><i
+									class="youtube icon"></i>mr.tsuo_patisserie</a>
+							</p>
+						</div>
+					</div>
+					<div class="two wide column"></div>
+				</div>
+				<div class="ui inverted section divider"></div>
+			</div>
+			<div class="ui inverted vertical segment">
+				<div class="ui center aligned container">
+
+					<span class="m-text-thin m-opacity-mini">&copy; Copyright
+						2020 - MR.TSUO COFFEE</span> │ <a href="#"
+						class="item m-text-thin m-text-spaced m-opacity-mini">夥伴登入</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+<!-- /*/<th:block th:replace="_fragments :: script">/*/ -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	  <!-- /*/</th:block>/*/ -->
+	<script>
+		$('.toggle.menu').click(function() {
+			$('.m-item').toggleClass('m-mobile-hide');
+		});
+	</script>
+	<script>
+		var $share = $('#share');
+		$share
+				.on(
+						'click',
+						'a',
+						function() {
+							var shareType = $(this).attr('class'), pageUrl = location.href, fbLink = 'https://www.facebook.com/sharer.php?u=https://www.youtube.com/watch?v=dreFqLTbCf0&list=RDEM_WlvcThEtHAopKKgjcM0zg&index=15', googleLink = 'https://plus.google.com/share?url='
+									+ pageUrl, lineLink = 'https://lineit.line.me/share/ui?url=https://www.youtube.com/watch?v=dreFqLTbCf0&list=RDEM_WlvcThEtHAopKKgjcM0zg&index=15', twitterLink = 'http://twitter.com/home/?status='
+									+ pageUrl, openFrame = '_blank';
+
+							switch (shareType) {
+							case ('fb'):
+								window.open(fbLink, openFrame)
+								break;
+							case ('google'):
+								window.open(googleLink, openFrame);
+								break;
+							case ('line'):
+								window.open(lineLink, openFrame);
+								break;
+							case ('twitter'):
+								window.open(twitterLink, openFrame);
+								break;
+							default:
+								return false;
+							}
+						})
+	</script>
+</body>
+</html>

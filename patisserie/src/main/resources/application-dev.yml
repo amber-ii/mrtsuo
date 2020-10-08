@@ -12,6 +12,5 @@ logging:
   level:
     root: info
     com.mrtsuo: debug
-  file: log/blog-dev.log
-
-
+  file: 
+   path: ./log

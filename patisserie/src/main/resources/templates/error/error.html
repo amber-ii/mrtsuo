@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
+<head th:replace="_fragments :: head(~{::title})">
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>錯誤</title>
 </head>
-<!-- thymeleaf將錯誤訊息以文本方式展現在網頁上，透過網頁源代碼方式查看，不用到服務端查看(官方有提供代碼) -->
 <body>
-	<h1>錯誤</h1>
+	<div th:replace="_fragments :: menu(0)"></div>
+	<br><br><br>
 	<div>
 		<div th:utext="'&lt;!--'" th:remove="tag"></div>
 		<div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
@@ -18,6 +19,22 @@
 		</ul>
 		<div th:utext="'--&gt;'" th:remove="tag"></div>
 	</div>
-</body>
+	<div class="m-container-small m-padded-tb-massive">
 
+		<div class="ui error message m-padded-tb-huge">
+			<div class="ui container">
+				<h2>錯誤</h2>
+			</div>
+		</div>
+	</div>
+	<br><br><br><br>
+	<div th:replace="_fragments :: footer"></div>
+	<th:block th:replace="_fragments :: script">
+	</th:block>
+	<script>
+		$('.toggle.menu').click(function() {
+			$('.m-item').toggleClass('m-mobile-hide');
+		});
+	</script>
+</body>
 </html>

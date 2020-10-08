@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+      
+<head th:replace="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於左爺爺的烘焙坊</title>
+    <title>首頁</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet"  />
-    <link rel="stylesheet" href="./static/css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
 </head>
 
 <body>
      <!-- 導航 -->
-     <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+     <nav th:replace="fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui blue header item">MR.TSUO PATISSERIE</h2>
@@ -23,12 +23,12 @@
                     <a href="#" class="m-item item m-mobile-hide"><i class="coffee icon"></i>商品專區<i
                             class="dropdown icon"></i></a>
                     <div class="menu ">
-                        <a href="#" class="item">咖啡</p></a>
-                        <a href="#" class="item">茶飲及其他飲品</p></a>
-                        <a href="#" class="item">手做蛋糕</p></a>
-                        <a href="#" class="item">輕食早午餐</p></a>
-                        <a href="#" class="item">會議型糕點</p></a>
-                        <a href="#" class="item">季節禮盒</p></a>
+                        <a href="#" class="item">咖啡</a>
+                        <a href="#" class="item">茶飲及其他飲品</a>
+                        <a href="#" class="item">手做蛋糕</a>
+                        <a href="#" class="item">輕食早午餐</a>
+                        <a href="#" class="item">會議型糕點</a>
+                        <a href="#" class="item">季節禮盒</a>
                     </div>
                 </div>
                 <a href="#" class="m-item item m-mobile-hide"><i class="dollar sign icon"></i>購買專區</a>
@@ -50,13 +50,13 @@
 
 
     <div class="maincontainer">
-        <img class="ui image animated fadeInDown" src="./static/image/horseca1.jpg" alt="" width="100%">
+        <img class="ui image animated fadeInDown" src="../static/image/horseca1.jpg" alt="" width="100%">
         <div class="wrapper">
             <div class="ui grid ">
                 <div class="ui three wide brown column">
                 </div>
                 <div class="ui three wide brown column">
-                    <img src="./static/image/logo_footer.jpg" alt="" class="ui small circular image m-margin-home">
+                    <img src="../static/image/logo_footer.jpg" alt="logo" class="ui small circular image m-margin-home">
                 </div>
                 <div class="ui seven wide brown column">
                     <div class="m-margin-home m-text-spaced m-text-thin">
@@ -79,22 +79,15 @@
     </div>
 
 
-
-
-
-
-
-
-
      <!-- 底部 -->
-     <footer>
+     <footer th:replace="fragments :: footer">
         <div class="ui inverted segment">
             <div class="ui center aligned container">
                 <div class="ui inverted stackable grid">
                     <div class="three wide column">
                     </div>
                     <div class="two wide column">
-                        <img src="static/image/logo_footer.jpg" class="ui circular image" alt=""  width="120px">
+                        <img src="../static/image/logo_footer.jpg" class="ui circular image" alt=""  width="120px">
                     </div>
 
 
@@ -130,16 +123,15 @@
                 <div class="ui center aligned container">
 
                     <span class="m-text-thin m-opacity-mini">&copy; Copyright 2020 - MR.TSUO COFFEE</span>　│　<a href="#"
-                        class="item" class="m-text-thin m-text-spaced m-opacity-mini">夥伴登入</a>
-
+                       class="item m-text-thin m-text-spaced m-opacity-mini">夥伴登入</a>
                 </div>
             </div>
         </div>
-        </div>
     </footer>
-
+<!-- /*/<th:block th:replace="_fragments :: script">/*/ -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!-- /*/</th:block>/*/ -->
     <script>
         $('.toggle.menu').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');
