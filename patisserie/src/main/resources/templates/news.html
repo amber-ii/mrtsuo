@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
-<head th:replace="fragments :: head(~{::title})">
+<head th:replace="_fragments :: head(~{::title})">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>最新消息</title>
@@ -10,12 +10,12 @@
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-<link rel="stylesheet" href="/css/index.css" th:href="@{/css/index.css}">
+ <link rel="stylesheet" href="../static/css/index.css" th:href="@{/css/index.css}">
 </head>
 
 <body>
 	<!-- 導航 -->
-	<nav th:replace="fragments :: menu(3)"
+	<nav th:replace="_fragments :: menu(3)"
 		class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
 		<div class="ui container">
 			<div class="ui inverted secondary stackable menu">

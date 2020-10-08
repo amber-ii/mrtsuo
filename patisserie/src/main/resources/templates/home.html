@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-      
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">  
 <head th:replace="_fragments :: head(~{::title})">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,11 +11,11 @@
 
 <body>
      <!-- 導航 -->
-     <nav th:replace="fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+     <nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui blue header item">MR.TSUO PATISSERIE</h2>
-                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首頁</a>
+                <a href="#" class=" m-item item m-mobile-hide"><i class="home icon"></i>首頁</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="warehouse icon"></i>門市查詢</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="bullhorn icon"></i>最新消息</a>
                 <div class="ui simple dropdown item m-padded-tb-zero">
@@ -50,13 +49,13 @@
 
 
     <div class="maincontainer">
-        <img class="ui image animated fadeInDown" src="../static/image/horseca1.jpg" alt="" width="100%">
+        <img class="ui image animated fadeInDown" src="image/horseca1.jpg" alt="" width="100%">
         <div class="wrapper">
             <div class="ui grid ">
                 <div class="ui three wide brown column">
                 </div>
                 <div class="ui three wide brown column">
-                    <img src="../static/image/logo_footer.jpg" alt="logo" class="ui small circular image m-margin-home">
+                    <img src="image/logo_footer.jpg" alt="logo" class="ui small circular image m-margin-home">
                 </div>
                 <div class="ui seven wide brown column">
                     <div class="m-margin-home m-text-spaced m-text-thin">
@@ -80,7 +79,7 @@
 
 
      <!-- 底部 -->
-     <footer th:replace="fragments :: footer">
+     <footer th:replace="_fragments :: footer">
         <div class="ui inverted segment">
             <div class="ui center aligned container">
                 <div class="ui inverted stackable grid">

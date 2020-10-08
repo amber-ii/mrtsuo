@@ -19,8 +19,10 @@ public class ProductController {
 	private ProductService productService;
 
 	@RequestMapping("/product")
-	public @ResponseBody String product() {
+	public @ResponseBody String product(Product product) {
 //		Product product = productService.queryProductById(id);
+//		product.addAttribute("name","haozz");
+
 		return "home";
 	}
 	
