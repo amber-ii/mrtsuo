@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>商品上傳</title>
-<link rel="stylesheet" href="../../static/css/index.css">
+<link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 </head>
@@ -57,7 +57,7 @@
 	<!-- 中間 -->
 	<div class="m-container-small m-padded-tb-big">
 		<div class="ui container">
-			<form action="#" method="post" class="ui form">
+			<form action="#" method="post" th:action="@{/admin/product}" class="ui form">
 				<div class="required field">
 					<div class="ui left labeled input">
 						<div class="ui selection teal basic dropdown label">
@@ -135,7 +135,7 @@
 					<button type="button" class="ui button"
 						onclick="window.history.go(-1)">返回</button>
 					<button class="ui secondary button">保存</button>
-					<button class="ui teal button">上傳</button>
+					<button class="ui teal submit button">上傳</button>
 				</div>
 			</form>
 		</div>

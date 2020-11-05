@@ -1,17 +1,11 @@
 package com.mrtsuo.mapper;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.mrtsuo.model.User;
 
-public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    User selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
+public interface UserMapper extends JpaRepository<User,Long>{
+    
+    User findByUsernameAndPassword(String username, String password);
+    
 }

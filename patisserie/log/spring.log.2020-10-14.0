@@ -1,0 +1,479 @@
+2020-10-14 00:26:45.975  INFO 60230 --- [Thread-79] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 00:26:46.332  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 00:26:46.332 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 00:26:46.332  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 00:26:46.522  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 00:26:46.523  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 00:26:46.523  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 00:26:46.527  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-10-14 00:26:46.527  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 193 ms
+2020-10-14 00:26:46.702  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 00:26:46.714  WARN 60230 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'productController' method 
+com.mrtsuo.web.ProductController#product(Product)
+to { /product}: There is already 'indexController' bean method
+com.mrtsuo.web.IndexController#helloIndex2() mapped.
+2020-10-14 00:26:46.714  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 00:26:46.715  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-10-14 00:26:46.719  INFO 60230 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-14 00:26:46.722 ERROR 60230 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'productController' method 
+com.mrtsuo.web.ProductController#product(Product)
+to { /product}: There is already 'indexController' bean method
+com.mrtsuo.web.IndexController#helloIndex2() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.mrtsuo.PatisserieApplication.main(PatisserieApplication.java:11)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'productController' method 
+com.mrtsuo.web.ProductController#product(Product)
+to { /product}: There is already 'indexController' bean method
+com.mrtsuo.web.IndexController#helloIndex2() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:636)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:603)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:318)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:378)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:75)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:288)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:286)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:258)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:217)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:205)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	... 22 common frames omitted
+
+2020-10-14 00:27:00.541  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 00:27:00.541 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 00:27:00.541  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 00:27:00.725  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 00:27:00.725  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 00:27:00.725  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 00:27:00.729  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 00:27:00.729  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 186 ms
+2020-10-14 00:27:00.881  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 00:27:00.895  WARN 60230 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'productController' method 
+com.mrtsuo.web.ProductController#product(Product)
+to { /product}: There is already 'indexController' bean method
+com.mrtsuo.web.IndexController#helloIndex2() mapped.
+2020-10-14 00:27:00.895  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 00:27:00.896  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-10-14 00:27:00.902  INFO 60230 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-10-14 00:27:00.902 ERROR 60230 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'productController' method 
+com.mrtsuo.web.ProductController#product(Product)
+to { /product}: There is already 'indexController' bean method
+com.mrtsuo.web.IndexController#helloIndex2() mapped.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1794)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at com.mrtsuo.PatisserieApplication.main(PatisserieApplication.java:11)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'productController' method 
+com.mrtsuo.web.ProductController#product(Product)
+to { /product}: There is already 'indexController' bean method
+com.mrtsuo.web.IndexController#helloIndex2() mapped.
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:636)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:603)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:318)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:378)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:75)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$1(AbstractHandlerMethodMapping.java:288)
+	at java.util.LinkedHashMap.forEach(LinkedHashMap.java:684)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:286)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:258)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:217)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:205)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1790)
+	... 22 common frames omitted
+
+2020-10-14 00:28:06.174  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 00:28:06.174 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 00:28:06.174  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 00:28:06.444  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 00:28:06.444  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 00:28:06.444  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 00:28:06.451  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 00:28:06.452  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 275 ms
+2020-10-14 00:28:06.645  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 00:28:06.674  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 00:28:06.783  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 00:28:06.792  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 00:28:06.795  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.658 seconds (JVM running for 3838.211)
+2020-10-14 00:28:06.797  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 00:29:42.158  INFO 60230 --- [Thread-84] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 00:29:42.570  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 00:29:42.570 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 00:29:42.570  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 00:29:42.749  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 00:29:42.750  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 00:29:42.750  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 00:29:42.756  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 00:29:42.756  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 184 ms
+2020-10-14 00:29:43.025  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 00:29:43.098  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 00:29:43.187  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 00:29:43.192  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 00:29:43.194  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.868 seconds (JVM running for 3934.609)
+2020-10-14 00:29:43.194  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 22:24:58.512  INFO 60230 --- [Thread-95] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 22:24:58.907  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 22:24:58.908 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 22:24:58.909  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 22:24:59.153  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 22:24:59.154  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 22:24:59.154  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 22:24:59.158  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 22:24:59.158  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 248 ms
+2020-10-14 22:24:59.330  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 22:24:59.362  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 22:24:59.480  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 22:24:59.485  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 22:24:59.487  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.621 seconds (JVM running for 4829.174)
+2020-10-14 22:24:59.488  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:13:41.649  INFO 60230 --- [Thread-100] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:13:42.052  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:13:42.052 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:13:42.052  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:13:42.277  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:13:42.278  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:13:42.278  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:13:42.282  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:13:42.282  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 228 ms
+2020-10-14 23:13:42.461  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:13:42.492  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:13:42.630  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:13:42.644  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:13:42.646  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.837 seconds (JVM running for 6192.329)
+2020-10-14 23:13:42.648  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:14:12.063  INFO 60230 --- [Thread-105] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:14:12.262  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:14:12.262 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:14:12.262  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:14:12.595  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:14:12.596  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:14:12.596  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:14:12.611  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:14:12.612  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 348 ms
+2020-10-14 23:14:12.925  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:14:12.981  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:14:13.294  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:14:13.311  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:14:13.314  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 1.082 seconds (JVM running for 6222.996)
+2020-10-14 23:14:13.316  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:16:35.733  INFO 60230 --- [Thread-110] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:16:36.044  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:16:36.044 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:16:36.044  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:16:36.224  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:16:36.224  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:16:36.224  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:16:36.229  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:16:36.229  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 184 ms
+2020-10-14 23:16:36.422  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:16:36.445  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:16:36.584  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:16:36.588  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:16:36.590  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.723 seconds (JVM running for 6366.27)
+2020-10-14 23:16:36.590  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:17:31.710  INFO 60230 --- [Thread-115] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:17:31.839  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:17:31.839 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:17:31.839  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:17:32.050  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:17:32.050  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:17:32.050  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:17:32.078  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:17:32.078  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 238 ms
+2020-10-14 23:17:32.439  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:17:32.554  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:17:32.679  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:17:32.694  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:17:32.697  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.888 seconds (JVM running for 6422.377)
+2020-10-14 23:17:32.698  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:19:11.006  INFO 60230 --- [Thread-120] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:19:11.301  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:19:11.301 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:19:11.301  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:19:11.543  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:19:11.543  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:19:11.543  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:19:11.547  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:19:11.547  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 244 ms
+2020-10-14 23:19:11.718  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:19:11.744  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:19:11.853  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:19:11.859  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:19:11.860  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.725 seconds (JVM running for 6521.539)
+2020-10-14 23:19:11.862  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:21:14.612  INFO 60230 --- [Thread-125] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:21:14.886  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:21:14.886 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:21:14.887  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:21:15.029  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:21:15.030  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:21:15.030  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:21:15.040  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:21:15.040  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 152 ms
+2020-10-14 23:21:15.166  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:21:15.187  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:21:15.268  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:21:15.272  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:21:15.274  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.542 seconds (JVM running for 6644.953)
+2020-10-14 23:21:15.274  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:21:30.167  INFO 60230 --- [Thread-130] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:21:30.293  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:21:30.293 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:21:30.294  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:21:30.458  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:21:30.458  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:21:30.458  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:21:30.462  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:21:30.462  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 167 ms
+2020-10-14 23:21:30.605  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:21:30.624  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:21:30.724  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:21:30.729  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:21:30.732  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.461 seconds (JVM running for 6660.412)
+2020-10-14 23:21:30.733  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:21:45.680  INFO 60230 --- [Thread-135] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:21:45.794  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:21:45.795 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:21:45.796  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:21:45.937  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:21:45.937  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:21:45.937  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:21:45.941  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:21:45.941  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 144 ms
+2020-10-14 23:21:46.073  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:21:46.095  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:21:46.237  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:21:46.241  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:21:46.243  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.47 seconds (JVM running for 6675.923)
+2020-10-14 23:21:46.244  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:22:53.567  INFO 60230 --- [Thread-140] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:22:53.691  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:22:53.692 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:22:53.694  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:22:53.831  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:22:53.832  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:22:53.832  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:22:53.837  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:22:53.837  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 141 ms
+2020-10-14 23:22:54.009  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:22:54.027  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:22:54.115  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:22:54.122  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:22:54.124  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.452 seconds (JVM running for 6743.804)
+2020-10-14 23:22:54.126  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:23:15.230  INFO 60230 --- [Thread-145] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:23:15.618  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:23:15.618 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:23:15.618  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:23:15.774  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:23:15.776  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:23:15.776  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:23:15.793  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:23:15.793  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 167 ms
+2020-10-14 23:23:16.031  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:23:16.102  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:23:16.226  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:23:16.230  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:23:16.232  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.857 seconds (JVM running for 6765.911)
+2020-10-14 23:23:16.232  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:24:04.271  INFO 60230 --- [Thread-150] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:24:04.413  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:24:04.413 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:24:04.414  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:24:04.634  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:24:04.634  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:24:04.635  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:24:04.641  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:24:04.641  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 226 ms
+2020-10-14 23:24:04.881  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:24:04.912  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:24:05.087  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:24:05.093  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:24:05.095  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.707 seconds (JVM running for 6814.774)
+2020-10-14 23:24:05.096  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:24:06.601  INFO 60230 --- [Thread-155] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:24:06.736  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:24:06.736 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:24:06.736  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:24:06.871  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:24:06.872  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:24:06.872  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:24:06.876  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:24:06.876  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 139 ms
+2020-10-14 23:24:07.061  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:24:07.100  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:24:07.214  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:24:07.218  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:24:07.220  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.504 seconds (JVM running for 6816.899)
+2020-10-14 23:24:07.220  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:25:05.387  INFO 60230 --- [Thread-160] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:25:05.528  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:25:05.528 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:25:05.528  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:25:05.662  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:25:05.664  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:25:05.664  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:25:05.678  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:25:05.678  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 149 ms
+2020-10-14 23:25:05.861  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:25:05.897  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:25:06.038  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:25:06.047  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:25:06.049  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.538 seconds (JVM running for 6875.728)
+2020-10-14 23:25:06.050  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:30:32.619  INFO 60230 --- [Thread-165] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:30:32.928  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:30:32.928 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:30:32.928  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:30:33.080  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:30:33.081  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:30:33.081  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:30:33.084  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:30:33.085  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 156 ms
+2020-10-14 23:30:33.213  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:30:33.231  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:30:33.336  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:30:33.340  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:30:33.342  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.599 seconds (JVM running for 7203.018)
+2020-10-14 23:30:33.342  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:30:49.301  INFO 60230 --- [Thread-170] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:30:49.442  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:30:49.442 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:30:49.442  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:30:49.618  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:30:49.619  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:30:49.619  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:30:49.622  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:30:49.622  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 179 ms
+2020-10-14 23:30:49.744  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:30:49.765  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:30:49.865  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:30:49.877  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:30:49.879  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.456 seconds (JVM running for 7219.555)
+2020-10-14 23:30:49.881  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:30:53.435  INFO 60230 --- [Thread-175] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:30:53.548  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:30:53.548 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:30:53.548  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:30:53.734  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:30:53.735  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:30:53.735  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:30:53.743  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:30:53.743  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 193 ms
+2020-10-14 23:30:53.938  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:30:53.963  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:30:54.122  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:30:54.126  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:30:54.128  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.598 seconds (JVM running for 7223.804)
+2020-10-14 23:30:54.129  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:31:26.466  INFO 60230 --- [Thread-180] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:31:26.582  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:31:26.582 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:31:26.583  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:31:26.729  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:31:26.729  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:31:26.730  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:31:26.734  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:31:26.734  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 149 ms
+2020-10-14 23:31:26.867  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:31:26.886  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:31:26.982  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:31:26.988  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:31:26.989  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.424 seconds (JVM running for 7256.665)
+2020-10-14 23:31:26.990  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:32:00.340  INFO 60230 --- [Thread-185] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:32:00.455  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:32:00.455 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:32:00.455  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:32:00.591  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:32:00.591  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:32:00.591  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:32:00.595  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:32:00.595  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 133 ms
+2020-10-14 23:32:00.720  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:32:00.737  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:32:00.814  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:32:00.818  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:32:00.819  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.382 seconds (JVM running for 7290.494)
+2020-10-14 23:32:00.820  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:32:18.775  INFO 60230 --- [Thread-190] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:32:18.895  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:32:18.895 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:32:18.895  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:32:19.036  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:32:19.037  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:32:19.037  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:32:19.041  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:32:19.041  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 145 ms
+2020-10-14 23:32:19.162  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:32:19.185  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:32:19.292  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:32:19.303  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:32:19.305  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.431 seconds (JVM running for 7308.98)
+2020-10-14 23:32:19.306  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-10-14 23:32:31.059  INFO 60230 --- [Thread-195] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:32:31.192  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 60230 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-10-14 23:32:31.193 DEBUG 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v2.3.4.RELEASE, Spring v5.2.9.RELEASE
+2020-10-14 23:32:31.193  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-10-14 23:32:31.329  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-10-14 23:32:31.329  INFO 60230 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-10-14 23:32:31.329  INFO 60230 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.38]
+2020-10-14 23:32:31.333  INFO 60230 --- [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2020-10-14 23:32:31.333  INFO 60230 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 139 ms
+2020-10-14 23:32:31.463  INFO 60230 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-10-14 23:32:31.500  INFO 60230 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-10-14 23:32:31.615  INFO 60230 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-10-14 23:32:31.619  INFO 60230 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-10-14 23:32:31.620  INFO 60230 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 0.446 seconds (JVM running for 7321.295)
+2020-10-14 23:32:31.621  INFO 60230 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged

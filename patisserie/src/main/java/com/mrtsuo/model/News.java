@@ -2,64 +2,34 @@ package com.mrtsuo.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import lombok.Data;
+
+@Entity
+@Table(name = "t_news")
+@Data
 public class News {
-    private Integer id;
+	@Id
+	@GeneratedValue
+	private Long id;
 
-    private String title;
+	private String title;
 
-    private String content;
+	private String Picture;
+	
+	private String content;
+	private boolean shareStatement;
 
-    private Date createTime;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createTime;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updateTime;
 
-    private Date updateTime;
-
-    private byte[] picture;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
+	
 }

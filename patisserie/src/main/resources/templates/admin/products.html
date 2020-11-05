@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+</head>
+
+<body>
+    <!-- 導航 -->
+<div th:insert="admin/_fragments :: menu(1)"></div>
+    
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+                <a href="#" class="item">商品上傳</a>
+                <a href="#" class="teal active item">商品列表</a>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+
+
+    <!-- 中間 -->
+    <div  class="m-container-small m-padded-tb-big">
+        <div class="ui container">
+          <form action="#" method="post" class="ui segment form">
+            <div class="inline fields">
+              <div class="field">
+                <input type="text" name="name" placeholder="商品名稱">
+              </div>
+              <div class="field">
+                <div class="ui selection dropdown">
+                  <input type="hidden" name="type">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">分类</div>
+                  <div class="menu">
+                    <div class="item" data-value="咖啡">咖啡</div>
+                    <div class="item" data-value="飲品">飲品</div>
+                    <div class="item" data-value="手做蛋糕">手做蛋糕</div>
+                    <div class="item" data-value="輕食早午餐">輕食早午餐</div>
+                    <div class="item" data-value="會議型蛋糕">會議型蛋糕</div>
+                    <div class="item" data-value="節慶禮盒">節慶禮盒</div>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+              </div>
+            </div>
+          </form>
+    
+          <table class="ui celled table">
+            <thead>
+              <tr>
+             	<th>序號</th>
+                <th>商品名稱</th>
+                <th>分類</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="product,iterStat : ${page.content}">
+                <td th:text="${iterStat.count}">1</td>
+                <td th:text="${product.name}">左爺爺的金礦</td>
+                <td th:text="${product.type}">手做蛋糕</td>
+                
+                <td>
+                  <a href="#" th:href="@{/admin/products/{id}/input(id=${product.id})}" class="ui mini teal basic button">編輯</a>
+                  <a href="#" th:href="@{/admin/products/{id}/delete(id=${product.id})}" class="ui mini red basic button">刪除</a>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="6" >
+                  <div class="ui mini pagination menu" >
+                    <a th:href="@{/admin/products(page=${page.number}-1)}" class=" item" th:unless="${page.first}">上一頁</a>
+                    <a th:href="@{/admin/products(page=${page.number}+1)}" class=" item" th:unless="${page.last}">下一頁</a>
+                  </div>
+                  <a href="#" th:href="@{/admin/products/input}" class="ui mini right floated teal basic button">新增</a>
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+<br><br><br><br><br><br><br><br>
+
+
+    <!-- 底部 -->
+    <div th:insert="admin/_fragments :: footer"></div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script>
+        $('.toggle.menu').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+        $('.ui.dropdown').dropdown({
+            on: 'hover'
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,11 +1,9 @@
 spring:
   thymeleaf:
     mode: HTML
-    prefix: classpath:/templates/
     suffix: .html
+    prefix: classpath:/templates/
     cache: false
   profiles:
     active: dev
-    
-    
-    
+
