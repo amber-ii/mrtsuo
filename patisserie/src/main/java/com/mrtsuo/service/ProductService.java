@@ -25,7 +25,7 @@ public interface ProductService {
 	 * @return
 	 */
 
-	Optional<Product> getProduct(Long id);
+	Product getProduct(Long id);
 
 	/**
 	 * 查詢詳情
@@ -60,7 +60,6 @@ public interface ProductService {
 
 	List<Product> listProduct();
 
-//	List<Product> listProductTop(Integer size);
 
 
 }

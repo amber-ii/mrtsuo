@@ -31,8 +31,8 @@ public class ProductServiceImpl implements ProductService {
 
 	@Transactional
 	@Override
-	public Optional<Product> getProduct(Long id) {
-		return productRepository.findById(id);
+	public Product getProduct(Long id) {
+		return productRepository.findOne(id);
 	}
 
 	@Override
@@ -50,17 +50,11 @@ public class ProductServiceImpl implements ProductService {
 	    return productRepository.findAll();
 	}
 	
-//	@Override
-//	public List<Product> listProductTop(Integer size) {
-//	    Sort sort = new Sort(Sort.Direction.DESC,"products.size");
-//	    Pageable pageable = new PageRequest(0,size,sort);
-//	    return productRepository.findTop(pageable);
-//	}
 
 	@Transactional
 	@Override
 	public Product updateProduct(Long id, Product product) {
-		Product p = productRepository.getOne(id);
+		Product p = productRepository.findOne(id);
 		    if (p == null) {
 		        throw new NotFoundException("不存在該產品");
 		    }
@@ -71,6 +65,6 @@ public class ProductServiceImpl implements ProductService {
 	@Transactional
 	@Override
 	public void deleteProduct(Long id) {
-		productRepository.deleteById(id);
+		productRepository.delete(id);
 	}
 }

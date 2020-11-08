@@ -34,11 +34,13 @@ public class ProductController {
 	@GetMapping("/products")
 	public String products(
 			@PageableDefault(size = 3, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
-			Model model,HttpRequest request) {
+			Model model) {
+		Product prod = new Product();
+		model.addAttribute("prod", prod);
 		model.addAttribute("page",productService.listProducts(pageable));
+		return "admin/products"; 
 		
-		return "admin/products";
-	}
+	} 
 
 
 	@GetMapping("/products/input")

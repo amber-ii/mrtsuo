@@ -74,25 +74,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="product,iterStat : ${page.content}">
+					<tr th:each="prod,iterStat : ${page.content}">
 						<td th:text="${iterStat.count}">1</td>
-						<td th:text="${product.name}">左爺爺的金礦</td>
-						<td th:text="${product.type}">手做蛋糕</td>
+						<td th:text="${prod.name}">左爺爺的金礦</td>
+						<td th:text="${prod.type_id}">手做蛋糕</td>
 						<td>
-							<a href="#" th:href="@{/admin/products/{id}/input(id=${product.id})}" class="ui mini teal basic button">編輯</a> 
-							<a href="#" th:href="@{/admin/products/{id}/delete(id=${product.id})}" class="ui mini red basic button">刪除</a>
+							<a href="#" th:href="@{/admin/products/{id}/input(id=${prod.id})}" class="ui mini teal basic button">編輯</a> 
+							<a href="#" th:href="@{/admin/products/{id}/delete(id=${prod.id})}" class="ui mini red basic button">刪除</a>
 						</td>
-					
-					<!-- 	
-						<tr >
-						<td >1</td>
-						<td >左爺爺的金礦</td>
-						<td >手做蛋糕</td>
-						<td>
-							<a href="#" class="ui mini teal basic button">編輯</a> 
-							<a href="#"  class="ui mini red basic button">刪除</a>
-						</td> -->
-						
 				</tbody>
 				<tfoot>
 					<tr>

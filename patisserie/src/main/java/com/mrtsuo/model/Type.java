@@ -25,7 +25,7 @@ public class Type {
 	private String name;
 	
 //	一個分類可以對應多個產品
-	@OneToMany(mappedBy = "type")
+	@OneToMany(mappedBy = "type_id")
 	private List<Product> products = new ArrayList<>();
 
 }
