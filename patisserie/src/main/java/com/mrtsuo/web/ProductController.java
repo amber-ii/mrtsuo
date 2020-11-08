@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,17 +27,19 @@ import com.mrtsuo.service.ProductService;
 @Controller
 @RequestMapping("/admin")
 public class ProductController {
-
+	
 	@Autowired
 	private ProductService productService;
 
 	@GetMapping("/products")
 	public String products(
 			@PageableDefault(size = 3, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
-			Model model) {
+			Model model,HttpRequest request) {
 		model.addAttribute("page",productService.listProducts(pageable));
+		
 		return "admin/products";
 	}
+
 
 	@GetMapping("/products/input")
 	public String input(Model model) {
@@ -53,7 +56,7 @@ public class ProductController {
 
 	@PostMapping("/products")
 	public String post(@Valid Product product,BindingResult result, RedirectAttributes attributes) {
-		Product product1 = productService.selectProductByName(product.getName());
+		Product product1 = productService.getProductByName(product.getName());
 	    if (product1 != null) {
 	        result.rejectValue("name","nameError","不能添加重複的產品");
 	    }
@@ -71,11 +74,11 @@ public class ProductController {
 	
 	@PostMapping("/products/{id}")
 	public String editPost(@Valid Product product,BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
-		Product product1 = productService.selectProductByName(product.getName());
+		Product product1 = productService.getProductByName(product.getName());
 	    if (product1 != null) {
 	        result.rejectValue("name","nameError","不能添加重複的產品");
 	    }
-	    if (result.hasErrors()) {
+	    if (result.hasErrors()) { 
 	        return "admin/products-input";
 	    }
 	    Product p = productService.updateProduct(id, product);
@@ -86,11 +89,12 @@ public class ProductController {
 	    }
 	    return "redirect:/admin/products";
 	}
-	
+	 
 	@GetMapping("/products/{id}/delete")
 	public String delete(@PathVariable Long id,RedirectAttributes attributes) {
 	    productService.deleteProduct(id);
 	    attributes.addFlashAttribute("message", "刪除成功");
 	    return "redirect:/admin/products";
 	}
+	
 }

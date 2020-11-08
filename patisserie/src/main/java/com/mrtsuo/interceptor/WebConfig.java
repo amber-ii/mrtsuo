@@ -1,8 +1,10 @@
 package com.mrtsuo.interceptor;
 
+
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 控制器的過濾設置
@@ -10,9 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author amber
  *
  */
-
 @Configuration //定義此類為配置文件
-public class WebConfig extends WebMvcConfigurerAdapter{
+public class WebConfig implements WebMvcConfigurer{
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -21,6 +22,4 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		.excludePathPatterns("/admin")
 		.excludePathPatterns("/admin/login");
 	}
-
-	
 }

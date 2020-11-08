@@ -1,61 +1,76 @@
 package com.mrtsuo.service.impl;
 
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mrtsuo.NotFoundException;
-import com.mrtsuo.mapper.ProductMapper;
 import com.mrtsuo.model.Product;
+import com.mrtsuo.repository.ProductRepository;
 import com.mrtsuo.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
-	private ProductMapper productMapper;
+	private ProductRepository productRepository;
 
 	@Transactional
 	@Override
 	public Product saveProduct(Product product) {
-		return productMapper.save(product);
+		return productRepository.save(product);
 	}
 
 	@Transactional
 	@Override
-	public Product getProduct(Long id) {
-		return productMapper.getOne(id);
+	public Optional<Product> getProduct(Long id) {
+		return productRepository.findById(id);
 	}
 
 	@Override
-	public Product selectProductByName(String name) {
-		return productMapper.findByName(name);
+	public Product getProductByName(String name) {
+		return productRepository.findByName(name);
 	}
 
 	@Transactional
 	@Override
 	public Page<Product> listProducts(Pageable pageable) {
-		return productMapper.findAll(pageable);
+		return productRepository.findAll(pageable);
 	}
+	@Override
+	public List<Product> listProduct() {
+	    return productRepository.findAll();
+	}
+	
+//	@Override
+//	public List<Product> listProductTop(Integer size) {
+//	    Sort sort = new Sort(Sort.Direction.DESC,"products.size");
+//	    Pageable pageable = new PageRequest(0,size,sort);
+//	    return productRepository.findTop(pageable);
+//	}
 
 	@Transactional
 	@Override
 	public Product updateProduct(Long id, Product product) {
-		Product p = productMapper.getOne(id);
+		Product p = productRepository.getOne(id);
 		    if (p == null) {
-		        throw new NotFoundException("不存在该类型");
+		        throw new NotFoundException("不存在該產品");
 		    }
 		    BeanUtils.copyProperties(product,p);
-		return productMapper.save(p);
+		return productRepository.save(p);
 	}
 
 	@Transactional
 	@Override
 	public void deleteProduct(Long id) {
-		productMapper.deleteById(id);
+		productRepository.deleteById(id);
 	}
 }

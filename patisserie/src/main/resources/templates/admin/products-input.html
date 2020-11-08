@@ -13,40 +13,12 @@
 <body>
 	<!-- 導航 -->
 	<div th:insert="admin/_fragments :: menu(1)"></div>
-	<!-- <nav
-		class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
-		<div class="ui container">
-			<div class="ui inverted secondary stackable menu">
-				<h2 class="ui teal header item">後台管理</h2>
-				<a href="#" class="m-item item m-mobile-hide">商品</a> <a href="#"
-					class="m-item item m-mobile-hide">最新消息</a>
-
-				<div class="right menu">
-					<div class="ui m-item dropdown item m-mobile-hide">
-						<div class="text">
-							<img class="ui avatar image"
-								src="../../static/image/horseca1.jpg" alt="" width="110px">Amber
-							Lin
-						</div>
-						<i class="dropdown icon"></i>
-						<div class="menu">
-							<a href="#" class="item">登出</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<a href="#"
-				class="ui toggle menu black icon button m-right-top m-moblie-show">
-				<i class="sidebar icon"></i>
-			</a>
-		</div>
-	</nav>
- -->
+	
 	<div class="ui attached pointing menu">
 		<div class="ui container">
 			<div class="right menu">
-				<a href="#" class="teal active item">商品上傳</a> <a href="#"
-					class="item">商品列表</a>
+				<a href="#" th:href="@{/admin/products/input}" class="teal active item">新增</a>
+				<a href="#" th:href="@{/admin/products}" class=" item">列表</a>
 			</div>
 		</div>
 	</div>
@@ -57,8 +29,9 @@
 	<!-- 中間 -->
 	<div class="m-container-small m-padded-tb-big">
 		<div class="ui container">
-			<form action="#" method="post" th:action="@{/admin/product}" class="ui form">
-				<div class="required field">
+			<form action="#" method="post" th:object="${product}" th:action="*{id}==null ? @{/admin/products} : @{/admin/products/{id}(id=*{id})}" class="ui form">
+				<input type="hidden" name="id" th:value="*{id}">
+				<div class=" field">
 					<div class="ui left labeled input">
 						<div class="ui selection teal basic dropdown label">
 							<input type="hidden" value="商品分類"> <i
@@ -73,7 +46,7 @@
 								<div class="item" data-value="節慶禮盒">節慶禮盒</div>
 							</div>
 						</div>
-						<input type="text" name="title" placeholder="商品中文名稱">
+						<input type="text" name="name" placeholder="商品中文名稱" th:value="${name}">
 					</div>
 				</div>
 				
@@ -81,7 +54,7 @@
 				<div class="field">
 					<div class="ui left labeled input">
 						<label class="ui teal basic label">商品英文名稱</label> <input type="text"
-							name="indexPicture" placeholder="商品英文名稱">
+							name="en_name" placeholder="商品英文名稱">
 					</div>
 				</div>
 
@@ -89,8 +62,8 @@
 					<div class="field">
 						<div class="ui left labeled input">
 							<div class="ui selection teal basic dropdown label">
-								<input type="hidden" value="商品單位"> <i
-									class="dropdown icon"></i>
+								<input type="hidden" value="商品單位"> 
+								<i class="dropdown icon"></i>
 								<div class="text">商品單位一</div>
 								<div class="menu">
 									<div class="item" data-value="片">價格/片</div>
@@ -101,7 +74,7 @@
 									<div class="item" data-value="個">價格/個</div>
 								</div>
 							</div>
-							<input type="text" name="priceone" placeholder="輸入價格">
+							<input type="text" name="price1" placeholder="輸入價格">
 						</div>
 					</div>
 					<div class="field">
@@ -119,23 +92,28 @@
 									<div class="item" data-value="個">價格/個</div>
 								</div>
 							</div>
-							<input type="text" name="pricetwo" placeholder="輸入價格">
+							<input type="text" name="price2" placeholder="輸入價格">
 						</div>
 					</div>
 				</div>
 
 				<div class="field">
 					<div class="ui left labeled input">
-						<label class="ui teal basic label">商品圖片</label> <input type="text"
-							name="indexPicture" placeholder="圖片引用地址">
+						<label class="ui teal basic label">商品圖片</label> 
+						<input type="text" name="picture" placeholder="圖片引用地址">
 					</div>
 				</div>
 				<div class="ui error message"></div>
+				 <!--/*/
+    <div class="ui negative message" th:if="${#fields.hasErrors('name')}"  >
+      <i class="close icon"></i>
+      <div class="header">驗證失敗</div>
+      <p th:errors="*{name}">提交信息不符合規則</p>
+    </div>
+     /*/-->
 				<div class="ui right aligned container">
-					<button type="button" class="ui button"
-						onclick="window.history.go(-1)">返回</button>
-					<button class="ui secondary button">保存</button>
-					<button class="ui teal submit button">上傳</button>
+					<button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+					<button class="ui teal submit button">提交</button>
 				</div>
 			</form>
 		</div>
@@ -158,6 +136,17 @@
 		$('.ui.dropdown').dropdown({
 			on : 'hover'
 		});
+		$('.ui.form').form({
+			  fields : {
+			    title : {
+			      identifier: 'name',
+			      rules: [{
+			        type : 'empty',
+			        prompt: '請輸入產品名稱'
+			      }]
+			    }
+			  }
+			});
 	</script>
 
 </body>

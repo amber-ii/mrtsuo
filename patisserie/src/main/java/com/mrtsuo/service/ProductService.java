@@ -1,6 +1,8 @@
 package com.mrtsuo.service;
 
+
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,7 +25,7 @@ public interface ProductService {
 	 * @return
 	 */
 
-	Product getProduct(Long id);
+	Optional<Product> getProduct(Long id);
 
 	/**
 	 * 查詢詳情
@@ -33,7 +35,7 @@ public interface ProductService {
 	 * @return
 	 */
 
-	Product selectProductByName(String name);
+	Product getProductByName(String name);
 	
 	/**
 	 * 查詢所有產品
@@ -55,6 +57,10 @@ public interface ProductService {
 	 * @param id
 	 */
 	void deleteProduct(Long id);
+
+	List<Product> listProduct();
+
+//	List<Product> listProductTop(Integer size);
 
 
 }

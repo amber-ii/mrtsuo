@@ -1,9 +1,9 @@
-package com.mrtsuo.mapper;
+package com.mrtsuo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.mrtsuo.model.Product;
 
-public interface ProductMapper extends JpaRepository<Product,Long>{
+public interface ProductRepository extends JpaRepository<Product,Long>{
 	Product findByName(String name);
 }

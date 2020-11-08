@@ -23,7 +23,7 @@ public class News {
 
 	private String Picture;
 	
-	private String content;
+	private String contents;
 	private boolean shareStatement;
 
 	@Temporal(TemporalType.TIMESTAMP)

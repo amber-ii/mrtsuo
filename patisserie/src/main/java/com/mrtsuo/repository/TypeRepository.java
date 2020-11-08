@@ -1,9 +1,9 @@
-package com.mrtsuo.mapper;
+package com.mrtsuo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.mrtsuo.model.Type;
 
-public interface TypeMapper extends JpaRepository<Type,Long>{
+public interface TypeRepository extends JpaRepository<Type,Long>{
    
 }
