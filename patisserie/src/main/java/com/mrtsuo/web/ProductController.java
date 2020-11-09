@@ -45,13 +45,13 @@ public class ProductController {
 
 	@GetMapping("/products/input")
 	public String input(Model model) {
-		model.addAttribute("product", new Product());
+		model.addAttribute("prod", new Product());
 		return "admin/products-input";
 	}
 	
 	@GetMapping("/products/{id}/input")
 	public String editInput(@PathVariable Long id, Model model) {
-	    model.addAttribute("product", productService.getProduct(id));
+	    model.addAttribute("prod", productService.getProduct(id));
 	    return "admin/products-input";
 	}
 	

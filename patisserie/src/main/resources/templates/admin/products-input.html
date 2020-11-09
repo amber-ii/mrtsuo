@@ -29,13 +29,13 @@
 	<!-- 中間 -->
 	<div class="m-container-small m-padded-tb-big">
 		<div class="ui container">
-			<form action="#" method="post" th:object="${product}" th:action="*{id}==null ? @{/admin/products} : @{/admin/products/{id}(id=*{id})}" class="ui form">
+			<form action="#" method="post" th:object="${prod}" th:action="*{id}==null ? @{/admin/products} : @{/admin/products/{id}(id=*{id})}" class="ui form">
 				<input type="hidden" name="id" th:value="*{id}">
 				<div class=" field">
 					<div class="ui left labeled input">
 						<div class="ui selection teal basic dropdown label">
-							<input type="hidden" value="商品分類"> <i
-								class="dropdown icon"></i>
+							<input type="hidden" value="商品分類">
+							<i class="dropdown icon"></i>
 							<div class="text">商品分類</div>
 							<div class="menu">
 								<div class="item" data-value="咖啡">咖啡</div>
@@ -46,17 +46,17 @@
 								<div class="item" data-value="節慶禮盒">節慶禮盒</div>
 							</div>
 						</div>
-						<input type="text" name="name" placeholder="商品中文名稱" th:value="${name}">
+						<input type="text" name="name" placeholder="商品中文名稱" th:value="*{name}">
 					</div>
 				</div>
 				
 					<!-- 英文 -->
-				<div class="field">
+				<!-- <div class="field">
 					<div class="ui left labeled input">
-						<label class="ui teal basic label">商品英文名稱</label> <input type="text"
-							name="en_name" placeholder="商品英文名稱">
+						<label class="ui teal basic label">商品英文名稱</label>
+						 <input type="text" name="en_name" placeholder="商品英文名稱" th:value="*{en_name}">
 					</div>
-				</div>
+				</div> -->
 
 				<div class="two fields">
 					<div class="field">
@@ -64,7 +64,7 @@
 							<div class="ui selection teal basic dropdown label">
 								<input type="hidden" value="商品單位"> 
 								<i class="dropdown icon"></i>
-								<div class="text">商品單位一</div>
+								<div class="text">商品價格一</div>
 								<div class="menu">
 									<div class="item" data-value="片">價格/片</div>
 									<div class="item" data-value="吋">價格/吋</div>
@@ -82,7 +82,7 @@
 							<div class="ui selection teal basic dropdown label">
 								<input type="hidden" value="商品單位"> <i
 									class="dropdown icon"></i>
-								<div class="text">商品單位二</div>
+								<div class="text">商品價格二</div>
 								<div class="menu">
 									<div class="item" data-value="片">價格/片</div>
 									<div class="item" data-value="吋">價格/吋</div>
@@ -100,7 +100,7 @@
 				<div class="field">
 					<div class="ui left labeled input">
 						<label class="ui teal basic label">商品圖片</label> 
-						<input type="text" name="picture" placeholder="圖片引用地址">
+						<input type="text" name="picture" placeholder="圖片位置">
 					</div>
 				</div>
 				<div class="ui error message"></div>

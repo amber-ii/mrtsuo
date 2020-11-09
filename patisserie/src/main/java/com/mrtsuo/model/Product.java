@@ -17,10 +17,10 @@ public class Product{
 	@NotBlank(message = "產品名稱不能為空白")
     private String name;
 
-    private Integer price1;
+    private Integer price;
    
     @ManyToOne
-    private Type type_id;
+    private Type type;
 
     private String picture;
 

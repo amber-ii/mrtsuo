@@ -3,6 +3,7 @@ package com.mrtsuo.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,7 +26,7 @@ public class Type {
 	private String name;
 	
 //	一個分類可以對應多個產品
-	@OneToMany(mappedBy = "type_id")
+	@OneToMany(mappedBy = "type")
 	private List<Product> products = new ArrayList<>();
 
 }
