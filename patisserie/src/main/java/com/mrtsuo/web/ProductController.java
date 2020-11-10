@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mrtsuo.model.Product;
+import com.mrtsuo.model.Type;
 import com.mrtsuo.service.ProductService;
 
 /**
@@ -33,9 +33,8 @@ public class ProductController {
 
 	@GetMapping("/products")
 	public String products(
-			@PageableDefault(size = 3, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
-			Model model) {
-		Product prod = new Product();
+			@PageableDefault(size = 10, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
+			Model model,Product prod) {
 		model.addAttribute("prod", prod);
 		model.addAttribute("page",productService.listProducts(pageable));
 		return "admin/products"; 
@@ -45,13 +44,13 @@ public class ProductController {
 
 	@GetMapping("/products/input")
 	public String input(Model model) {
-		model.addAttribute("prod", new Product());
+		model.addAttribute("product", new Product());
 		return "admin/products-input";
 	}
 	
 	@GetMapping("/products/{id}/input")
 	public String editInput(@PathVariable Long id, Model model) {
-	    model.addAttribute("prod", productService.getProduct(id));
+	    model.addAttribute("product", productService.getProduct(id));
 	    return "admin/products-input";
 	}
 	
@@ -76,10 +75,6 @@ public class ProductController {
 	
 	@PostMapping("/products/{id}")
 	public String editPost(@Valid Product product,BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
-		Product product1 = productService.getProductByName(product.getName());
-	    if (product1 != null) {
-	        result.rejectValue("name","nameError","不能添加重複的產品");
-	    }
 	    if (result.hasErrors()) { 
 	        return "admin/products-input";
 	    }

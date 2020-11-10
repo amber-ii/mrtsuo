@@ -3,7 +3,6 @@ package com.mrtsuo.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,11 +11,13 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "t_type")
-@Data
+@Getter
+@Setter
 public class Type {
 	@Id
 	@GeneratedValue
@@ -28,5 +29,11 @@ public class Type {
 //	一個分類可以對應多個產品
 	@OneToMany(mappedBy = "type")
 	private List<Product> products = new ArrayList<>();
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
 
 }

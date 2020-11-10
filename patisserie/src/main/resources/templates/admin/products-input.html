@@ -13,12 +13,13 @@
 <body>
 	<!-- 導航 -->
 	<div th:insert="admin/_fragments :: menu(1)"></div>
-	
+
 	<div class="ui attached pointing menu">
 		<div class="ui container">
 			<div class="right menu">
-				<a href="#" th:href="@{/admin/products/input}" class="teal active item">新增</a>
-				<a href="#" th:href="@{/admin/products}" class=" item">列表</a>
+				<a href="#" th:href="@{/admin/products/input}"
+					class="teal active item">新增</a> <a href="#"
+					th:href="@{/admin/products}" class=" item">列表</a>
 			</div>
 		</div>
 	</div>
@@ -29,90 +30,66 @@
 	<!-- 中間 -->
 	<div class="m-container-small m-padded-tb-big">
 		<div class="ui container">
-			<form action="#" method="post" th:object="${prod}" th:action="*{id}==null ? @{/admin/products} : @{/admin/products/{id}(id=*{id})}" class="ui form">
+			<form action="#" method="post" th:object="${product}"
+				th:action="*{id}==null ? @{/admin/products} : @{/admin/products/{id}(id=*{id})} "  class="ui form">
 				<input type="hidden" name="id" th:value="*{id}">
 				<div class=" field">
 					<div class="ui left labeled input">
 						<div class="ui selection teal basic dropdown label">
-							<input type="hidden" value="商品分類">
+							<input type="hidden" name="type" th:value="*{type}">
 							<i class="dropdown icon"></i>
 							<div class="text">商品分類</div>
-							<div class="menu">
-								<div class="item" data-value="咖啡">咖啡</div>
-								<div class="item" data-value="飲品">飲品</div>
-								<div class="item" data-value="手做蛋糕">手做蛋糕</div>
-								<div class="item" data-value="輕食早午餐">輕食早午餐</div>
-								<div class="item" data-value="會議型蛋糕">會議型蛋糕</div>
-								<div class="item" data-value="節慶禮盒">節慶禮盒</div>
-							</div>
+							<div class="menu" >
+								<div class="item" data-value="1">咖啡</div>
+								<div class="item" data-value="2">飲品</div>
+								<div class="item" data-value="3">手做蛋糕</div>
+								<div class="item" data-value="4">輕食早午餐</div>
+								<div class="item" data-value="5">會議型蛋糕</div>
+								<div class="item" data-value="6">節慶禮盒</div>
+							</div> 
+							<!-- <input type="hidden" name="type" th:value="*{type}"> -->
 						</div>
-						<input type="text" name="name" placeholder="商品中文名稱" th:value="*{name}">
-					</div>
-				</div>
-				
-					<!-- 英文 -->
-				<!-- <div class="field">
-					<div class="ui left labeled input">
-						<label class="ui teal basic label">商品英文名稱</label>
-						 <input type="text" name="en_name" placeholder="商品英文名稱" th:value="*{en_name}">
-					</div>
-				</div> -->
-
-				<div class="two fields">
-					<div class="field">
-						<div class="ui left labeled input">
-							<div class="ui selection teal basic dropdown label">
-								<input type="hidden" value="商品單位"> 
-								<i class="dropdown icon"></i>
-								<div class="text">商品價格一</div>
-								<div class="menu">
-									<div class="item" data-value="片">價格/片</div>
-									<div class="item" data-value="吋">價格/吋</div>
-									<div class="item" data-value="杯">價格/杯</div>
-									<div class="item" data-value="盒">價格/盒</div>
-									<div class="item" data-value="組">價格/組</div>
-									<div class="item" data-value="個">價格/個</div>
-								</div>
-							</div>
-							<input type="text" name="price1" placeholder="輸入價格">
-						</div>
-					</div>
-					<div class="field">
-						<div class="ui left labeled input">
-							<div class="ui selection teal basic dropdown label">
-								<input type="hidden" value="商品單位"> <i
-									class="dropdown icon"></i>
-								<div class="text">商品價格二</div>
-								<div class="menu">
-									<div class="item" data-value="片">價格/片</div>
-									<div class="item" data-value="吋">價格/吋</div>
-									<div class="item" data-value="杯">價格/杯</div>
-									<div class="item" data-value="盒">價格/盒</div>
-									<div class="item" data-value="組">價格/組</div>
-									<div class="item" data-value="個">價格/個</div>
-								</div>
-							</div>
-							<input type="text" name="price2" placeholder="輸入價格">
-						</div>
-					</div>
-				</div>
-
-				<div class="field">
-					<div class="ui left labeled input">
-						<label class="ui teal basic label">商品圖片</label> 
-						<input type="text" name="picture" placeholder="圖片位置">
+						<input type="text" name="name" placeholder="商品中文名稱"
+							th:value="*{name}">
 					</div>
 				</div>
 				<div class="ui error message"></div>
-				 <!--/*/
-    <div class="ui negative message" th:if="${#fields.hasErrors('name')}"  >
-      <i class="close icon"></i>
-      <div class="header">驗證失敗</div>
-      <p th:errors="*{name}">提交信息不符合規則</p>
-    </div>
-     /*/-->
+				<!--/*/
+			        <div class="ui negative message" th:if="${#fields.hasErrors('name')}"  >
+			          <i class="close icon"></i>
+			          <div class="header">验证失败</div>
+			          <p th:errors="*{name}">提交信息不符合规则</p>
+			        </div>
+         			/*/-->
+				<!-- 價格 -->
+				<div class="field">
+					<div class="ui left labeled input">
+						<label class="ui teal basic label">商品價格</label> 
+						<input type="text" name="price" placeholder="輸入價格" th:value="*{price}">
+					</div>
+				</div>
+
+				<!-- <div class="text">商品價格二</div>
+				<div class="menu">
+					<div class="item" data-value="片">價格/片</div>
+					<div class="item" data-value="吋">價格/吋</div>
+					<div class="item" data-value="杯">價格/杯</div>
+					<div class="item" data-value="盒">價格/盒</div>
+					<div class="item" data-value="組">價格/組</div>
+					<div class="item" data-value="個">價格/個</div>
+				</div> -->
+
+				<!-- 圖片 -->
+				<div class="field">
+					<div class="ui left labeled input">
+						<label class="ui teal basic label">商品圖片</label> <input type="text"
+							name="picture" placeholder="圖片位置">
+					</div>
+				</div>
+				<!-- 按鈕 -->
 				<div class="ui right aligned container">
-					<button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+					<button type="button" class="ui button"
+						onclick="window.history.go(-1)">返回</button>
 					<button class="ui teal submit button">提交</button>
 				</div>
 			</form>
@@ -137,16 +114,16 @@
 			on : 'hover'
 		});
 		$('.ui.form').form({
-			  fields : {
-			    title : {
-			      identifier: 'name',
-			      rules: [{
-			        type : 'empty',
-			        prompt: '請輸入產品名稱'
-			      }]
-			    }
-			  }
-			});
+			fields : {
+				title : {
+					identifier : 'name',
+					rules : [ {
+						type : 'empty',
+						prompt : '請輸入產品名稱'
+					} ]
+				}
+			}
+		});
 	</script>
 
 </body>

@@ -70,6 +70,7 @@
 						<th>序號</th>
 						<th>商品名稱</th>
 						<th>分類</th>
+						<th>價格</th>
 						<th>操作</th>
 					</tr>
 				</thead>
@@ -77,7 +78,8 @@
 					<tr th:each="prod,iterStat : ${page.content}">
 						<td th:text="${iterStat.count}">1</td>
 						<td th:text="${prod.name}">左爺爺的金礦</td>
-						<td>手做蛋糕</td>
+						<td th:text="${prod.type}">手做蛋糕</td>
+						<td th:text="${prod.price}">$$</td>
 						<td>
 							<a href="#" th:href="@{/admin/products/{id}/input(id=${prod.id})}" class="ui mini teal basic button">編輯</a> 
 							<a href="#" th:href="@{/admin/products/{id}/delete(id=${prod.id})}" class="ui mini red basic button">刪除</a>

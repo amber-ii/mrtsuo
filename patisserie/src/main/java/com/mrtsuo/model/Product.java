@@ -1,15 +1,21 @@
 package com.mrtsuo.model;
 
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "t_product")
-@Data
+@Getter
+@Setter
+@ToString
 public class Product{
 	@Id
 	@GeneratedValue
@@ -23,6 +29,8 @@ public class Product{
     private Type type;
 
     private String picture;
+
+	
 
     
 }
