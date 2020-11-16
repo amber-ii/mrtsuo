@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.mrtsuo.model.Product;
+import com.mrtsuo.vo.ProductQuery;
 
 public interface ProductService {
 	/**
@@ -39,11 +40,11 @@ public interface ProductService {
 	
 	/**
 	 * 查詢所有產品
+	 * @param prod 
 	 * @param product
 	 * @return
 	 */
 	Page<Product> listProducts(Pageable pageable);
-
 	
 	/**
 	 * 更新產品
@@ -59,6 +60,8 @@ public interface ProductService {
 	void deleteProduct(Long id);
 
 	List<Product> listProduct();
+
+	Page<Product> listProducts(Pageable pageable, ProductQuery product);
 
 
 

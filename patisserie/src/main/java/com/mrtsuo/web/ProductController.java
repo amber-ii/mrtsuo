@@ -18,6 +18,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.mrtsuo.model.Product;
 import com.mrtsuo.model.Type;
 import com.mrtsuo.service.ProductService;
+import com.mrtsuo.service.TypeService;
+import com.mrtsuo.vo.ProductQuery;
 
 /**
  * 
@@ -30,31 +32,52 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private TypeService typeService;
 
 	@GetMapping("/products")
 	public String products(
-			@PageableDefault(size = 10, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
-			Model model,Product prod) {
+			@PageableDefault(size = 5, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
+			Model model,ProductQuery prod,Type type) {
+		model.addAttribute("type", type);
+		model.addAttribute("types", typeService.listType());
+		
 		model.addAttribute("prod", prod);
-		model.addAttribute("page",productService.listProducts(pageable));
+		model.addAttribute("page",productService.listProducts(pageable, prod));
 		return "admin/products"; 
+		
+	} 
+
+	@PostMapping("/products/search")
+	public String search(
+			@PageableDefault(size = 5, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
+			Model model,ProductQuery prod,Type type) {
+		
+		model.addAttribute("prod", prod);
+		model.addAttribute("page",productService.listProducts(pageable,prod));
+		return "admin/products :: productList"; 
 		
 	} 
 
 
 	@GetMapping("/products/input")
-	public String input(Model model) {
+	public String input(Model model,Type type) {
 		model.addAttribute("product", new Product());
+		model.addAttribute("type", type);
+		model.addAttribute("types", typeService.listType());
 		return "admin/products-input";
 	}
 	
 	@GetMapping("/products/{id}/input")
-	public String editInput(@PathVariable Long id, Model model) {
+	public String editInput(@PathVariable Long id, Model model,Type type) {
 	    model.addAttribute("product", productService.getProduct(id));
+		model.addAttribute("type", type);
+		model.addAttribute("types", typeService.listType());
 	    return "admin/products-input";
 	}
 	
-
+ 
 	@PostMapping("/products")
 	public String post(@Valid Product product,BindingResult result, RedirectAttributes attributes) {
 		Product product1 = productService.getProductByName(product.getName());
@@ -64,6 +87,7 @@ public class ProductController {
 	    if (result.hasErrors()) {
 	        return "admin/products-input";
 	    }
+	    product.setType(typeService.getType(product.getType().getId()));
 	    Product p = productService.saveProduct(product);
 	    if (p == null ) {
 	        attributes.addFlashAttribute("message", "新增失敗");

@@ -13,12 +13,11 @@
 <body>
 	<!-- 導航 -->
 	<div th:insert="admin/_fragments :: menu(1)"></div>
-
 	<div class="ui attached pointing menu">
 		<div class="ui container">
 			<div class="right menu">
-				<a href="#" th:href="@{/admin/products/input}" class="item">新增</a>
-				<a href="#" th:href="@{/admin/products}" class="teal active item">列表</a>
+				<a href="#" th:href="@{/admin/products/input}" class="item">新增</a> <a
+					href="#" th:href="@{/admin/products}" class="teal active item">列表</a>
 			</div>
 		</div>
 	</div>
@@ -36,70 +35,77 @@
 				<div class="header">提示：</div>
 				<p th:text="${message}">恭喜，操作成功！</p>
 			</div>
-			<form action="#" method="post" class="ui segment form">
+			<div class="ui segment form">
+				<input type="hidden" name="page">
 				<div class="inline fields">
 					<div class="field">
 						<input type="text" name="name" placeholder="商品名稱">
 					</div>
 					<div class="field">
-						<div class="ui selection dropdown">
-							<input type="hidden" name="type"> <i
+						<div class="ui type selection dropdown">
+							<input type="hidden" name="typeId"> <i
 								class="dropdown icon"></i>
 							<div class="default text">分类</div>
 							<div class="menu">
-								<div class="item" data-value="咖啡">咖啡</div>
-								<div class="item" data-value="飲品">飲品</div>
-								<div class="item" data-value="手做蛋糕">手做蛋糕</div>
-								<div class="item" data-value="輕食早午餐">輕食早午餐</div>
-								<div class="item" data-value="會議型蛋糕">會議型蛋糕</div>
-								<div class="item" data-value="節慶禮盒">節慶禮盒</div>
+								<div th:each="type : ${types}" class="item" data-value="1"
+									th:data-value="${type.id}" th:text="${type.name}">咖啡</div>
+								 <!-- <div class="item" data-value="2">飲品</div>
+								<div class="item" data-value="3">手做蛋糕</div>
+								<div class="item" data-value="4">輕食早午餐</div>
+								<div class="item" data-value="5">會議型蛋糕</div>
+								<div class="item" data-value="6">節慶禮盒</div> -->
 							</div>
 						</div>
+						  
 					</div>
 					<div class="field">
-						<button class="ui mini teal basic button">
+						<button type="button" id="search-btn"
+							class="ui mini teal basic button">
 							<i class="search icon"></i>搜索
 						</button>
 					</div>
+					<button id="clear-btn" class="ui compact button">clear</button>
 				</div>
-			</form>
-
-			<table class="ui celled table">
-				<thead>
-					<tr>
-						<th>序號</th>
-						<th>商品名稱</th>
-						<th>分類</th>
-						<th>價格</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="prod,iterStat : ${page.content}">
-						<td th:text="${iterStat.count}">1</td>
-						<td th:text="${prod.name}">左爺爺的金礦</td>
-						<td th:text="${prod.type}">手做蛋糕</td>
-						<td th:text="${prod.price}">$$</td>
-						<td>
-							<a href="#" th:href="@{/admin/products/{id}/input(id=${prod.id})}" class="ui mini teal basic button">編輯</a> 
-							<a href="#" th:href="@{/admin/products/{id}/delete(id=${prod.id})}" class="ui mini red basic button">刪除</a>
-						</td>
-				</tbody>
-				<tfoot>
-					<tr>
-						<th colspan="6">
-							<div class="ui mini pagination menu" th:if="${page.totalPages}>1">
-								<a th:href="@{/admin/products(page=${page.number}-1)}"
-									class=" item" th:unless="${page.first}">上一頁</a> <a
-									th:href="@{/admin/products(page=${page.number}+1)}"
-									class=" item" th:unless="${page.last}">下一頁</a>
-							</div>
-							<a href="#" th:href="@{/admin/products/input}"
-							class="ui mini right floated teal basic button">新增</a>
-						</th>
-					</tr>
-				</tfoot>
-			</table>
+			</div>
+			<div id="table-container">
+				<table th:fragment="productList" class="ui compact teal table">
+					<thead>
+						<tr>
+							<th>序號</th>
+							<th>商品名稱</th>
+							<th>分類</th>
+							<th>價格</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="prod,iterStat : ${page.content}">
+							<td th:text="${iterStat.count}">1</td>
+							<td th:text="${prod.name}">左爺爺的金礦</td>
+							<td th:text="${prod.type}">手做蛋糕</td>
+							<td th:text="${prod.price}">$$</td>
+							<td><a href="#"
+								th:href="@{/admin/products/{id}/input(id=${prod.id})}"
+								class="ui mini teal basic button">編輯</a> <a href="#"
+								th:href="@{/admin/products/{id}/delete(id=${prod.id})}"
+								class="ui mini red basic button">刪除</a></td>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th colspan="5">
+								<div class="ui mini pagination menu"
+									th:if="${page.totalPages}>1">
+									<a onclick="page(this)" th:attr="data-page=${page.number}-1"
+										class=" item" th:unless="${page.first}">上一頁</a> <a
+										onclick="page(this)" th:attr="data-page=${page.number}+1"
+										class=" item" th:unless="${page.last}">下一頁</a>
+								</div> <a href="#" th:href="@{/admin/products/input}"
+								class="ui mini right floated teal basic button">新增</a>
+							</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 		</div>
 	</div>
 	<br>
@@ -127,14 +133,33 @@
 		$('.ui.dropdown').dropdown({
 			on : 'hover'
 		});
-		$('.message .close')
-		  .on('click', function () {
-		    $(this)
-		      .closest('.message')
-		      .transition('fade');
-		  });
+		$('.message .close').on('click', function() {
+			$(this).closest('.message').transition('fade');
+		});
+		function page(obj) {
+			$("[name='page']").val($(obj).data("page"));
+			loaddata();
+		}
+		$("#search-btn").click(function() {
+			$("[name='page']").val(0);
+			loaddata();
+		});
+		 $('#clear-btn')
+	      .on('click', function() {
+	        $('.ui.type.dropdown')
+	          .dropdown('clear')
+	        ;
+	      })
+	    ;
+		function loaddata() {
+			$("#table-container").load(
+					/*[[@{/admin/products/search}]]*/"/admin/products/search",
+					{
+						name : $("[name='name']").val(),
+						typeId : $("[name='typeId']").val(),
+						page : $("[name='page']").val()
+					});
+		}
 	</script>
-
 </body>
-
 </html>

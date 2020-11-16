@@ -54,8 +54,8 @@
 	<div class="ui attached pointing menu">
 		<div class="ui container">
 			<div class="right menu">
-				<a href="#" class="teal active item">最新資訊上傳</a> <a href="#"
-					class="item">最新資訊列表</a>
+				<a href="#" th:href="@{/admin/news/input}" class="teal active item">上傳</a> 
+				<a href="#" th:href="@{/admin/news}" class="item">列表</a>
 			</div>
 		</div>
 	</div>
@@ -64,51 +64,54 @@
 	<br>
 	<br>
 	<!-- 中間 -->
-	<div class="m-container-small m-padded-tb-big">
+	<div class="m-container m-padded-tb-big">
 		<div class="ui container">
-			<form action="#" method="post" class="ui form">
-				<div class="required field">
+			<form id="news-form" action="#" method="post" th:object="${news}" th:action="@{/admin/news}"  class="ui form">
+			<input type="hidden" name="published" th:value="*{published}">
+			<input type="hidden" name="id" th:value=*{id}> 
+				<!-- <input type="hidden" name="id" th:value="*{id}"> -->
+				
+				
+				<!-- <div class="required field">
 					<div class="ui left labeled input">
 						<div class="ui teal basic label">
-							<input type="hidden" value="更新日期">
+							<input type="hidden" value="更新日期" name="updateTime">
 
 							<div class="text">更新日期</div>
 
 						</div>
 						<input type="text" name="date" placeholder="輸入更新日期">
 					</div>
-				</div>
+				</div> -->
 
 				<div class="required field">
 					<div class="ui left labeled input">
 						<div class="ui teal basic label">
-							<input type="hidden" value="最新消息標題">
-							<div class="text">最新消息標題</div>
+							<input type="hidden" value="搜尋標題">
+							<div class="text">搜尋標題</div>
 						</div>
-						<input type="text" name="newstitle" placeholder="輸入最新消息的標題">
+						<input type="text" name="title" placeholder="輸入最新消息的標題" th:value="*{title}">
 					</div>
 				</div>
 
-				<div class="field">
+				<div class="required field">
 					<div id="md-content" style="z-index: 1 !important;">
-						<textarea placeholder="輸入內容" name="content" style="display: none">
-                       
-                      </textarea>
+						<textarea placeholder="輸入內容" name="content" style="display: none" th:text="*{content}"></textarea>
 					</div>
 				</div>
 
 				<div class="field">
 					<div class="ui left labeled input">
-						<label class="ui teal basic label">商品圖片</label> <input type="text"
-							name="indexPicture" placeholder="圖片引用地址">
+						<label class="ui teal basic label">商品圖片</label> 
+						<input type="text" name="picture" th:value="*{picture}" placeholder="圖片引用地址">
 					</div>
 				</div>
 				<div class="ui error message"></div>
 				<div class="ui right aligned container">
 					<button type="button" class="ui button"
 						onclick="window.history.go(-1)">返回</button>
-					<button class="ui secondary button">保存</button>
-					<button class="ui teal button">上傳</button>
+					<button type="button" id="save-btn" class="ui secondary button">保存</button>
+					<button type="button" id="publish-btn" class="ui teal button">上傳</button>
 				</div>
 
 			</form>
@@ -122,7 +125,7 @@
 		src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-	<script src="lib/editormd/editormd.min.js"></script>
+	<script src="/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
 	<script type="text/javascript">
 		//初始化Markdown編輯器
 		var contentEditor;
@@ -141,6 +144,17 @@
 		$('.ui.dropdown').dropdown({
 			on : 'hover'
 		});
+		
+		$('#save-btn').click(function() {
+			$('[name="published"]').val(false);
+			$('#news-form').submit();
+
+		});
+		$('#publish-btn').click(function() {
+			$('[name="published"]').val(true);
+			$('#news-form').submit();
+
+		});
 
 		$('.ui.form').form({
 			fields : {
@@ -148,11 +162,25 @@
 					identifier : 'title',
 					rules : [ {
 						type : 'empty',
-						prompt : '輸入最新消息'
+						prompt : '請輸入標題'
 					} ]
-				}
+				},
+				content : {
+					identifier : 'content',
+					rules : [ {
+						type : 'empty',
+						prompt : '請輸入內容'
+					} ]
+				},
 			}
 		});
+		$('#clear-btn')
+	      .on('click', function() {
+	        $('.ui.type.dropdown')
+	          .dropdown('clear')
+	        ;
+	      })
+	    ;
 	</script>
 </body>
 </html>

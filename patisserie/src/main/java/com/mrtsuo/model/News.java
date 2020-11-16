@@ -2,12 +2,8 @@ package com.mrtsuo.model;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
+
 
 import lombok.Data;
 
@@ -21,10 +17,12 @@ public class News {
 
 	private String title;
 
-	private String Picture;
-	
-	private String contents;
+	private String picture;
+	@Basic(fetch = FetchType.LAZY)
+	@Lob
+	private String content;
 	private boolean shareStatement;
+	private boolean published;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createTime;

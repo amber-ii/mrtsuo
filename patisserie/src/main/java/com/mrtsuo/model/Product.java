@@ -1,21 +1,13 @@
 package com.mrtsuo.model;
 
-
-import java.util.List;
-
 import javax.persistence.*;
-
 import org.hibernate.validator.constraints.NotBlank;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 @Entity
 @Table(name = "t_product")
-@Getter
-@Setter
-@ToString
+@Data
 public class Product{
 	@Id
 	@GeneratedValue

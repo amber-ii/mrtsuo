@@ -33,21 +33,21 @@
 			<form action="#" method="post" th:object="${product}"
 				th:action="*{id}==null ? @{/admin/products} : @{/admin/products/{id}(id=*{id})} "  class="ui form">
 				<input type="hidden" name="id" th:value="*{id}">
-				<div class=" field">
+				<div class="required field">
 					<div class="ui left labeled input">
-						<div class="ui selection teal basic dropdown label">
-							<input type="hidden" name="type" th:value="*{type}">
+					<div class="ui type selection teal basic dropdown label">
+							<input type="hidden" name="type.id" th:value="*{type}!=null ? *{type.id}">
 							<i class="dropdown icon"></i>
 							<div class="text">商品分類</div>
 							<div class="menu" >
-								<div class="item" data-value="1">咖啡</div>
-								<div class="item" data-value="2">飲品</div>
+								<div th:each="type : ${types}" class="item" data-value="1"
+									th:data-value="${type.id}" th:text="${type.name}">咖啡</div>
+								<!-- <div class="item" data-value="2">飲品</div>
 								<div class="item" data-value="3">手做蛋糕</div>
 								<div class="item" data-value="4">輕食早午餐</div>
 								<div class="item" data-value="5">會議型蛋糕</div>
-								<div class="item" data-value="6">節慶禮盒</div>
+								<div class="item" data-value="6">節慶禮盒</div> -->
 							</div> 
-							<!-- <input type="hidden" name="type" th:value="*{type}"> -->
 						</div>
 						<input type="text" name="name" placeholder="商品中文名稱"
 							th:value="*{name}">
@@ -62,7 +62,7 @@
 			        </div>
          			/*/-->
 				<!-- 價格 -->
-				<div class="field">
+				<div class="required field">
 					<div class="ui left labeled input">
 						<label class="ui teal basic label">商品價格</label> 
 						<input type="text" name="price" placeholder="輸入價格" th:value="*{price}">
@@ -82,8 +82,8 @@
 				<!-- 圖片 -->
 				<div class="field">
 					<div class="ui left labeled input">
-						<label class="ui teal basic label">商品圖片</label> <input type="text"
-							name="picture" placeholder="圖片位置">
+						<label class="ui teal basic label">商品圖片</label> 
+						<input type="text"	name="picture" th:value="*{picture}" placeholder="圖片位置">
 					</div>
 				</div>
 				<!-- 按鈕 -->
@@ -115,15 +115,47 @@
 		});
 		$('.ui.form').form({
 			fields : {
-				title : {
+				name : {
 					identifier : 'name',
 					rules : [ {
 						type : 'empty',
 						prompt : '請輸入產品名稱'
 					} ]
-				}
+				},
+				price : {
+					identifier : 'price',
+					rules : [ {
+						type : 'empty',
+						prompt : '請輸入產品價格'
+					} ]
+				},
+				typeId : {
+					identifier : 'type.id',
+					rules : [ {
+						type : 'empty',
+						prompt : '請輸入產品分類'
+					} ]
+				},
+				
+				
 			}
 		});
+		$('#clear-btn')
+	      .on('click', function() {
+	        $('.ui.type.dropdown')
+	          .dropdown('clear')
+	        ;
+	      })
+	    ;
+		function loaddata() {
+			$("#table-container").load(
+					/*[[@{/admin/products/search}]]*/"/admin/products/search",
+					{
+						name : $("[name='name']").val(),
+						typeId : $("[name='typeId']").val(),
+						page : $("[name='page']").val()
+					});
+		}
 	</script>
 
 </body>
