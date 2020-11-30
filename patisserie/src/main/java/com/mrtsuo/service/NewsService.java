@@ -22,4 +22,8 @@ public interface NewsService {
 
 	// 新增消息
 	News saveNews(News news);
+	
+	Page<News> listNews(Pageable pageable);
+	
+	News getAndConvert(Long id);
 }

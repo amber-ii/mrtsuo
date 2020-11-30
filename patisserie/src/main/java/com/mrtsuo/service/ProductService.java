@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.mrtsuo.model.Product;
+import com.mrtsuo.model.Type;
 import com.mrtsuo.vo.ProductQuery;
 
 public interface ProductService {
@@ -62,7 +63,9 @@ public interface ProductService {
 	List<Product> listProduct();
 
 	Page<Product> listProducts(Pageable pageable, ProductQuery product);
+	Page<Product> listProducts(String query,Pageable pageable);
 
+	
 
 
 }

@@ -1,0 +1,843 @@
+2020-11-13 22:50:48.324  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 57458 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 22:50:48.353 DEBUG 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 22:50:48.354  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 22:50:48.843  INFO 57458 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5b0f712d: startup date [Fri Nov 13 22:50:48 CST 2020]; root of context hierarchy
+2020-11-13 22:50:49.697  WARN 57458 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 22:50:51.077  INFO 57458 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 22:50:51.090  INFO 57458 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 22:50:51.091  INFO 57458 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 22:50:51.186  INFO 57458 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 22:50:51.186  INFO 57458 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2343 ms
+2020-11-13 22:50:51.376  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 22:50:51.380  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 22:50:51.380  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 22:50:51.380  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 22:50:51.380  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 22:50:52.202  INFO 57458 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 22:50:52.222  INFO 57458 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 22:50:52.297  INFO 57458 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-11-13 22:50:52.299  INFO 57458 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-11-13 22:50:52.300  INFO 57458 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-11-13 22:50:52.340  INFO 57458 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-11-13 22:50:53.435  INFO 57458 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 22:50:53.902  INFO 57458 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 22:50:54.078  INFO 57458 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 22:50:55.229  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5b0f712d: startup date [Fri Nov 13 22:50:48 CST 2020]; root of context hierarchy
+2020-11-13 22:50:55.315  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:50:55.316  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 22:50:55.316  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 22:50:55.317  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 22:50:55.318  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 22:50:55.320  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 22:50:55.320  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:50:55.321  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:50:55.321  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-11-13 22:50:55.321  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:50:55.321  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-11-13 22:50:55.322  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 22:50:55.323  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 22:50:55.324  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 22:50:55.379  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:50:55.379  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:50:55.412  INFO 57458 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 22:50:55.454  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:50:56.428  INFO 57458 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 22:50:56.476  INFO 57458 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 22:50:56.541  INFO 57458 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 22:50:56.557  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 8.705 seconds (JVM running for 9.214)
+2020-11-13 22:51:04.562  INFO 57458 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-11-13 22:51:04.563  INFO 57458 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-11-13 22:51:04.611  INFO 57458 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 47 ms
+2020-11-13 22:51:04.659  INFO 57458 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-11-13 22:51:04.666  INFO 57458 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-11-13 22:51:10.601  INFO 57458 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@64b31831, {}]}
+2020-11-13 22:51:10.628  INFO 57458 --- [http-nio-8080-exec-6] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-11-13 22:51:10.860  INFO 57458 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-11-13 22:51:17.178  INFO 57458 --- [http-nio-8080-exec-10] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 22:51:17.306  INFO 57458 --- [http-nio-8080-exec-10] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 22:52:34.208  INFO 57458 --- [Thread-7] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5b0f712d: startup date [Fri Nov 13 22:50:48 CST 2020]; root of context hierarchy
+2020-11-13 22:52:34.218  INFO 57458 --- [Thread-7] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 22:52:34.220  INFO 57458 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 22:52:34.975  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 57458 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 22:52:34.975 DEBUG 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 22:52:34.975  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 22:52:34.978  INFO 57458 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e1fdab2: startup date [Fri Nov 13 22:52:34 CST 2020]; root of context hierarchy
+2020-11-13 22:52:35.453  WARN 57458 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 22:52:35.748  INFO 57458 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 22:52:35.749  INFO 57458 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 22:52:35.749  INFO 57458 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 22:52:35.759  INFO 57458 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 22:52:35.760  INFO 57458 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 782 ms
+2020-11-13 22:52:35.881  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 22:52:35.882  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 22:52:35.882  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 22:52:35.882  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 22:52:35.883  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 22:52:36.125  INFO 57458 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 22:52:36.125  INFO 57458 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 22:52:36.396  INFO 57458 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 22:52:36.566  INFO 57458 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 22:52:36.719  INFO 57458 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 22:52:37.289  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e1fdab2: startup date [Fri Nov 13 22:52:34 CST 2020]; root of context hierarchy
+2020-11-13 22:52:37.309  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:52:37.310  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 22:52:37.310  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 22:52:37.311  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 22:52:37.312  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 22:52:37.314  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 22:52:37.314  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:52:37.314  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:52:37.314  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-11-13 22:52:37.315  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:52:37.315  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-11-13 22:52:37.315  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 22:52:37.316  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 22:52:37.317  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 22:52:37.356  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:52:37.357  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:52:37.369  INFO 57458 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 22:52:37.383  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:52:37.687  INFO 57458 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 22:52:37.728  INFO 57458 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 22:52:37.737  INFO 57458 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 22:52:37.739  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 3.008 seconds (JVM running for 110.396)
+2020-11-13 22:52:39.708  INFO 57458 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-11-13 22:52:39.708  INFO 57458 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-11-13 22:52:39.718  INFO 57458 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 10 ms
+2020-11-13 22:52:39.728  INFO 57458 --- [http-nio-8080-exec-2] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-11-13 22:52:39.735  INFO 57458 --- [http-nio-8080-exec-2] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-11-13 22:52:42.505  INFO 57458 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@42904aeb, {}]}
+2020-11-13 22:52:42.506  INFO 57458 --- [http-nio-8080-exec-5] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-11-13 22:52:42.541  INFO 57458 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-11-13 22:52:43.717  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 22:52:43.763  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 22:53:48.416  INFO 57458 --- [Thread-11] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e1fdab2: startup date [Fri Nov 13 22:52:34 CST 2020]; root of context hierarchy
+2020-11-13 22:53:48.418  INFO 57458 --- [Thread-11] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 22:53:48.420  INFO 57458 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 22:53:48.773  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 57458 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 22:53:48.773 DEBUG 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 22:53:48.793  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 22:53:48.804  INFO 57458 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2f8ff811: startup date [Fri Nov 13 22:53:48 CST 2020]; root of context hierarchy
+2020-11-13 22:53:49.355  WARN 57458 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 22:53:49.528  INFO 57458 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 22:53:49.529  INFO 57458 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 22:53:49.529  INFO 57458 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 22:53:49.539  INFO 57458 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 22:53:49.539  INFO 57458 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 735 ms
+2020-11-13 22:53:49.582  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 22:53:49.582  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 22:53:49.583  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 22:53:49.583  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 22:53:49.583  INFO 57458 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 22:53:49.738  INFO 57458 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 22:53:49.739  INFO 57458 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 22:53:50.080  INFO 57458 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 22:53:50.132  INFO 57458 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 22:53:50.264  INFO 57458 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 22:53:50.698  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2f8ff811: startup date [Fri Nov 13 22:53:48 CST 2020]; root of context hierarchy
+2020-11-13 22:53:50.714  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:53:50.714  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 22:53:50.715  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 22:53:50.716  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 22:53:50.716  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 22:53:50.718  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 22:53:50.718  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:53:50.718  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:53:50.718  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 22:53:50.718  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 22:53:50.718  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-11-13 22:53:50.719  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 22:53:50.720  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 22:53:50.720  INFO 57458 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 22:53:50.738  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:53:50.739  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:53:50.745  INFO 57458 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 22:53:50.753  INFO 57458 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 22:53:51.142  INFO 57458 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 22:53:51.192  INFO 57458 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 22:53:51.207  INFO 57458 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 22:53:51.210  INFO 57458 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 2.497 seconds (JVM running for 183.866)
+2020-11-13 22:53:52.479  INFO 57458 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-11-13 22:53:52.479  INFO 57458 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-11-13 22:53:52.495  INFO 57458 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2020-11-13 22:53:52.521  INFO 57458 --- [http-nio-8080-exec-2] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-11-13 22:53:52.528  INFO 57458 --- [http-nio-8080-exec-2] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-11-13 22:53:55.988  INFO 57458 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@3be77e77, {}]}
+2020-11-13 22:53:55.990  INFO 57458 --- [http-nio-8080-exec-5] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-11-13 22:53:56.002  INFO 57458 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-11-13 22:53:57.722  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 22:53:57.760  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 22:54:21.829  INFO 57458 --- [http-nio-8080-exec-2] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.input, args=[{}]}
+2020-11-13 22:54:21.830  INFO 57458 --- [http-nio-8080-exec-2] com.mrtsuo.aspect.LogAspect              : Result : admin/products-input
+2020-11-13 22:54:27.447  INFO 57458 --- [http-nio-8080-exec-7] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 22:54:27.463  INFO 57458 --- [http-nio-8080-exec-7] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 22:54:29.498  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.input, args=[{}]}
+2020-11-13 22:54:29.499  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Result : admin/products-input
+2020-11-13 22:54:53.101  INFO 57458 --- [http-nio-8080-exec-3] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.post, args=[Product(id=null, name=優格, price=50, type=輕食早午餐, picture=https://img.ltn.com.tw/Upload/food/page/2019/11/03/191103-9815-0-HIkUj.png), org.springframework.validation.BeanPropertyBindingResult: 0 errors, {}]}
+2020-11-13 22:54:53.272  INFO 57458 --- [http-nio-8080-exec-3] com.mrtsuo.aspect.LogAspect              : Result : redirect:/admin/products
+2020-11-13 22:54:53.298  INFO 57458 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {message=新增成功, productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 22:54:53.309  INFO 57458 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 22:57:16.864  INFO 57458 --- [http-nio-8080-exec-10] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 22:57:16.896  INFO 57458 --- [http-nio-8080-exec-10] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:01:57.010  INFO 57458 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:01:57.039  INFO 57458 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:02:04.737  INFO 57458 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:02:04.749  INFO 57458 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:02:06.358  INFO 57458 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.input, args=[{}]}
+2020-11-13 23:02:06.358  INFO 57458 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/products-input
+2020-11-13 23:02:08.322  INFO 57458 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:02:08.352  INFO 57458 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:03:40.149  INFO 57458 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:03:40.163  INFO 57458 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:03:43.610  INFO 57458 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-11-13 23:03:43.611  INFO 57458 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-11-13 23:03:48.432  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@3be77e77, {}]}
+2020-11-13 23:03:48.437  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-11-13 23:03:58.687  INFO 57458 --- [http-nio-8080-exec-3] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:03:58.703  INFO 57458 --- [http-nio-8080-exec-3] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:04:05.223  INFO 57458 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/news-list, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.NewsController.news, args=[Page request [number: 0, size 2, sort: updateTime: DESC], NewsQuery(title=null), {newsQuery=NewsQuery(title=null), org.springframework.validation.BindingResult.newsQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}]}
+2020-11-13 23:04:05.270  INFO 57458 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Result : admin/news-list
+2020-11-13 23:04:05.307 ERROR 57458 --- [http-nio-8080-exec-8] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-8] Exception processing template "admin/news-list": An error happened during template parsing (template: "class path resource [templates/admin/news-list.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/admin/news-list.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:667)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1087)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1061)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.attoparser.ParseException: Could not parse as expression: "@{/admin//news-list/input)}" (template: "admin/news-list" - line 105, col 27)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 52 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "@{/admin//news-list/input)}" (template: "admin/news-list" - line 105, col 27)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:67)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 54 common frames omitted
+
+2020-11-13 23:04:05.311 ERROR 57458 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/admin/news-list.html]")] with root cause
+
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "@{/admin//news-list/input)}" (template: "admin/news-list" - line 105, col 27)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:67)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:667)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1087)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1061)
+	at org.thymeleaf.spring4.view.ThymeleafView.renderFragment(ThymeleafView.java:335)
+	at org.thymeleaf.spring4.view.ThymeleafView.render(ThymeleafView.java:189)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-11-13 23:04:09.614  INFO 57458 --- [http-nio-8080-exec-3] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:04:09.627  INFO 57458 --- [http-nio-8080-exec-3] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:04:12.932  INFO 57458 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.input, args=[{}]}
+2020-11-13 23:04:12.933  INFO 57458 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Result : admin/products-input
+2020-11-13 23:04:13.838  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:04:13.850  INFO 57458 --- [http-nio-8080-exec-9] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:14:57.915  INFO 57458 --- [Thread-24] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2f8ff811: startup date [Fri Nov 13 22:53:48 CST 2020]; root of context hierarchy
+2020-11-13 23:14:57.926  INFO 57458 --- [Thread-24] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 23:14:57.927  INFO 57458 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:15:04.422  INFO 57896 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 57896 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:15:04.423 DEBUG 57896 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:15:04.424  INFO 57896 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:15:04.760  INFO 57896 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3c38fe96: startup date [Fri Nov 13 23:15:04 CST 2020]; root of context hierarchy
+2020-11-13 23:15:05.556  WARN 57896 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 23:15:06.965  INFO 57896 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 23:15:06.979  INFO 57896 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 23:15:06.980  INFO 57896 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 23:15:07.110  INFO 57896 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 23:15:07.110  INFO 57896 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2350 ms
+2020-11-13 23:15:07.324  INFO 57896 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 23:15:07.328  INFO 57896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 23:15:07.329  INFO 57896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 23:15:07.330  INFO 57896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 23:15:07.331  INFO 57896 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 23:15:07.855  INFO 57896 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:15:07.872  INFO 57896 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 23:15:07.939  INFO 57896 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-11-13 23:15:07.940  INFO 57896 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-11-13 23:15:07.942  INFO 57896 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-11-13 23:15:07.979  INFO 57896 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-11-13 23:15:08.861  INFO 57896 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 23:15:09.441  INFO 57896 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 23:15:09.757  INFO 57896 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:15:11.243  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3c38fe96: startup date [Fri Nov 13 23:15:04 CST 2020]; root of context hierarchy
+2020-11-13 23:15:11.348  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 23:15:11.349  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:15:11.350  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 23:15:11.351  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:15:11.351  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:15:11.354  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 23:15:11.355  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:15:11.355  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-11-13 23:15:11.355  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 23:15:11.355  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:15:11.356  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:15:11.356  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:15:11.358  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 23:15:11.358  INFO 57896 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 23:15:11.442  INFO 57896 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:15:11.443  INFO 57896 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:15:11.463  INFO 57896 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 23:15:11.505  INFO 57896 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:15:12.375  INFO 57896 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 23:15:12.424  INFO 57896 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 23:15:12.498  INFO 57896 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 23:15:12.504  INFO 57896 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 8.853 seconds (JVM running for 9.392)
+2020-11-13 23:15:13.397  INFO 57896 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-11-13 23:15:13.397  INFO 57896 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-11-13 23:15:13.431  INFO 57896 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 34 ms
+2020-11-13 23:15:13.472  INFO 57896 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-11-13 23:15:13.480  INFO 57896 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-11-13 23:15:16.910  INFO 57896 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@11c72a99, {}]}
+2020-11-13 23:15:16.935  INFO 57896 --- [http-nio-8080-exec-4] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-11-13 23:15:17.121  INFO 57896 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-11-13 23:15:20.656  INFO 57896 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:15:20.732  INFO 57896 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:15:41.159  INFO 57896 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.input, args=[{}]}
+2020-11-13 23:15:41.160  INFO 57896 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/products-input
+2020-11-13 23:15:42.617  INFO 57896 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:15:42.633  INFO 57896 --- [http-nio-8080-exec-5] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:16:00.136  INFO 57918 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 57918 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:16:00.150 DEBUG 57918 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:16:00.150  INFO 57918 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:16:00.463  INFO 57918 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4eeb5019: startup date [Fri Nov 13 23:16:00 CST 2020]; root of context hierarchy
+2020-11-13 23:16:00.735  INFO 57896 --- [Thread-10] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3c38fe96: startup date [Fri Nov 13 23:15:04 CST 2020]; root of context hierarchy
+2020-11-13 23:16:00.742  INFO 57896 --- [Thread-10] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 23:16:00.745  INFO 57896 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:16:34.003  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 57993 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:16:34.004 DEBUG 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:16:34.004  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:16:34.241  INFO 57993 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b5cb3a9: startup date [Fri Nov 13 23:16:34 CST 2020]; root of context hierarchy
+2020-11-13 23:16:35.001  WARN 57993 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 23:16:36.414  INFO 57993 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 23:16:36.439  INFO 57993 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 23:16:36.442  INFO 57993 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 23:16:36.572  INFO 57993 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 23:16:36.572  INFO 57993 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2331 ms
+2020-11-13 23:16:36.781  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 23:16:36.784  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 23:16:36.785  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 23:16:36.785  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 23:16:36.785  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 23:16:37.244  INFO 57993 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:16:37.262  INFO 57993 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 23:16:37.334  INFO 57993 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-11-13 23:16:37.335  INFO 57993 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-11-13 23:16:37.337  INFO 57993 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-11-13 23:16:37.384  INFO 57993 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-11-13 23:16:38.277  INFO 57993 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 23:16:38.708  INFO 57993 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 23:16:38.864  INFO 57993 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:16:39.902  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b5cb3a9: startup date [Fri Nov 13 23:16:34 CST 2020]; root of context hierarchy
+2020-11-13 23:16:40.014  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:16:40.015  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 23:16:40.015  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 23:16:40.016  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:16:40.017  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:16:40.019  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 23:16:40.020  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:16:40.020  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:16:40.020  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-11-13 23:16:40.021  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 23:16:40.021  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:16:40.022  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:16:40.024  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 23:16:40.024  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 23:16:40.083  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:16:40.084  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:16:40.108  INFO 57993 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 23:16:40.132  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:16:40.986  INFO 57993 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 23:16:41.035  INFO 57993 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 23:16:41.096  INFO 57993 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 23:16:41.101  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 7.506 seconds (JVM running for 8.103)
+2020-11-13 23:16:49.147  INFO 57993 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-11-13 23:16:49.147  INFO 57993 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-11-13 23:16:49.185  INFO 57993 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 38 ms
+2020-11-13 23:16:49.230  INFO 57993 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-11-13 23:16:49.238  INFO 57993 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-11-13 23:16:52.500  INFO 57993 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@486149bb, {}]}
+2020-11-13 23:16:52.526  INFO 57993 --- [http-nio-8080-exec-4] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-11-13 23:16:52.712  INFO 57993 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-11-13 23:17:06.835  INFO 57993 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:17:06.914  INFO 57993 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:17:11.420  INFO 57993 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.input, args=[{}]}
+2020-11-13 23:17:11.421  INFO 57993 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/products-input
+2020-11-13 23:17:14.466  INFO 57993 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:17:14.480  INFO 57993 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:19:04.164  INFO 57993 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:19:04.182  INFO 57993 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:19:12.108  INFO 57993 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.input, args=[{}]}
+2020-11-13 23:19:12.108  INFO 57993 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Result : admin/products-input
+2020-11-13 23:19:14.392  INFO 57993 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:19:14.414  INFO 57993 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:19:30.620  INFO 57993 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:19:30.632  INFO 57993 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:19:34.136  INFO 57993 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.input, args=[{}]}
+2020-11-13 23:19:34.136  INFO 57993 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Result : admin/products-input
+2020-11-13 23:19:36.242  INFO 57993 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null)]}
+2020-11-13 23:19:36.254  INFO 57993 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:27:37.699  INFO 57993 --- [Thread-7] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1b5cb3a9: startup date [Fri Nov 13 23:16:34 CST 2020]; root of context hierarchy
+2020-11-13 23:27:37.709  INFO 57993 --- [Thread-7] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 23:27:37.712  INFO 57993 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:27:38.420  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 57993 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:27:38.421 DEBUG 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:27:38.421  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:27:38.423  INFO 57993 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@76c2fd6c: startup date [Fri Nov 13 23:27:38 CST 2020]; root of context hierarchy
+2020-11-13 23:27:38.716  WARN 57993 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 23:27:38.887  INFO 57993 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 23:27:38.888  INFO 57993 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 23:27:38.888  INFO 57993 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 23:27:38.896  INFO 57993 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 23:27:38.897  INFO 57993 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 474 ms
+2020-11-13 23:27:38.952  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 23:27:38.953  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 23:27:38.953  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 23:27:38.953  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 23:27:38.953  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 23:27:39.082  INFO 57993 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:27:39.082  INFO 57993 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 23:27:39.247  INFO 57993 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 23:27:39.298  INFO 57993 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 23:27:39.414  INFO 57993 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:27:39.887  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@76c2fd6c: startup date [Fri Nov 13 23:27:38 CST 2020]; root of context hierarchy
+2020-11-13 23:27:39.901  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:27:39.901  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 23:27:39.901  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 23:27:39.902  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:27:39.902  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:27:39.904  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 23:27:39.904  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:27:39.904  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:27:39.904  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:27:39.904  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 23:27:39.905  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:27:39.905  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:27:39.906  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 23:27:39.906  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 23:27:39.930  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:27:39.931  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:27:39.939  INFO 57993 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 23:27:39.950  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:27:40.171  INFO 57993 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 23:27:40.215  INFO 57993 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 23:27:40.231  INFO 57993 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 23:27:40.234  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 2.068 seconds (JVM running for 667.233)
+2020-11-13 23:28:21.316  INFO 57993 --- [Thread-11] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@76c2fd6c: startup date [Fri Nov 13 23:27:38 CST 2020]; root of context hierarchy
+2020-11-13 23:28:21.319  INFO 57993 --- [Thread-11] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 23:28:21.321  INFO 57993 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:28:21.658  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 57993 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:28:21.658 DEBUG 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:28:21.658  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:28:21.660  INFO 57993 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5489eae0: startup date [Fri Nov 13 23:28:21 CST 2020]; root of context hierarchy
+2020-11-13 23:28:21.919  WARN 57993 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 23:28:22.070  INFO 57993 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 23:28:22.071  INFO 57993 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 23:28:22.071  INFO 57993 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 23:28:22.079  INFO 57993 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 23:28:22.080  INFO 57993 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 420 ms
+2020-11-13 23:28:22.118  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 23:28:22.118  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 23:28:22.118  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 23:28:22.119  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 23:28:22.119  INFO 57993 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 23:28:22.213  INFO 57993 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:28:22.213  INFO 57993 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 23:28:22.358  INFO 57993 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 23:28:22.397  INFO 57993 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 23:28:22.508  INFO 57993 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:28:22.868  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5489eae0: startup date [Fri Nov 13 23:28:21 CST 2020]; root of context hierarchy
+2020-11-13 23:28:22.886  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:28:22.886  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 23:28:22.886  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 23:28:22.887  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:28:22.887  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:28:22.889  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 23:28:22.890  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:28:22.890  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:28:22.891  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:28:22.891  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 23:28:22.891  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:28:22.891  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:28:22.893  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 23:28:22.894  INFO 57993 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 23:28:22.912  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:28:22.913  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:28:22.925  INFO 57993 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 23:28:22.933  INFO 57993 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:28:23.122  INFO 57993 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 23:28:23.151  INFO 57993 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 23:28:23.159  INFO 57993 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 23:28:23.160  INFO 57993 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 1.548 seconds (JVM running for 710.159)
+2020-11-13 23:28:49.917  INFO 57993 --- [Thread-24] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5489eae0: startup date [Fri Nov 13 23:28:21 CST 2020]; root of context hierarchy
+2020-11-13 23:28:49.919  INFO 57993 --- [Thread-24] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 23:28:49.920  INFO 57993 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:28:55.140  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 58197 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:28:55.154 DEBUG 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:28:55.155  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:28:55.508  INFO 58197 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2eae77d5: startup date [Fri Nov 13 23:28:55 CST 2020]; root of context hierarchy
+2020-11-13 23:28:56.274  WARN 58197 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 23:28:57.405  INFO 58197 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 23:28:57.419  INFO 58197 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 23:28:57.421  INFO 58197 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 23:28:57.673  INFO 58197 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 23:28:57.674  INFO 58197 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2166 ms
+2020-11-13 23:28:58.102  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 23:28:58.106  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 23:28:58.107  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 23:28:58.107  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 23:28:58.107  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 23:28:58.505  INFO 58197 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:28:58.520  INFO 58197 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 23:28:58.582  INFO 58197 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-11-13 23:28:58.583  INFO 58197 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-11-13 23:28:58.584  INFO 58197 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-11-13 23:28:58.616  INFO 58197 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-11-13 23:28:59.516  INFO 58197 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 23:28:59.937  INFO 58197 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 23:29:00.102  INFO 58197 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:29:01.175  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2eae77d5: startup date [Fri Nov 13 23:28:55 CST 2020]; root of context hierarchy
+2020-11-13 23:29:01.279  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 23:29:01.280  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:29:01.281  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 23:29:01.291  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:29:01.291  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:29:01.294  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 23:29:01.294  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:29:01.294  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:29:01.295  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 23:29:01.295  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:29:01.296  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:29:01.296  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:29:01.299  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 23:29:01.299  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 23:29:01.391  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:29:01.392  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:29:01.411  INFO 58197 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 23:29:01.442  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:29:02.313  INFO 58197 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 23:29:02.375  INFO 58197 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 23:29:02.453  INFO 58197 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 23:29:02.472  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 7.926 seconds (JVM running for 8.527)
+2020-11-13 23:29:02.580  INFO 58197 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-11-13 23:29:02.580  INFO 58197 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-11-13 23:29:02.862  INFO 58197 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 281 ms
+2020-11-13 23:29:02.892  INFO 58197 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-11-13 23:29:02.900  INFO 58197 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-11-13 23:29:06.099  INFO 58197 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@47c7d8e3, {}]}
+2020-11-13 23:29:06.122  INFO 58197 --- [http-nio-8080-exec-4] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-11-13 23:29:06.311  INFO 58197 --- [http-nio-8080-exec-4] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-11-13 23:29:11.409  INFO 58197 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors, type=null, org.springframework.validation.BindingResult.type=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null), null]}
+2020-11-13 23:29:11.506  INFO 58197 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:34:46.521  INFO 58197 --- [http-nio-8080-exec-3] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors, type=null, org.springframework.validation.BindingResult.type=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null), null]}
+2020-11-13 23:34:46.537  INFO 58197 --- [http-nio-8080-exec-3] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:34:48.523  INFO 58197 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors, type=null, org.springframework.validation.BindingResult.type=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null), null]}
+2020-11-13 23:34:48.535  INFO 58197 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:38:28.699  INFO 58197 --- [Thread-7] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2eae77d5: startup date [Fri Nov 13 23:28:55 CST 2020]; root of context hierarchy
+2020-11-13 23:38:28.705  INFO 58197 --- [Thread-7] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 23:38:28.707  INFO 58197 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:38:29.295  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 58197 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:38:29.295 DEBUG 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:38:29.295  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:38:29.297  INFO 58197 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@27404fef: startup date [Fri Nov 13 23:38:29 CST 2020]; root of context hierarchy
+2020-11-13 23:38:29.659  WARN 58197 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 23:38:29.921  INFO 58197 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 23:38:29.922  INFO 58197 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 23:38:29.922  INFO 58197 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 23:38:29.929  INFO 58197 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 23:38:29.929  INFO 58197 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 632 ms
+2020-11-13 23:38:29.984  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 23:38:29.984  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 23:38:29.984  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 23:38:29.984  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 23:38:29.985  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 23:38:30.158  INFO 58197 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:38:30.159  INFO 58197 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 23:38:30.402  INFO 58197 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 23:38:30.453  INFO 58197 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 23:38:30.584  INFO 58197 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:38:31.144  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@27404fef: startup date [Fri Nov 13 23:38:29 CST 2020]; root of context hierarchy
+2020-11-13 23:38:31.165  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 23:38:31.165  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:38:31.165  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 23:38:31.166  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:38:31.166  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:38:31.168  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 23:38:31.168  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:38:31.169  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:38:31.169  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 23:38:31.169  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:38:31.169  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:38:31.170  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:38:31.171  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 23:38:31.172  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 23:38:31.201  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:38:31.202  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:38:31.215  INFO 58197 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 23:38:31.225  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:38:31.839  INFO 58197 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 23:38:31.971  INFO 58197 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 23:38:31.989  INFO 58197 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 23:38:31.991  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 2.933 seconds (JVM running for 578.042)
+2020-11-13 23:38:42.558  INFO 58197 --- [Thread-11] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@27404fef: startup date [Fri Nov 13 23:38:29 CST 2020]; root of context hierarchy
+2020-11-13 23:38:42.562  INFO 58197 --- [Thread-11] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 23:38:42.563  INFO 58197 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:38:43.122  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 58197 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:38:43.123 DEBUG 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:38:43.123  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:38:43.125  INFO 58197 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f30e7bd: startup date [Fri Nov 13 23:38:43 CST 2020]; root of context hierarchy
+2020-11-13 23:38:43.384  WARN 58197 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 23:38:43.537  INFO 58197 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 23:38:43.538  INFO 58197 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 23:38:43.538  INFO 58197 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 23:38:43.545  INFO 58197 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 23:38:43.546  INFO 58197 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 422 ms
+2020-11-13 23:38:43.592  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 23:38:43.592  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 23:38:43.592  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 23:38:43.592  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 23:38:43.592  INFO 58197 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 23:38:43.717  INFO 58197 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:38:43.717  INFO 58197 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 23:38:43.881  INFO 58197 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 23:38:43.932  INFO 58197 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 23:38:44.060  INFO 58197 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:38:44.435  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f30e7bd: startup date [Fri Nov 13 23:38:43 CST 2020]; root of context hierarchy
+2020-11-13 23:38:44.451  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 23:38:44.451  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:38:44.451  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 23:38:44.452  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:38:44.452  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:38:44.454  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 23:38:44.454  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:38:44.454  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:38:44.454  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 23:38:44.454  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:38:44.454  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:38:44.455  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:38:44.456  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 23:38:44.456  INFO 58197 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 23:38:44.481  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:38:44.481  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:38:44.491  INFO 58197 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 23:38:44.499  INFO 58197 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:38:44.714  INFO 58197 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 23:38:44.777  INFO 58197 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 23:38:44.786  INFO 58197 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 23:38:44.788  INFO 58197 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 1.709 seconds (JVM running for 590.839)
+2020-11-13 23:38:52.794  INFO 58197 --- [Thread-24] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f30e7bd: startup date [Fri Nov 13 23:38:43 CST 2020]; root of context hierarchy
+2020-11-13 23:38:52.799  INFO 58197 --- [Thread-24] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-11-13 23:38:52.801  INFO 58197 --- [Thread-24] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:40:00.035  INFO 58379 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 58379 (/Users/amber/mrtsuopas/patisserie/target/classes started by amber in /Users/amber/mrtsuopas/patisserie)
+2020-11-13 23:40:00.036 DEBUG 58379 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-11-13 23:40:00.037  INFO 58379 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-11-13 23:40:00.346  INFO 58379 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@54690dd5: startup date [Fri Nov 13 23:40:00 CST 2020]; root of context hierarchy
+2020-11-13 23:40:01.079  WARN 58379 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-11-13 23:40:02.168  INFO 58379 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2020-11-13 23:40:02.183  INFO 58379 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-13 23:40:02.184  INFO 58379 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-11-13 23:40:02.308  INFO 58379 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-13 23:40:02.308  INFO 58379 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1962 ms
+2020-11-13 23:40:02.514  INFO 58379 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-11-13 23:40:02.518  INFO 58379 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-11-13 23:40:02.519  INFO 58379 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-11-13 23:40:02.519  INFO 58379 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-11-13 23:40:02.519  INFO 58379 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-11-13 23:40:02.955  INFO 58379 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:40:02.974  INFO 58379 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-13 23:40:03.046  INFO 58379 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-11-13 23:40:03.048  INFO 58379 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-11-13 23:40:03.049  INFO 58379 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-11-13 23:40:03.087  INFO 58379 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-11-13 23:40:03.947  INFO 58379 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-11-13 23:40:04.421  INFO 58379 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-11-13 23:40:04.612  INFO 58379 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-13 23:40:05.683  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@54690dd5: startup date [Fri Nov 13 23:40:00 CST 2020]; root of context hierarchy
+2020-11-13 23:40:05.815  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:40:05.816  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-11-13 23:40:05.817  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-11-13 23:40:05.817  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:40:05.818  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news-list],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.vo.NewsQuery,org.springframework.ui.Model)
+2020-11-13 23:40:05.821  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:40:05.821  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-11-13 23:40:05.821  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:40:05.822  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:40:05.822  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-11-13 23:40:05.822  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-11-13 23:40:05.823  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-11-13 23:40:05.824  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-11-13 23:40:05.825  INFO 58379 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-11-13 23:40:05.876  INFO 58379 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:40:05.876  INFO 58379 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:40:05.893  INFO 58379 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-11-13 23:40:05.918  INFO 58379 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-11-13 23:40:06.700  INFO 58379 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-11-13 23:40:06.794  INFO 58379 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-11-13 23:40:06.872  INFO 58379 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2020-11-13 23:40:06.878  INFO 58379 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 7.29 seconds (JVM running for 7.863)
+2020-11-13 23:40:14.968  INFO 58379 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-11-13 23:40:14.969  INFO 58379 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-11-13 23:40:15.000  INFO 58379 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 30 ms
+2020-11-13 23:40:15.042  INFO 58379 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-11-13 23:40:15.050  INFO 58379 --- [http-nio-8080-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-11-13 23:40:20.298  INFO 58379 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@86c83df, {}]}
+2020-11-13 23:40:20.324  INFO 58379 --- [http-nio-8080-exec-6] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-11-13 23:40:20.484  INFO 58379 --- [http-nio-8080-exec-6] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-11-13 23:40:22.334  INFO 58379 --- [http-nio-8080-exec-10] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors, type=null, org.springframework.validation.BindingResult.type=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null), null]}
+2020-11-13 23:40:22.416  INFO 58379 --- [http-nio-8080-exec-10] com.mrtsuo.aspect.LogAspect              : Result : admin/products
+2020-11-13 23:43:54.596  INFO 58379 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:8080/admin/products, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.ProductController.products, args=[Page request [number: 0, size 10, sort: id: DESC], {productQuery=ProductQuery(name=null, typeId=null), org.springframework.validation.BindingResult.productQuery=org.springframework.validation.BeanPropertyBindingResult: 0 errors, type=null, org.springframework.validation.BindingResult.type=org.springframework.validation.BeanPropertyBindingResult: 0 errors}, ProductQuery(name=null, typeId=null), null]}
+2020-11-13 23:43:54.610  INFO 58379 --- [http-nio-8080-exec-8] com.mrtsuo.aspect.LogAspect              : Result : admin/products

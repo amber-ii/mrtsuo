@@ -36,7 +36,7 @@ public class ProductController {
 	@Autowired
 	private TypeService typeService;
 
-	@GetMapping("/products")
+	@GetMapping("/products") 
 	public String products(
 			@PageableDefault(size = 5, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
 			Model model,ProductQuery prod,Type type) {

@@ -62,58 +62,39 @@
 	<!-- 中間內容 -->
 	<div class="m-padded-tb-massive">
 		<div class="ui container row">
-			<div class="ui grid" th:each="news : ${page.content}">
+			<div class="ui grid">
 				<div class="ui three wide column"></div>
 				<div class="ui ten wide column m-padded-tb">
-				<input type="hidden" name="${news.id}">
 					<i class="calendar icon"></i><span
-						th:text="${#dates.format(news.updateTime,'yyyy-MM-dd')}"
+						th:text="${#dates.format(newsone.updateTime,'yyyy-MM-dd')}"
 						class="ui header center aligned m-text-spaced text-size-mini m-text-thin">SEP
 						8TH , 2020</span>
 
-					<h3 class="ui header center aligned m-text-spaced text-size m-text-thin">
-					<a th:href="@{/newspage/{id}(id=${news.id})}" th:text="${news.title}"
-						>2020試吃活動
-						正式開跑</a></h3>
+					<h3 th:text="${newsone.title}"
+						class="ui header center aligned m-text-spaced text-size m-text-thin">2020試吃活動
+						正式開跑</h3>
 					<img src="image/starball.jpg" alt="" width="100%"
-						class="ui rounded image" th:src="@{${news.picture}}">
-					<div th:utext="${news.content}" 
+						class="ui rounded image" th:src="@{${newsone.picture}}">
+					<div th:utext="${newsone.content}" 
 						class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large">
-						</div>
 						
-					
-				 	<div class="ui right aligned basic segment">
+						
+					</div>
+					<div class="ui right aligned basic segment">
 						<div id="share">
 							<div class="ui blue label">
-								<a class="fb"><i class="facebook icon"></i>Share</a>
+								<a class="fb"><i class="facebook icon"></i>分享</a>
 							</div>
 							<div class="ui green label">
-								<a class="line"><i class="linechat icon"></i>Share</a>
+								<a class="line"><i class="linechat icon"></i>分享</a>
 							</div>
 						</div>
 					</div>
 
 					<div class="ui divider m-padded-tb-big"></div>
 
-					<!-- 第二個 -->
-
-
-
 					<div class="ui three wide column"></div>
 					<!-- footer按鈕 -->
-				</div>
-			</div>
-
-			<div class="ui basic segment" th:if="${page.totalPages}>1">
-				<div class="ui middle aligned two column grid">
-					<div class="column">
-						<a href="#" th:href="@{/newspage/(page=${page.number}-1)}"
-							th:unless="${page.first}" class=" ui mini teal basic button">上一頁</a>
-					</div>
-					<div class="right aligned column">
-						<a href="#" th:href="@{/newspage/(page=${page.number}+1)}"
-							th:unless="${page.last}" class=" ui mini teal basic button">下一頁</a>
-					</div>
 				</div>
 			</div>
 			
@@ -131,6 +112,9 @@
 						<img src="image/logo_footer.jpg" class="ui circular image" alt=""
 							width="120px">
 					</div>
+
+
+
 					<div class="four wide column">
 						<h4 class="ui inverted header">優惠訊息</h4>
 						<div class="ui divider"></div>
@@ -196,10 +180,11 @@
 							var seurl = "127.0.0.1:9527";
 							var url = /*[[@{/newspage/{id}(id=${news.id})}]]*/"";
 							var shareType = $(this).attr('class'), 
-							pageUrl = location.href, fbLink = 'https://www.facebook.com/sharer.php?u='+seurl+url, 
+							pageUrl = location.href, 
+							fbLink = 'https://www.facebook.com/sharer.php?u='+seurl+url, 
 									googleLink = 'https://plus.google.com/share?url='
-									+ pageUrl, lineLink = 'https://lineit.line.me/share/ui?url=http://'+seurl+url,
-											twitterLink = 'http://twitter.com/home/?status='
+									+ pageUrl, 
+									lineLink = 'https://lineit.line.me/share/ui?url=http://'+seurl+url,  twitterLink = 'http://twitter.com/home/?status='
 									+ pageUrl, openFrame = '_blank';
 
 							switch (shareType) {

@@ -184,3 +184,19 @@ body {
     position: fixed !important;
     z-index: 10 !important;
 }
+
+.post img:hover {
+-moz-transform: scale(1.05);
+-ms-transform: scale(1.05);
+-o-transform: scale(1.05);
+-webkit-transform: scale(1.05);
+transform: scale(1.05);
+}
+/* 
+ul li{
+list-style-type:none;
+}
+ */
+.dp{
+	padding: 0em !important;
+}

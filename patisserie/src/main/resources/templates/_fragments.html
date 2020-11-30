@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">  
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:fragment="head(title)">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title th:replace="${title}">弗雷格</title>
+<title th:replace="${title}">home</title>
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
 	rel="stylesheet" />
@@ -12,7 +12,10 @@
 <link rel="stylesheet" href="/css/index.css" th:href="@{/css/index.css}">
 <link rel="stylesheet" href="/lib/editormd/css/editormd.css"
 	th:href="@{/lib/editormd/css/editormd.css}" />
-<link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon"
+	href="https://pandao.github.io/editor.md/favicon.ico"
+	type="image/x-icon" />
+<link rel="stylesheet" href="/css/typo.css" th:href="@{/css/typo.css}">
 </head>
 
 <!-- 導航 -->
@@ -21,27 +24,42 @@
 	<div class="ui container">
 		<div class="ui inverted secondary stackable menu">
 			<h2 class="ui blue header item">MR.TSUO PATISSERIE</h2>
-			<a th:href="@{/home}" class="m-item item m-mobile-hide"
+			<a th:href="@{/}" class="m-item item m-mobile-hide"
 				th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首頁</a>
 			<a th:href="@{/store}" class="m-item item m-mobile-hide"
 				th:classappend="${n==2} ? 'active'"><i class="warehouse icon"></i>門市查詢</a>
-			<a th:href="@{/news}" class="m-item item m-mobile-hide"
+			<a href="#" class="m-item item m-mobile-hide"><i
+				class="dollar sign icon"></i>購買專區</a> <a th:href="@{/newspage}"
+				class="m-item item m-mobile-hide"
 				th:classappend="${n==3} ? 'active'"><i class="bullhorn icon"></i>最新消息</a>
-			<div class="ui simple dropdown item m-padded-tb-zero">
-				<a th:href="@{/product}" class="m-item item m-mobile-hide"
-					th:classappend="${n==4} ? 'active'"><i class="coffee icon"></i>商品專區<i
-					class="dropdown icon"></i></a>
-				<div class="menu ">
-					<a href="#" class="item">咖啡</a> <a href="#" class="item">茶飲及其他飲品</a>
-					<a href="#" class="item">手做蛋糕</a> <a href="#" class="item">輕食早午餐</a>
-					<a href="#" class="item">會議型糕點</a> <a href="#" class="item">季節禮盒</a>
+
+			<a th:href="@{/product}" class="m-item item m-mobile-hide"
+							th:classappend="${n==4} ? 'active'"><i class="coffee icon"></i>商品專區</a>
+			
+			<!-- 修改一 -->
+			<!-- <div class="item m-padded-tb-zero">
+				<div class="ui dropdown">
+					<a th:href="@{/product}" class="m-item item m-mobile-hide"
+						th:classappend="${n==4} ? 'active'"><i class="coffee icon"></i>商品專區
+						<i class="dropdown icon"></i></a>
+					<div class="menu">
+						<a href="#" class="item"
+							th:href="@{/product/types/{id}(id=${type.id})}" target="_self"
+							th:each="type : ${types}" th:text="${type.name}">咖啡</a>
+
+					</div>
 				</div>
-			</div>
+			</div> -->
 			<div class="m-item right item m-mobile-hide">
-				<div class="ui icon inverted transparent input">
-					<input type="text" placeholder="搜尋..."> <i
-						class=" search link icon"></i>
-				</div>
+				<form name="search" action="#" th:action="@{/product/search}"
+					method="post" target="_blank">
+					<div class="ui icon inverted transparent input">
+						<input type="text" name="query" placeholder="搜尋..."
+							th:value="${query}"> <i
+							onclick="document.forms['search'].submit()"
+							class=" search link icon"></i>
+					</div>
+				</form>
 			</div>
 		</div>
 		<a href="#"
@@ -64,10 +82,13 @@
 				<div class="four wide column">
 					<h4 class="ui inverted header">優惠訊息</h4>
 					<div class="ui divider"></div>
+
 					<div class="ui inverted link list">
-						<a href="#" class="item">中秋節禮盒訂購</a> <a href="#" class="item">最新</a>
-						<a href="#" class="item">最新</a>
+						<a href="#" th:href="@{/newspage}" class="item">港式茶餐廳
+							冰火菠蘿買二送一</a> <span>2020-11-16</span>
 					</div>
+
+
 				</div>
 				<div class="four wide column">
 					<h4 class="ui inverted header">官方帳號</h4>
@@ -77,16 +98,16 @@
 							<a
 								href="https://www.facebook.com/MrTsuo-%E5%B7%A6%E7%88%BA%E7%88%BA%E7%83%98%E7%84%99%E5%9D%8A-102769028157142"
 								class="ui facebook button"> <i class="facebook icon"></i>Mr.Tsuo
-								左爺爺烘焙坊
+
 							</a>
 						</p>
 						<p class="m-text-lined">
 							<a href="https://www.instagram.com/mr.tsuo_patisserie/"
-								class="ui instagram button"> <i class="instagram icon"></i>mr.tsuo_patisserie
+								class="ui instagram button"> <i class="instagram icon"></i>Mr.Tsuo
 							</a>
 						</p>
 						<p class="m-text-lined">
-							<a href="#" class="ui youtube button"><i class="youtube icon"></i>mr.tsuo_patisserie</a>
+							<a href="#" class="ui youtube button"><i class="youtube icon"></i>Mr.Tsuo</a>
 						</p>
 					</div>
 				</div>
@@ -105,11 +126,13 @@
 	</div>
 </footer>
 <th:block th:fragment="script">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
-<script src="/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
-<th:block>
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
+	<script src="/lib/editormd/editormd.min.js"
+		th:src="@{/lib/editormd/editormd.min.js}"></script>
+	<th:block>
 </html>

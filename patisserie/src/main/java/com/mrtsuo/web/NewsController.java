@@ -50,6 +50,8 @@ public class NewsController {
 		return "admin/news :: newsList";
 	}
 
+	
+
 //	新增
 	@GetMapping("/news/input")
 	public String input(Model model) {

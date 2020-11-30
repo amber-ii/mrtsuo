@@ -104,4 +104,9 @@ public class ProductServiceImpl implements ProductService {
 		productRepository.delete(id);
 	}
 
+	@Override
+	public Page<Product> listProducts(String query, Pageable pageable) {
+		return productRepository.findByQuery(query, pageable);
+	}
+	
 }

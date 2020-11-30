@@ -4,19 +4,18 @@
 <head th:replace="_fragments :: head(~{::title})">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>最新消息</title>
+<title>搜索結果</title>
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-<link rel="stylesheet" href="../static/css/index.css"
-	th:href="@{/css/index.css}">
+<link rel="stylesheet" href="/css/index.css" th:href="@{/css/index.css}">
 </head>
 
 <body>
 	<!-- 導航 -->
-	<nav th:replace="_fragments :: menu(3)"
+	<nav th:replace="_fragments :: menu(0)"
 		class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
 		<div class="ui container">
 			<div class="ui inverted secondary stackable menu">
@@ -54,71 +53,53 @@
 	<!-- 每頁標題 -->
 	<div class="m-padded-large">
 		<div class="ui container">
-			<h2 class="ui blue header ">最新消息</h2>
+		
+			<h2 class="ui blue header" th:text="${name}">搜尋結果</h2>
+			<!-- <div class="ui divider m-padded-tb-mini"></div> -->
 		</div>
 	</div>
 	<!-- 每頁標題END -->
 
-	<!-- 中間內容 -->
-	<div class="m-padded-tb-massive">
-		<div class="ui container row">
-			<div class="ui grid" th:each="news : ${page.content}">
-				<div class="ui three wide column"></div>
-				<div class="ui ten wide column m-padded-tb">
-				<input type="hidden" name="${news.id}">
-					<i class="calendar icon"></i><span
-						th:text="${#dates.format(news.updateTime,'yyyy-MM-dd')}"
-						class="ui header center aligned m-text-spaced text-size-mini m-text-thin">SEP
-						8TH , 2020</span>
 
-					<h3 class="ui header center aligned m-text-spaced text-size m-text-thin">
-					<a th:href="@{/newspage/{id}(id=${news.id})}" th:text="${news.title}"
-						>2020試吃活動
-						正式開跑</a></h3>
-					<img src="image/starball.jpg" alt="" width="100%"
-						class="ui rounded image" th:src="@{${news.picture}}">
-					<div th:utext="${news.content}" 
-						class="typo typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large">
-						</div>
-						
-					
-				 	<div class="ui right aligned basic segment">
-						<div id="share">
-							<div class="ui blue label">
-								<a class="fb"><i class="facebook icon"></i>Share</a>
-							</div>
-							<div class="ui green label">
-								<a class="line"><i class="linechat icon"></i>Share</a>
-							</div>
-						</div>
-					</div>
+	<div class="ui toc-container flowing popup transition hidden">
+		<ol class="js-toc">
+		</ol>
+	</div>
 
-					<div class="ui divider m-padded-tb-big"></div>
-
-					<!-- 第二個 -->
-
-
-
-					<div class="ui three wide column"></div>
-					<!-- footer按鈕 -->
-				</div>
-			</div>
-
-			<div class="ui basic segment" th:if="${page.totalPages}>1">
-				<div class="ui middle aligned two column grid">
-					<div class="column">
-						<a href="#" th:href="@{/newspage/(page=${page.number}-1)}"
-							th:unless="${page.first}" class=" ui mini teal basic button">上一頁</a>
-					</div>
-					<div class="right aligned column">
-						<a href="#" th:href="@{/newspage/(page=${page.number}+1)}"
-							th:unless="${page.last}" class=" ui mini teal basic button">下一頁</a>
+	<!-- 中間 -->
+	<div class="m-padded-tb-large ">
+		<div class="ui container">
+			<div class="ui compact menu mini">
+				<div class="ui simple dropdown item" >
+					商品分類 <i class="dropdown icon"></i>
+					<div class="menu">
+						<a href="#" th:href="@{/product/types/{id}(id=${type.id})}"
+							target="_self" class="item" th:each="type : ${types}"
+							 th:text="${type.name}">咖啡</a>
 					</div>
 				</div>
 			</div>
-			
+			<div class="ui divider m-padded-tb"></div>
+			<div>
+				<div class="ui grid">
+					<div class="ui center aligned four wide column post"
+						th:each="product : ${page.content}">
+						<img src="image/kingkom.jpg" th:src="@{${product.picture}}" alt=""
+							width="80%">
+
+						<p class="m-opacity-mini m-padded-tb-small2"
+							th:text="${product.name}">左爺爺的金礦</p>
+						<span class="m-opacity-mini2 product-font-size">$ </span> <span
+							class="m-opacity-mini2 product-font-size"
+							th:text="${product.price}"> </span> <span
+							class="m-opacity-mini2 product-font-size"> / 個</span>
+					</div>
+				</div>
+				<br> <br> <br> <br> <br> <br> <br>
+			</div>
 		</div>
 	</div>
+
 
 
 	<!-- 底部 -->
@@ -131,6 +112,9 @@
 						<img src="image/logo_footer.jpg" class="ui circular image" alt=""
 							width="120px">
 					</div>
+
+
+
 					<div class="four wide column">
 						<h4 class="ui inverted header">優惠訊息</h4>
 						<div class="ui divider"></div>
@@ -174,51 +158,46 @@
 				</div>
 			</div>
 		</div>
+
 	</footer>
 	<!-- /*/<th:block th:replace="_fragments :: script">/*/ -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.11.1/tocbot.min.js"></script>
 	<!-- /*/</th:block>/*/ -->
 	<script>
 		$('.toggle.menu').click(function() {
 			$('.m-item').toggleClass('m-mobile-hide');
 		});
-	</script>
-	<script th:inline="javascript">
-		var $share = $('#share');
-		$share
-				.on(
-						'click',
-						'a',
-						function() {
-							var seurl = "127.0.0.1:9527";
-							var url = /*[[@{/newspage/{id}(id=${news.id})}]]*/"";
-							var shareType = $(this).attr('class'), 
-							pageUrl = location.href, fbLink = 'https://www.facebook.com/sharer.php?u='+seurl+url, 
-									googleLink = 'https://plus.google.com/share?url='
-									+ pageUrl, lineLink = 'https://lineit.line.me/share/ui?url=http://'+seurl+url,
-											twitterLink = 'http://twitter.com/home/?status='
-									+ pageUrl, openFrame = '_blank';
+		$('.ui.dropdown').dropdown({
+			on : 'hover'
+		});
 
-							switch (shareType) {
-							case ('fb'):
-								window.open(fbLink, openFrame)
-								break;
-							case ('google'):
-								window.open(googleLink, openFrame);
-								break;
-							case ('line'):
-								window.open(lineLink, openFrame);
-								break;
-							case ('twitter'):
-								window.open(twitterLink, openFrame);
-								break;
-							default:
-								return false;
-							}
-						})
+		tocbot.init({
+			// Where to render the table of contents.
+			tocSelector : '.js-toc',
+			// Where to grab the headings to build the table of contents.
+			contentSelector : '.js-toc-content',
+			// Which headings to grab inside of the contentSelector element.
+			headingSelector : 'h1, h2, h3',
+			// For headings inside relative or absolute positioned containers within content.
+			hasInnerContainers : true,
+		});
+		$('.toc.button').popup({
+			popup : $('.toc-container.popup'),
+			on : 'click',
+			position : 'left center'
+		});
+
+		function page(obj) {
+			$("[name='page']").val($(obj).data("page"));
+			loaddata();
+		}
 	</script>
+
 </body>
+
 </html>

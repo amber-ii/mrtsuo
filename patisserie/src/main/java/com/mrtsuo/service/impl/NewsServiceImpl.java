@@ -15,11 +15,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.mrtsuo.NotFoundException;
 import com.mrtsuo.model.News;
 import com.mrtsuo.repository.NewsRepository;
 import com.mrtsuo.service.NewsService;
+import com.mrtsuo.util.MarkdownUtils;
 import com.mrtsuo.util.MyBeanUtils;
 
 @Service
@@ -72,10 +74,10 @@ public class NewsServiceImpl implements NewsService {
 //	新增
 	@Override
 	public News saveNews(News news) {
-		if(news.getId() == null) {
+		if (news.getId() == null) {
 			news.setCreateTime(new Date());
 			news.setUpdateTime(new Date());
-		}else {
+		} else {
 			news.setUpdateTime(new Date());
 		}
 		return newsRepository.save(news);
@@ -86,5 +88,36 @@ public class NewsServiceImpl implements NewsService {
 	public News getNewsByTitle(String title) {
 		return null;
 	}
+
+//	@Override
+//	public Page<News> listNews(Pageable pageable) {
+//		return newsRepository.findAll(pageable);
+//		
+//	}
+	
+	
+
+	@Override
+	public Page<News> listNews(Pageable pageable) {
+		
+		return newsRepository.findAll(pageable);
+		
+	}
+
+	@Transactional
+	@Override
+	public News getAndConvert(Long id) {
+		News news = newsRepository.findOne(id);
+//		if (news == null) {
+//			throw new NotFoundException("不存在");
+//		}
+		News n = new News();
+		BeanUtils.copyProperties(news, n);
+		String content = n.getContent();
+		n.setContent(MarkdownUtils.markdownToHtml(content));
+		return n;
+	}
+	
+	   
 
 }
