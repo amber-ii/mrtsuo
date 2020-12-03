@@ -92,7 +92,7 @@ public class IndexController {
 //首頁
 	@GetMapping("/")
 	public String home() {
-		return "home";
+		return "index";
 	}
 
 //門市資訊
