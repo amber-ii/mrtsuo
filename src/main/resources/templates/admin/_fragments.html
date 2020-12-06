@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:fragment="head(title)">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title th:replace="${title}">標題</title>
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+<link rel="stylesheet" href="/css/index.css" th:href="@{/css/index.css}">
+<link rel="stylesheet" href="/lib/editormd/css/editormd.css"
+	th:href="@{/lib/editormd/css/editormd.css}">
+<link rel="shortcut icon"
+	href="https://pandao.github.io/editor.md/favicon.ico"
+	type="image/x-icon" />
+</head>
+
+<nav th:fragment="menu(n)"
+		class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+		<div class="ui container">
+			<div class="ui inverted secondary stackable menu">
+				<h2 class="ui teal header item">後台管理</h2>
+				<a href="#" th:href="@{/admin/products}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'">商品</a> 
+				<a href="#" th:href="@{/admin/news}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'">最新消息</a>
+
+				<div class="right menu">
+					<div class="ui m-item dropdown item m-mobile-hide">
+						<div class="text">
+							<img class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{${session.user.avatar}}" alt="" width="110px">
+							<span th:text="${session.user.username}">名字</span>
+						</div>
+						<i class="dropdown icon"></i>
+						<div class="menu">
+							<a href="#" th:href="@{/admin/logout}"class="item">登出</a>
+						</div>
+					</div>
+				</div>
+				<a href="#"
+					class="ui toggle menu black icon button m-right-top m-moblie-show">
+					<i class="sidebar icon"></i>
+				</a>
+			</div>
+		</div>
+	</nav>
+	
+	
+	<footer th:fragment="footer">
+	<div class="ui inverted segment">
+		<div class="ui center aligned container">
+			<div class="ui inverted stackable grid">
+				<div class="three wide column"></div>
+				<div class="two wide column">
+					<img src="/image/logo_footer.jpg" class="ui circular image" alt=""
+						width="120px">
+				</div>
+				<div class="four wide column">
+					<h4 class="ui inverted header">優惠訊息</h4>
+					<div class="ui divider"></div>
+					<div class="ui inverted link list">
+						<a href="#" class="item">港式茶餐廳 冰火菠蘿買二送一</a><span>2020-11-16</span>
+						<a href="#" class="item">生日蛋糕 水果蛋糕 新上市</a><span>2020-11-15</span>
+						<a href="#" class="item">咖啡館明德店 蛋糕八折起</a><span>2020-11-15</span>
+					</div>
+				</div>
+				<div class="four wide column">
+					<h4 class="ui inverted header">官方帳號</h4>
+					<div class="ui divider"></div>
+					<div class="ui inverted link list">
+						<p class="m-text-lined">
+							<a
+								href="https://www.facebook.com/MrTsuo-%E5%B7%A6%E7%88%BA%E7%88%BA%E7%83%98%E7%84%99%E5%9D%8A-102769028157142"
+								class="ui facebook button"> <i class="facebook icon"></i>Mr.Tsuo
+						
+							</a>
+						</p>
+						<p class="m-text-lined">
+							<a href="https://www.instagram.com/mr.tsuo_patisserie/"
+								class="ui instagram button"> <i class="instagram icon"></i>Mr.Tsuo
+							</a>
+						</p>
+						<p class="m-text-lined">
+							<a href="#" class="ui youtube button"><i class="youtube icon"></i>Mr.Tsuo</a>
+						</p>
+					</div>
+				</div>
+				<div class="two wide column"></div>
+			</div>
+			<div class="ui inverted section divider"></div>
+		</div>
+		<div class="ui inverted vertical segment">
+			<div class="ui center aligned container">
+
+				<span class="m-text-thin m-opacity-mini">&copy; Copyright
+					2020 - MR.TSUO COFFEE</span> <!-- │ <a href="#" th:href="@{/admin}"
+					class="item m-text-thin m-text-spaced m-opacity-mini">夥伴登入</a> -->
+			</div>
+		</div>
+	</div>
+</footer>

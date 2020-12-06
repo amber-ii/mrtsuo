@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: mrtsuopat
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: amber
+Implementation-Vendor-Id: com.mrtsuo
+Build-Jdk: 1.8.0_241
+Implementation-URL: http://projects.spring.io/spring-boot/mrtsuopat/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
