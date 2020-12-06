@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mrtsuo</groupId>
-	<artifactId>patisserie</artifactId>
+	<artifactId>mrtsuopat</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>patisserie</name>
+	<name>mrtsuopat</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -32,7 +32,6 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.3.5.Final</version>
 		</dependency>
 
 		<dependency>
@@ -40,14 +39,14 @@
 			<artifactId>commonmark</artifactId>
 			<version>0.15.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.atlassian.commonmark</groupId>
 			<artifactId>commonmark-ext-heading-anchor</artifactId>
 			<version>0.15.2</version>
 		</dependency>
-		
-		
+
+
 
 		<dependency>
 			<groupId>com.atlassian.commonmark</groupId>
@@ -162,16 +161,27 @@
 			</resource>
 		</resources>
 		<plugins>
-			<!-- <plugin> <groupId>org.mybatis.generator</groupId> <artifactId>mybatis-generator-maven-plugin</artifactId> 
-				<version>1.3.6</version> <configuration> 指定配置文件目录 <configurationFile>src/main/resources/GeneratorMapper.xml</configurationFile> 
-				<overwrite>true</overwrite> <verbose>true</verbose> </configuration> <dependencies> 
-				<dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
-				<version>8.0.16</version> </dependency> </dependencies> </plugin> -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>3.0.3</version>
+				<configuration>
+					<appName>mrtsuopat</appName>
+					<includeTarget>false</includeTarget>
+					<includes>
+						<include>${project.build.directory}/${project.build.finalName}.jar</include>
+					</includes>
+					<jdkVersion>1.8</jdkVersion>
+					<processTypes>
+						<web>java $JAVA_OPTS -jar
+							${project.build.directory}/${project.build.finalName}.jar</web>
+					</processTypes>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
