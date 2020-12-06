@@ -7311,3 +7311,6 @@ Caused by: org.attoparser.ParseException: (Line = 68, Column = 56) Malformed mar
 2020-12-06 16:35:18.319  INFO 31781 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
 2020-12-06 16:35:18.338  INFO 31781 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9527 (http)
 2020-12-06 16:35:18.340  INFO 31781 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 3.562 seconds (JVM running for 433.053)
+2020-12-06 16:51:21.827  INFO 31781 --- [Thread-17] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@63756d7e: startup date [Sun Dec 06 16:35:15 CST 2020]; root of context hierarchy
+2020-12-06 16:51:21.845  INFO 31781 --- [Thread-17] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-12-06 16:51:21.850  INFO 31781 --- [Thread-17] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
