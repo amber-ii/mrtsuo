@@ -15,4 +15,4 @@ logging:
     com.mrtsuo: debug
   file: log/patisserie-dev.log
 server:
-  port: ${PORT:9527}
+  port: 9527

@@ -2,9 +2,9 @@ spring:
   datasource:
     #driver-class-name: com.mysql.jdbc.Driver
     #url: jdbc:mysql://localhost:3306/mrtsuo?useUnicode=true&characterEncoding=utf-8
-    url: jdbc:mysql://us-cdbr-east-02.cleardb.com/heroku_6ec3f736ad970fe?reconnect=true
-    username: b4ca037148d47c
-    password: cf68c13a
+    url: jdbc:mysql://us-cdbr-east-02.cleardb.com/heroku_e88d98a3e4f5f72?reconnect=true
+    username: b8e359ab48ae13
+    password: e197153c
   jpa:
     hibernate:
       ddl-auto: none
