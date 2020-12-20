@@ -7,6 +7,11 @@ import javax.persistence.*;
 
 import lombok.Data;
 
+/**
+ * 最新消息
+ * @author amber
+ *
+ */
 @Entity
 @Table(name = "t_news")
 @Data

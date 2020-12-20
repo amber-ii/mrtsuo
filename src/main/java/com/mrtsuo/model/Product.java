@@ -4,7 +4,11 @@ import javax.persistence.*;
 import org.hibernate.validator.constraints.NotBlank;
 
 import lombok.Data;
-
+/**
+ * 商品
+ * @author amber
+ *
+ */
 @Entity
 @Table(name = "t_product")
 @Data

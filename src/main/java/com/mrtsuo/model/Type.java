@@ -13,7 +13,11 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import lombok.Getter;
 import lombok.Setter;
-
+/**
+ * 商品類型
+ * @author amber
+ *
+ */
 @Entity
 @Table(name = "t_type")
 @Getter

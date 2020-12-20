@@ -1,71 +1,51 @@
 package com.mrtsuo.service;
 
 
-import java.util.List;
-import java.util.Optional;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-
 import com.mrtsuo.model.Product;
-import com.mrtsuo.model.Type;
 import com.mrtsuo.vo.ProductQuery;
 
 public interface ProductService {
-	/**
-	 * 儲存產品
-	 * @param product
-	 * @return
-	 */
-	Product saveProduct(Product product);
-	
-	/**
-	 * 查詢詳情
-	 * 根據產品ID
-	 * 
-	 * @param id
-	 * @return
-	 */
 
+	/**
+	 * 查詢單一商品
+	 */
 	Product getProduct(Long id);
 
 	/**
-	 * 查詢詳情
-	 * 根據產品Name
-	 * 
-	 * @param pname
-	 * @return
+	 * 查詢全部、根據商品Name關鍵字搜尋
 	 */
-
 	Product getProductByName(String name);
-	
+
 	/**
-	 * 查詢所有產品
-	 * @param prod 
+	 * 商品名稱關鍵字搜尋(後台)
+	 * @param pageable
 	 * @param product
-	 * @return
 	 */
-	Page<Product> listProducts(Pageable pageable);
-	
+	Page<Product> listProducts(Pageable pageable, ProductQuery product);
+
 	/**
-	 * 更新產品
-	 * @param product
-	 * @return
+	 * 商品名稱關鍵字搜尋(客戶端Menu)
+	 * 
+	 * @param query
+	 * @param pageable
+	 */
+	Page<Product> listProducts(String query, Pageable pageable);
+
+	/**
+	 * 儲存商品
+	 */
+	Product saveProduct(Product product);
+
+	/**
+	 * 修改商品
 	 */
 	Product updateProduct(Long id, Product product);
 
 	/**
-	 * 刪除產品
-	 * @param id
+	 * 刪除商品
 	 */
 	void deleteProduct(Long id);
-
-	List<Product> listProduct();
-
-	Page<Product> listProducts(Pageable pageable, ProductQuery product);
-	Page<Product> listProducts(String query,Pageable pageable);
-
-	
-
 
 }

@@ -11,9 +11,6 @@ public interface NewsService {
 	// 根據id查詢單一消息
 	News getNews(Long id);
 
-	// 根據標題查詢消息
-	News getNewsByTitle(String title);
-
 	// 更新消息
 	News updateNews(Long id, News news);
 
@@ -22,8 +19,7 @@ public interface NewsService {
 
 	// 新增消息
 	News saveNews(News news);
-	
-	Page<News> listNews(Pageable pageable);
-	
+
+	// HTML轉換
 	News getAndConvert(Long id);
 }

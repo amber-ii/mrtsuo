@@ -32,14 +32,14 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductRepository productRepository;
 
-//	新增
+//	根據ID查詢
 	@Transactional
 	@Override
-	public Product saveProduct(Product product) {
-		return productRepository.save(product);
+	public Product getProduct(Long id) {
+		return productRepository.findOne(id);
 	}
 
-//  產品名稱關鍵字、分類搜尋
+//  查詢全部、產品名稱關鍵字搜尋(後台)
 	@Override
 	public Page<Product> listProducts(Pageable pageable, ProductQuery product) {
 		return productRepository.findAll(new Specification<Product>() {
@@ -59,18 +59,10 @@ public class ProductServiceImpl implements ProductService {
 		}, pageable);
 	}
 
-//  分頁查詢
-	@Transactional
+//  商品名稱關鍵字搜尋(客戶端)
 	@Override
-	public Page<Product> listProducts(Pageable pageable) {
-		return productRepository.findAll(pageable);
-	}
-
-//	根據ID查詢
-	@Transactional
-	@Override
-	public Product getProduct(Long id) {
-		return productRepository.findOne(id);
+	public Page<Product> listProducts(String query, Pageable pageable) {
+		return productRepository.findByQuery(query, pageable);
 	}
 
 //	根據名稱查詢
@@ -79,14 +71,14 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.findByName(name);
 	}
 
-//	查詢所有產品
+//	新增
 	@Transactional
 	@Override
-	public List<Product> listProduct() {
-		return productRepository.findAll();
+	public Product saveProduct(Product product) {
+		return productRepository.save(product);
 	}
 
-//	編輯修改
+//	修改
 	@Transactional
 	@Override
 	public Product updateProduct(Long id, Product product) {
@@ -97,16 +89,11 @@ public class ProductServiceImpl implements ProductService {
 		BeanUtils.copyProperties(product, findProdId);
 		return productRepository.save(findProdId);
 	}
+
 //	刪除
 	@Transactional
 	@Override
 	public void deleteProduct(Long id) {
 		productRepository.delete(id);
 	}
-
-	@Override
-	public Page<Product> listProducts(String query, Pageable pageable) {
-		return productRepository.findByQuery(query, pageable);
-	}
-	
 }

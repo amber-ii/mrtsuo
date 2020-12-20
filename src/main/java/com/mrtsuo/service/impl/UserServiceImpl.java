@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userMapper;
 
+//	登入驗證
 	@Override
 	public User checkUser(String username, String password) {
 		User user = userMapper.findByUsernameAndPassword(username, MD5Utils.code(password));

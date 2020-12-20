@@ -22,8 +22,6 @@
 		</div>
 	</div>
 	<br>
-	<br>
-	<br>
 
 
 	<!-- 中間 -->
@@ -33,13 +31,14 @@
 				th:unless="${#strings.isEmpty(message)}">
 				<i class="close icon"></i>
 				<div class="header">提示：</div>
-				<p th:text="${message}">恭喜，操作成功！</p>
+				<p th:text="${message}">操作成功！</p>
 			</div>
 			<div class="ui segment form">
 				<input type="hidden" name="page">
 				<div class="inline fields">
 					<div class="field">
-						<input type="text" name="name" placeholder="商品名稱">
+						<input type="text" name="name" placeholder="商品名稱" >
+	          
 					</div>
 					<div class="field">
 						<div class="ui type selection dropdown">
@@ -51,7 +50,6 @@
 									th:data-value="${type.id}" th:text="${type.name}">咖啡</div>
 							</div>
 						</div>
-						  
 					</div>
 					<div class="field">
 						<button type="button" id="search-btn"
@@ -59,7 +57,9 @@
 							<i class="search icon"></i>搜索
 						</button>
 					</div>
-					<button id="clear-btn" class="ui compact button">clear</button>
+					<button id="clear-btn" class="ui compact button">
+					clear
+					</button>
 				</div>
 			</div>
 			<div id="table-container">
@@ -103,15 +103,9 @@
 			</div>
 		</div>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
+	<br><br>
+	
+	
 
 	<!-- 底部 -->
 	<div th:insert="admin/_fragments :: footer"></div>
@@ -146,6 +140,10 @@
 	        ;
 	      })
 	    ;
+		 $('#clear-btn').on('click', function(){
+			 $(" input[ name='name' ] ").val("");
+		 });
+		
 		function loaddata() {
 			$("#table-container").load(
 					/*[[@{/admin/products/search}]]*/"/admin/products/search",

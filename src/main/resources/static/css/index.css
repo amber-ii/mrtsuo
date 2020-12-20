@@ -125,16 +125,7 @@
         display: block !important;
     }
 }
-/* body{
-    background: url('../image/cici\ copy.png') !important;
-    
-} */
 
- /* html,
-body {
-    height: 100%;
-
-}  */
 
 .maincontainer{
   height:auto;
@@ -173,7 +164,7 @@ body {
     margin-top: 3em !important;
 }
 .m-shadow-small{
-    webkit: box shadow 0;
+    /* webkit: box shadow 0 !important; */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
 .m-container-small {
@@ -192,11 +183,15 @@ body {
 -webkit-transform: scale(1.05);
 transform: scale(1.05);
 }
-/* 
-ul li{
-list-style-type:none;
-}
- */
+
 .dp{
 	padding: 0em !important;
+}
+
+#index_img{
+
+ background-repeat:no-repeat;
+  /*   border:1px #5e5e5e solid; */
+    background-size:cover;
+    
 }

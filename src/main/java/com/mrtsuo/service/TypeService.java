@@ -8,7 +8,9 @@ import org.springframework.data.domain.Pageable;
 import com.mrtsuo.model.Type;
 
 public interface TypeService {
-	Page<Type> listType(Pageable pageable);
+//	查詢全部
 	List<Type> listType();
+
+//	查詢單一
 	Type getType(Long id);
 }

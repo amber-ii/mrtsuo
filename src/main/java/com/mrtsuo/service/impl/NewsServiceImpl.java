@@ -30,17 +30,16 @@ public class NewsServiceImpl implements NewsService {
 	@Autowired
 	private NewsRepository newsRepository;
 
-//	根據ＩＤ查詢
+//	根據id查詢
 	@Override
 	public News getNews(Long id) {
 		return newsRepository.findOne(id);
 	}
 
-//	分頁查詢
+//	查詢全部、關鍵字搜尋(後台)
 	@Override
 	public Page<News> listNews(Pageable pageable, News news) {
 		return newsRepository.findAll(new Specification<News>() {
-
 			@Override
 			public Predicate toPredicate(Root<News> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
 				List<Predicate> predicates = new ArrayList<>();
@@ -51,6 +50,18 @@ public class NewsServiceImpl implements NewsService {
 				return null;
 			}
 		}, pageable);
+	}
+
+//	新增
+	@Override
+	public News saveNews(News news) {
+		if (news.getId() == null) {
+			news.setCreateTime(new Date());
+			news.setUpdateTime(new Date());
+		} else {
+			news.setUpdateTime(new Date());
+		}
+		return newsRepository.save(news);
 	}
 
 //	編輯修改
@@ -71,53 +82,15 @@ public class NewsServiceImpl implements NewsService {
 		newsRepository.delete(id);
 	}
 
-//	新增
-	@Override
-	public News saveNews(News news) {
-		if (news.getId() == null) {
-			news.setCreateTime(new Date());
-			news.setUpdateTime(new Date());
-		} else {
-			news.setUpdateTime(new Date());
-		}
-		return newsRepository.save(news);
-	}
-
-//	根據標題查詢
-	@Override
-	public News getNewsByTitle(String title) {
-		return null;
-	}
-
-//	@Override
-//	public Page<News> listNews(Pageable pageable) {
-//		return newsRepository.findAll(pageable);
-//		
-//	}
-	
-	
-
-	@Override
-	public Page<News> listNews(Pageable pageable) {
-		
-		return newsRepository.findAll(pageable);
-		
-	}
-
+//  HTML轉換
 	@Transactional
 	@Override
 	public News getAndConvert(Long id) {
 		News news = newsRepository.findOne(id);
-//		if (news == null) {
-//			throw new NotFoundException("不存在");
-//		}
 		News n = new News();
 		BeanUtils.copyProperties(news, n);
 		String content = n.getContent();
 		n.setContent(MarkdownUtils.markdownToHtml(content));
 		return n;
 	}
-	
-	   
-
 }

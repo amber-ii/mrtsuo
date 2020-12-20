@@ -21,101 +21,99 @@ import com.mrtsuo.service.ProductService;
 import com.mrtsuo.service.TypeService;
 import com.mrtsuo.vo.ProductQuery;
 
-/**
- * 
- * @author amber
- *
- */
 @Controller
 @RequestMapping("/admin")
 public class ProductController {
-	
+	/**
+	 * 商品(後台)
+	 */
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@Autowired
 	private TypeService typeService;
 
-	@GetMapping("/products") 
+	private static final String LIST = "admin/products";
+	private static final String INPUT = "admin/products-input";
+	private static final String REDIRECT_LIST = "redirect:/admin/products";
+
+//	產品列表
+	@GetMapping("/products")
 	public String products(
-			@PageableDefault(size = 5, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
-			Model model,ProductQuery prod,Type type) {
-		model.addAttribute("type", type);
+			@PageableDefault(size = 10, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable, Model model,
+			ProductQuery prod, Type type) {
 		model.addAttribute("types", typeService.listType());
-		
-		model.addAttribute("prod", prod);
-		model.addAttribute("page",productService.listProducts(pageable, prod));
-		return "admin/products"; 
-		
-	} 
+		model.addAttribute("page", productService.listProducts(pageable, prod));
+		return LIST;
+	}
 
+//	關鍵字搜尋
 	@PostMapping("/products/search")
-	public String search(
-			@PageableDefault(size = 5, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
-			Model model,ProductQuery prod,Type type) {
-		
-		model.addAttribute("prod", prod);
-		model.addAttribute("page",productService.listProducts(pageable,prod));
-		return "admin/products :: productList"; 
-		
-	} 
+	public String search(@PageableDefault(size = 10, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
+			Model model, ProductQuery prod) {
+		model.addAttribute("page", productService.listProducts(pageable, prod));
+		return "admin/products :: productList";
+	}
 
-
+//	至新增畫面
 	@GetMapping("/products/input")
-	public String input(Model model,Type type) {
+	public String input(Model model) {
 		model.addAttribute("product", new Product());
-		model.addAttribute("type", type);
 		model.addAttribute("types", typeService.listType());
-		return "admin/products-input";
+		return INPUT;
 	}
-	
+
+//	至編輯畫面
 	@GetMapping("/products/{id}/input")
-	public String editInput(@PathVariable Long id, Model model,Type type) {
-	    model.addAttribute("product", productService.getProduct(id));
-		model.addAttribute("type", type);
+	public String editInput(@PathVariable Long id, Model model) {
+		model.addAttribute("product", productService.getProduct(id));
 		model.addAttribute("types", typeService.listType());
-	    return "admin/products-input";
+		return INPUT;
 	}
-	
- 
+
+//	新增
 	@PostMapping("/products")
-	public String post(@Valid Product product,BindingResult result, RedirectAttributes attributes) {
+	public String post(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
 		Product product1 = productService.getProductByName(product.getName());
-	    if (product1 != null) {
-	        result.rejectValue("name","nameError","不能添加重複的產品");
-	    }
-	    if (result.hasErrors()) {
-	        return "admin/products-input";
-	    }
-	    product.setType(typeService.getType(product.getType().getId()));
-	    Product p = productService.saveProduct(product);
-	    if (p == null ) {
-	        attributes.addFlashAttribute("message", "新增失敗");
-	    } else {
-	        attributes.addFlashAttribute("message", "新增成功");
-	    }
-	    return "redirect:/admin/products";
+		if (product1 != null) {
+			result.rejectValue("name", "nameError", "不能添加重複的產品");
+		}
+		if (result.hasErrors()) {
+			return INPUT;
+		}
+		product.setType(typeService.getType(product.getType().getId()));
+		Product p = productService.saveProduct(product);
+		if (p == null) {
+			attributes.addFlashAttribute("message", "新增失敗");
+		} else {
+			attributes.addFlashAttribute("message", "新增成功");
+		}
+		return REDIRECT_LIST;
 	}
-	
+
+//	修改
 	@PostMapping("/products/{id}")
-	public String editPost(@Valid Product product,BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
-	    if (result.hasErrors()) { 
-	        return "admin/products-input";
-	    }
-	    Product p = productService.updateProduct(id, product);
-	    if (p == null) {
-	        attributes.addFlashAttribute("message", "更新失敗");
-	    } else {
-	        attributes.addFlashAttribute("message", "更新成功");
-	    }
-	    return "redirect:/admin/products";
+	public String editPost(@Valid Product product, BindingResult result, @PathVariable Long id,
+			RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			return INPUT;
+		}
+		Product p = productService.updateProduct(id, product);
+		if (p == null) {
+			attributes.addFlashAttribute("message", "更新失敗");
+		} else {
+			attributes.addFlashAttribute("message", "更新成功");
+		}
+		return REDIRECT_LIST;
 	}
-	 
+
+//	刪除
 	@GetMapping("/products/{id}/delete")
-	public String delete(@PathVariable Long id,RedirectAttributes attributes) {
-	    productService.deleteProduct(id);
-	    attributes.addFlashAttribute("message", "刪除成功");
-	    return "redirect:/admin/products";
+	public String delete(@PathVariable Long id, RedirectAttributes attributes) {
+		productService.deleteProduct(id);
+		attributes.addFlashAttribute("message", "刪除成功");
+		return REDIRECT_LIST;
 	}
-	
+
 }

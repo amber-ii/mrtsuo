@@ -12,24 +12,20 @@ import com.mrtsuo.repository.TypeRepository;
 import com.mrtsuo.service.TypeService;
 
 @Service
-public class TypeServiceImpl implements TypeService{
+public class TypeServiceImpl implements TypeService {
 
 	@Autowired
 	private TypeRepository typeRepository;
-	@Override
-	public Page<Type> listType(Pageable pageable) {
-		return typeRepository.findAll(pageable);
-	}
 
+//	查詢全部
 	@Override
 	public List<Type> listType() {
 		return typeRepository.findAll();
 	}
 
+//	查詢單一
 	@Override
 	public Type getType(Long id) {
 		return typeRepository.findOne(id);
 	}
-
-	
 }

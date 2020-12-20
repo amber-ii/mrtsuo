@@ -9,9 +9,11 @@ import org.springframework.data.jpa.repository.Query;
 import com.mrtsuo.model.Product;
 import com.mrtsuo.model.Type;
 
-public interface ProductRepository extends JpaRepository<Product,Long>,JpaSpecificationExecutor<Product>{
+public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
 	Product findByName(String name);
+
+//	關鍵字搜尋產品(客戶端menu)
 	@Query("select p from Product p where p.name like ?1")
 	Page<Product> findByQuery(String query, Pageable pageable);
-	
+
 }

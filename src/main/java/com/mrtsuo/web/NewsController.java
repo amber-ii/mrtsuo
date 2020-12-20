@@ -1,12 +1,12 @@
 package com.mrtsuo.web;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +22,10 @@ import com.mrtsuo.service.NewsService;
 @RequestMapping("/admin")
 public class NewsController {
 
+	/**
+	 * 最新消息(後台)
+	 */
+
 	private static final String LIST = "admin/news";
 	private static final String INPUT = "admin/news-input";
 	private static final String REDIRECT_LIST = "redirect:/admin/news";
@@ -29,29 +33,25 @@ public class NewsController {
 	@Autowired
 	private NewsService newsService;
 
-//	查詢
+//	最新消息列表
 	@GetMapping("/news")
 	public String news(
-			@PageableDefault(size = 2, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable,
+			@PageableDefault(size = 5, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable,
 			News news, Model model) {
-		model.addAttribute("news", news);
 		model.addAttribute("page", newsService.listNews(pageable, news));
 		return LIST;
 	}
 
-//	關鍵字、分類搜尋
+//	關鍵字搜尋
 	@PostMapping("/news/search")
 	public String search(
-			@PageableDefault(size = 2, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable,
+			@PageableDefault(size = 5, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable,
 			News news, Model model) {
-		model.addAttribute("news", news);
 		model.addAttribute("page", newsService.listNews(pageable, news));
 		return "admin/news :: newsList";
 	}
 
-	
-
-//	新增
+//	至新增頁面
 	@GetMapping("/news/input")
 	public String input(Model model) {
 		model.addAttribute("news", new News());
@@ -59,7 +59,7 @@ public class NewsController {
 
 	}
 
-//	修改
+//	至編輯畫面
 	@GetMapping("/news/{id}/input")
 	public String editInput(@PathVariable Long id, Model model) {
 		model.addAttribute("news", newsService.getNews(id));
@@ -83,6 +83,7 @@ public class NewsController {
 		return REDIRECT_LIST;
 	}
 
+//	刪除
 	@GetMapping("/news/{id}/delete")
 	public String delete(@PathVariable Long id, RedirectAttributes attributes) {
 		newsService.deleteNews(id);

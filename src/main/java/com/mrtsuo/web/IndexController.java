@@ -23,6 +23,9 @@ import com.mrtsuo.vo.ProductQuery;
 
 @Controller
 public class IndexController {
+	/**
+	 * 客戶操作端Controller
+	 */
 
 	@Autowired
 	private ProductService productService;
@@ -31,19 +34,20 @@ public class IndexController {
 	@Autowired
 	private TypeService typeService;
 
+//	查詢全部商品
 	@GetMapping("/product")
 	public String product(
 			@PageableDefault(size = 12, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
-			Model model, Product product, News news, Type type) {
-		model.addAttribute("page", productService.listProducts(pageable));
+			Model model, ProductQuery product) {
+		model.addAttribute("page", productService.listProducts(pageable, product));
 		model.addAttribute("types", typeService.listType());
-		model.addAttribute("pro", productService.listProduct());
 		return "product";
 	}
 
+//	依照分類查詢商品
 	@GetMapping("/product/types/{id}")
 	public String type(@PageableDefault(size = 30, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
-			Model model, @PathVariable Long id) {
+			Model model, @PathVariable Long id, Type type) {
 		List<Type> types = typeService.listType();
 		if (id == -1) {
 			id = types.get(0).getId();
@@ -55,47 +59,41 @@ public class IndexController {
 		model.addAttribute("page", productService.listProducts(pageable, prodQuery));
 		return "types";
 	}
-//最新消息頁面
+
+//  最新消息頁面
 	@GetMapping("/newspage")
 	public String newspage(
 			@PageableDefault(size = 5, sort = { "updateTime" }, direction = Sort.Direction.DESC) Pageable pageable,
 			Model model, News news) {
-		model.addAttribute("page", newsService.listNews(pageable));
+		model.addAttribute("page", newsService.listNews(pageable, news));
 		return "newspage";
 	}
 
-
-// 單一最新消息畫面
+//  單一最新消息畫面
 	@GetMapping("/newspage/{id}")
 	public String newspageByid(Pageable pageable, Model model, News news, @PathVariable Long id) {
 		model.addAttribute("newsone", newsService.getNews(id));
 		return "newspageone";
 	}
 
-//	搜尋產品
+//	Menu搜尋產品
 	@PostMapping("/product/search")
 	public String search(
 			@PageableDefault(size = 30, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
 			@RequestParam String query, Model model) {
 		model.addAttribute("page", productService.listProducts("%" + query + "%", pageable));
-//		將查詢結果返回
-		model.addAttribute("query", query);
+		// 將查詢結果返回
+//		model.addAttribute("query", query);
 		return "search";
-
 	}
 
-	@GetMapping("/product/{id}")
-	public String product() {
-		return "product";
-	}
-
-//首頁
+//  首頁
 	@GetMapping("/")
 	public String home() {
 		return "index";
 	}
 
-//門市資訊
+//  門市資訊
 	@GetMapping("/store")
 	public String store() {
 		return "store";

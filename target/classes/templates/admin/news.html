@@ -23,8 +23,7 @@
 	</div>
 
 	<br>
-	<br>
-	<br>
+
 	<!-- 中間 -->
 	<div class="m-container-small m-padded-tb-big">
 		<div class="ui container">
@@ -86,7 +85,7 @@
 		</div>
 		</div>
 	</div>
-	<br><br><br><br>
+	<br><br>
 
 
 	<!-- 底部 -->
@@ -119,6 +118,10 @@
 			loaddata();
 		});
 		
+		 $('#clear-btn').on('click', function(){
+			 $(" input[ name='title' ] ").val("");
+		 });
+		 
 		function loaddata(){
 			$("#table-container").load(/*[[@{/admin/news/search}]]*/"/admin/news/search",{
 				title : $("[name='title']").val(),

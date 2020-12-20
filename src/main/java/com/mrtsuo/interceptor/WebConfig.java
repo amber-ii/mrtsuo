@@ -25,7 +25,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 控制器的過濾設置
- * 相當於mvc的配置xml
+ * 
  * @author amber
  *
  */

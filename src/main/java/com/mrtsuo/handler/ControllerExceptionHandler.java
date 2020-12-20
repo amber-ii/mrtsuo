@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 統一異常處理類 
- * @author amber 捕捉異常
+ * @author amber
  * 
  */
 

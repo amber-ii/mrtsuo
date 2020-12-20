@@ -10,7 +10,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import lombok.Data;
-
+/**
+ * 使用者
+ * @author amber
+ *
+ */
 @Entity
 @Table(name = "t_user")
 @Data

@@ -15,10 +15,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+/**
+ * 日誌紀錄
+ * @author amber
+ *
+ */
 
-
-@Aspect // 切面
-@Component // 掃描
+@Aspect
+@Component 
 public class LogAspect {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
