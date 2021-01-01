@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,7 +103,7 @@ public class ProductController {
 	
 	
 	@PostMapping("/products")
-	public String post(@Valid Product product, @RequestParam("img") MultipartFile multipartFile, BindingResult result, RedirectAttributes attributes) {
+	public String post(@Valid Product product, @RequestParam("img") MultipartFile multipartFile, BindingResult result, RedirectAttributes attributes,HttpServletRequest request) {
 		Product product1 = productService.getProductByName(product.getName());
 		if (product1 != null) {
 			result.rejectValue("name", "nameError", "不能添加重複的產品");
@@ -114,7 +115,8 @@ public class ProductController {
 			// 準備變數放入實體類 放入資料庫
 			String filename = null;
 			// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-			String path = "file:///Users/amber/mrtsuopat/src/main/resources/static/image/";
+//			String path = "file:///Users/amber/mrtsuopat/src/main/resources/static/image/";
+			String path = request.getSession().getServletContext().getRealPath("/image/");
 			// 2.獲取原始檔名
 			String oldFileName = multipartFile.getOriginalFilename();
 
