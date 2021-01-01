@@ -48,8 +48,8 @@ public class ProductController {
 //	產品列表
 	@GetMapping("/products")
 	public String products(
-			@PageableDefault(size = 10, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable, Model model,
-			ProductQuery prod, Type type) {
+			@PageableDefault(size = 10, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
+			Model model, ProductQuery prod, Type type) {
 		model.addAttribute("types", typeService.listType());
 		model.addAttribute("page", productService.listProducts(pageable, prod));
 		return LIST;
@@ -57,7 +57,8 @@ public class ProductController {
 
 //	關鍵字搜尋
 	@PostMapping("/products/search")
-	public String search(@PageableDefault(size = 10, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
+	public String search(
+			@PageableDefault(size = 10, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable,
 			Model model, ProductQuery prod) {
 		model.addAttribute("page", productService.listProducts(pageable, prod));
 		return "admin/products :: productList";
@@ -99,11 +100,10 @@ public class ProductController {
 //		}
 //		return REDIRECT_LIST;
 //	}
-	
-	
-	
+
 	@PostMapping("/products")
-	public String post(@Valid Product product, @RequestParam("img") MultipartFile multipartFile, BindingResult result, RedirectAttributes attributes,HttpServletRequest request) {
+	public String post(@Valid Product product, @RequestParam("img") MultipartFile multipartFile, BindingResult result,
+			RedirectAttributes attributes, HttpServletRequest request) {
 		Product product1 = productService.getProductByName(product.getName());
 		if (product1 != null) {
 			result.rejectValue("name", "nameError", "不能添加重複的產品");
@@ -111,30 +111,30 @@ public class ProductController {
 		if (result.hasErrors()) {
 			return INPUT;
 		}
-		
-			// 準備變數放入實體類 放入資料庫
-			String filename = null;
-			// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
+
+		// 準備變數放入實體類 放入資料庫
+		String filename = null;
+		// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
 //			String path = "file:///Users/amber/mrtsuopat/src/main/resources/static/image/";
-			String path = request.getSession().getServletContext().getRealPath("/image/");
-			// 2.獲取原始檔名
-			String oldFileName = multipartFile.getOriginalFilename();
+		String path = request.getSession().getServletContext().getRealPath("/image");
+		// 2.獲取原始檔名
+		String oldFileName = multipartFile.getOriginalFilename();
 
-			String newFileName = UUID.randomUUID() + oldFileName;
+		String newFileName = UUID.randomUUID() + oldFileName;
 
-			File targetFile = new File(path, newFileName);
+		File targetFile = new File(path, newFileName);
 
-			// 寫入 上傳
-			try {
-				multipartFile.transferTo(targetFile);
+		// 寫入 上傳
+		try {
+			multipartFile.transferTo(targetFile);
 
-			} catch (IOException e) {
-				e.printStackTrace();
-				
-			}
-			filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
-			product.setPicture(filename);
-			
+		} catch (IOException e) {
+			e.printStackTrace();
+
+		}
+		filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
+		product.setPicture(filename);
+
 		product.setType(typeService.getType(product.getType().getId()));
 		Product p = productService.saveProduct(product);
 		if (p == null) {
@@ -144,37 +144,35 @@ public class ProductController {
 		}
 		return REDIRECT_LIST;
 	}
-	
-	
 
 //	修改
 	@PostMapping("/products/{id}")
-	public String editPost(@Valid Product product, @RequestParam("img") MultipartFile multipartFile, BindingResult result, @PathVariable Long id,
-			RedirectAttributes attributes) {
+	public String editPost(@Valid Product product, @RequestParam("img") MultipartFile multipartFile,
+			BindingResult result, @PathVariable Long id, RedirectAttributes attributes, HttpServletRequest request) {
 		if (result.hasErrors()) {
 			return INPUT;
 		}
 		// 準備變數放入實體類 放入資料庫
-					String filename = null;
-					// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-					String path = "/Users/amber/mrtsuopat/src/main/resources/static/image/";
-					// 2.獲取原始檔名
-					String oldFileName = multipartFile.getOriginalFilename();
+		String filename = null;
+		// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
+		String path = request.getSession().getServletContext().getRealPath("/image");
+		// 2.獲取原始檔名
+		String oldFileName = multipartFile.getOriginalFilename();
 
-					String newFileName = UUID.randomUUID() + oldFileName;
+		String newFileName = UUID.randomUUID() + oldFileName;
 
-					File targetFile = new File(path, newFileName);
+		File targetFile = new File(path, newFileName);
 
-					// 寫入 上傳
-					try {
-						multipartFile.transferTo(targetFile);
+		// 寫入 上傳
+		try {
+			multipartFile.transferTo(targetFile);
 
-					} catch (IOException e) {
-						e.printStackTrace();
-						return INPUT;
-					}
-					filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
-					product.setPicture(filename);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return INPUT;
+		}
+		filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
+		product.setPicture(filename);
 		Product p = productService.updateProduct(id, product);
 		if (p == null) {
 			attributes.addFlashAttribute("message", "更新失敗");
