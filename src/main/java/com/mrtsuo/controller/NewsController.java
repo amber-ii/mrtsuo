@@ -95,7 +95,7 @@ public class NewsController {
 
 			} catch (IOException e) {
 				e.printStackTrace();
-				return INPUT;
+				
 			}
 			filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
 			news.setPicture(filename);
