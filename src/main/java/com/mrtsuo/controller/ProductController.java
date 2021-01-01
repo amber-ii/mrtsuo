@@ -114,7 +114,7 @@ public class ProductController {
 			// 準備變數放入實體類 放入資料庫
 			String filename = null;
 			// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-			String path = "/Users/amber/mrtsuopat/src/main/resources/static/image/";
+			String path = "file:///Users/amber/mrtsuopat/src/main/resources/static/image/";
 			// 2.獲取原始檔名
 			String oldFileName = multipartFile.getOriginalFilename();
 
