@@ -2,7 +2,7 @@ package com.mrtsuo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.mrtsuo.model.User;
+import com.mrtsuo.domain.User;
 
 public interface UserRepository extends JpaRepository<User,Long>{
     

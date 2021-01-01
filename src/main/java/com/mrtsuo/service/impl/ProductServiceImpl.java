@@ -19,9 +19,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mrtsuo.NotFoundException;
-import com.mrtsuo.model.News;
-import com.mrtsuo.model.Product;
-import com.mrtsuo.model.Type;
+import com.mrtsuo.domain.News;
+import com.mrtsuo.domain.Product;
+import com.mrtsuo.domain.Type;
 import com.mrtsuo.repository.ProductRepository;
 import com.mrtsuo.service.ProductService;
 import com.mrtsuo.vo.ProductQuery;

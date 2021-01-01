@@ -2,7 +2,9 @@ package com.mrtsuo.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import com.mrtsuo.model.News;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.mrtsuo.domain.News;
 
 public interface NewsService {
 	// 查詢所有消息
@@ -22,4 +24,7 @@ public interface NewsService {
 
 	// HTML轉換
 	News getAndConvert(Long id);
+	
+//	新增圖片
+	
 }

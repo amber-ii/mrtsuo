@@ -1,5 +1,12 @@
 package com.mrtsuo.service.impl;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -16,9 +23,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mrtsuo.NotFoundException;
-import com.mrtsuo.model.News;
+import com.mrtsuo.domain.News;
 import com.mrtsuo.repository.NewsRepository;
 import com.mrtsuo.service.NewsService;
 import com.mrtsuo.util.MarkdownUtils;
@@ -63,6 +71,20 @@ public class NewsServiceImpl implements NewsService {
 		}
 		return newsRepository.save(news);
 	}
+	
+	//嘗試
+//	@Override
+//	public News saveNews(News news) {
+//		if (news.getId() == null) {
+//			news.setCreateTime(new Date());
+//			news.setUpdateTime(new Date());
+//		} else {
+//			news.setUpdateTime(new Date());
+//		}
+//		return newsRepository.save(news);
+//	}
+	
+	
 
 //	編輯修改
 	@Override
@@ -94,3 +116,4 @@ public class NewsServiceImpl implements NewsService {
 		return n;
 	}
 }
+	

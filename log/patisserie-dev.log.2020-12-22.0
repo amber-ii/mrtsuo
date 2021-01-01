@@ -1,0 +1,265 @@
+2020-12-22 00:22:50.622  INFO 90586 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 90586 (/Users/amber/mrtsuopat/target/classes started by amber in /Users/amber/mrtsuopat)
+2020-12-22 00:22:50.633 DEBUG 90586 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-12-22 00:22:50.633  INFO 90586 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-12-22 00:22:51.200  INFO 90586 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4be74e69: startup date [Tue Dec 22 00:22:51 CST 2020]; root of context hierarchy
+2020-12-22 00:22:52.321  WARN 90586 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-12-22 00:22:54.275  INFO 90586 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9527 (http)
+2020-12-22 00:22:54.290  INFO 90586 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-22 00:22:54.291  INFO 90586 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-12-22 00:22:54.458  INFO 90586 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-22 00:22:54.458  INFO 90586 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3258 ms
+2020-12-22 00:22:54.706  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-12-22 00:22:54.714  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-12-22 00:22:54.714  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-12-22 00:22:54.714  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-12-22 00:22:54.715  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-12-22 00:22:55.365  INFO 90586 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-12-22 00:22:55.394  INFO 90586 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-12-22 00:22:55.540  INFO 90586 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2020-12-22 00:22:55.541  INFO 90586 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-12-22 00:22:55.543  INFO 90586 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2020-12-22 00:22:55.592  INFO 90586 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2020-12-22 00:22:56.768  INFO 90586 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-22 00:22:57.374  INFO 90586 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-12-22 00:22:57.566  INFO 90586 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-22 00:22:58.242  INFO 90586 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-12-22 00:22:59.247  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4be74e69: startup date [Tue Dec 22 00:22:51 CST 2020]; root of context hierarchy
+2020-12-22 00:22:59.360  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadFile],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.FileController.uploadFile(org.springframework.web.multipart.MultipartFile,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:22:59.365  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.home()
+2020-12-22 00:22:59.365  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/newspage],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.newspage(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.model.News)
+2020-12-22 00:22:59.365  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.product(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-12-22 00:22:59.366  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/newspage/{id}],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.newspageByid(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.model.News,java.lang.Long)
+2020-12-22 00:22:59.366  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product/types/{id}],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.type(org.springframework.data.domain.Pageable,org.springframework.ui.Model,java.lang.Long,com.mrtsuo.model.Type)
+2020-12-22 00:22:59.366  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/store],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.store()
+2020-12-22 00:22:59.366  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.IndexController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2020-12-22 00:22:59.368  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:22:59.368  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-12-22 00:22:59.368  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-12-22 00:22:59.370  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.input(org.springframework.ui.Model)
+2020-12-22 00:22:59.371  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.model.News,org.springframework.ui.Model)
+2020-12-22 00:22:59.371  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-12-22 00:22:59.377  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:22:59.378  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.model.News,org.springframework.ui.Model)
+2020-12-22 00:22:59.378  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.post(com.mrtsuo.model.News,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:22:59.382  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-12-22 00:22:59.382  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:22:59.383  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-12-22 00:22:59.383  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-12-22 00:22:59.383  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:22:59.384  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-12-22 00:22:59.384  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:22:59.385  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-12-22 00:22:59.386  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-12-22 00:22:59.446  INFO 90586 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-12-22 00:22:59.446  INFO 90586 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-12-22 00:22:59.465  INFO 90586 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-12-22 00:22:59.493  INFO 90586 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-12-22 00:23:00.968  INFO 90586 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-22 00:23:01.042  INFO 90586 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-12-22 00:23:01.155  INFO 90586 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9527 (http)
+2020-12-22 00:23:01.162  INFO 90586 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 11.584 seconds (JVM running for 12.883)
+2020-12-22 00:23:20.111  INFO 90586 --- [http-nio-9527-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-12-22 00:23:20.112  INFO 90586 --- [http-nio-9527-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-12-22 00:23:20.148  INFO 90586 --- [http-nio-9527-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 36 ms
+2020-12-22 00:23:20.194  INFO 90586 --- [http-nio-9527-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.IndexController.home, args=[]}
+2020-12-22 00:23:20.203  INFO 90586 --- [http-nio-9527-exec-1] com.mrtsuo.aspect.LogAspect              : Result : index
+2020-12-22 00:23:25.275  INFO 90586 --- [http-nio-9527-exec-6] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-12-22 00:23:25.284  INFO 90586 --- [http-nio-9527-exec-6] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-12-22 00:23:27.852  INFO 90586 --- [http-nio-9527-exec-7] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@71e62209, {}]}
+2020-12-22 00:23:27.955  INFO 90586 --- [http-nio-9527-exec-7] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-12-22 00:23:34.645  INFO 90586 --- [http-nio-9527-exec-9] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/admin/news, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.NewsController.news, args=[Page request [number: 0, size 5, sort: updateTime: DESC], News(id=null, title=null, picture=null, content=null, shareStatement=false, published=false, createTime=null, updateTime=null), {news=News(id=null, title=null, picture=null, content=null, shareStatement=false, published=false, createTime=null, updateTime=null), org.springframework.validation.BindingResult.news=org.springframework.validation.BeanPropertyBindingResult: 0 errors}]}
+2020-12-22 00:23:34.734  INFO 90586 --- [http-nio-9527-exec-9] com.mrtsuo.aspect.LogAspect              : Result : admin/news
+2020-12-22 00:23:36.437  INFO 90586 --- [http-nio-9527-exec-10] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/admin/news/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.NewsController.input, args=[{}]}
+2020-12-22 00:23:36.437  INFO 90586 --- [http-nio-9527-exec-10] com.mrtsuo.aspect.LogAspect              : Result : admin/news-input
+2020-12-22 00:24:19.738 ERROR 90586 --- [http-nio-9527-exec-2] c.m.handler.ControllerExceptionHandler   : Request URL : http://localhost:9527/admin/news, Exception : {}
+
+org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'news' on field 'picture': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@38b77ee4]; codes [typeMismatch.news.picture,typeMismatch.picture,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [news.picture,picture]; arguments []; default message [picture]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'picture'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'picture': no matching editors or conversion strategy found]
+	at org.springframework.web.method.annotation.ModelAttributeMethodProcessor.resolveArgument(ModelAttributeMethodProcessor.java:117)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-12-22 00:24:19.739  WARN 90586 --- [http-nio-9527-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'news' on field 'picture': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@38b77ee4]; codes [typeMismatch.news.picture,typeMismatch.picture,typeMismatch.java.lang.String,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [news.picture,picture]; arguments []; default message [picture]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'picture'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.lang.String' for property 'picture': no matching editors or conversion strategy found]
+2020-12-22 00:27:32.223  INFO 90586 --- [Thread-7] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4be74e69: startup date [Tue Dec 22 00:22:51 CST 2020]; root of context hierarchy
+2020-12-22 00:27:32.236  INFO 90586 --- [Thread-7] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2020-12-22 00:27:32.238  INFO 90586 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-22 00:27:32.855  INFO 90586 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 90586 (/Users/amber/mrtsuopat/target/classes started by amber in /Users/amber/mrtsuopat)
+2020-12-22 00:27:32.856 DEBUG 90586 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2020-12-22 00:27:32.856  INFO 90586 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2020-12-22 00:27:32.858  INFO 90586 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@12714b45: startup date [Tue Dec 22 00:27:32 CST 2020]; root of context hierarchy
+2020-12-22 00:27:33.361  WARN 90586 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2020-12-22 00:27:33.552  INFO 90586 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9527 (http)
+2020-12-22 00:27:33.553  INFO 90586 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-22 00:27:33.553  INFO 90586 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2020-12-22 00:27:33.562  INFO 90586 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-22 00:27:33.563  INFO 90586 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 705 ms
+2020-12-22 00:27:33.621  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2020-12-22 00:27:33.621  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-12-22 00:27:33.621  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-12-22 00:27:33.621  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-12-22 00:27:33.622  INFO 90586 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2020-12-22 00:27:33.773  INFO 90586 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2020-12-22 00:27:33.773  INFO 90586 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-12-22 00:27:33.961  INFO 90586 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2020-12-22 00:27:34.015  INFO 90586 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2020-12-22 00:27:34.173  INFO 90586 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-22 00:27:34.393  INFO 90586 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2020-12-22 00:27:35.040  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@12714b45: startup date [Tue Dec 22 00:27:32 CST 2020]; root of context hierarchy
+2020-12-22 00:27:35.060  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/uploadFile],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.FileController.uploadFile(org.springframework.web.multipart.MultipartFile,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:27:35.062  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.home()
+2020-12-22 00:27:35.062  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/newspage],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.newspage(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.model.News)
+2020-12-22 00:27:35.064  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.product(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-12-22 00:27:35.064  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/newspage/{id}],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.newspageByid(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.model.News,java.lang.Long)
+2020-12-22 00:27:35.064  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product/types/{id}],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.type(org.springframework.data.domain.Pageable,org.springframework.ui.Model,java.lang.Long,com.mrtsuo.model.Type)
+2020-12-22 00:27:35.064  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/store],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.IndexController.store()
+2020-12-22 00:27:35.064  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.IndexController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2020-12-22 00:27:35.065  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:27:35.065  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.logout(javax.servlet.http.HttpSession)
+2020-12-22 00:27:35.066  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.LoginController.loginPage()
+2020-12-22 00:27:35.067  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.input(org.springframework.ui.Model)
+2020-12-22 00:27:35.067  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.model.News,org.springframework.ui.Model)
+2020-12-22 00:27:35.067  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-12-22 00:27:35.068  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.NewsController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:27:35.068  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.model.News,org.springframework.ui.Model)
+2020-12-22 00:27:35.068  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.NewsController.post(com.mrtsuo.model.News,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:27:35.071  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.model.Type)
+2020-12-22 00:27:35.071  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.editPost(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:27:35.072  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.input(org.springframework.ui.Model)
+2020-12-22 00:27:35.072  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2020-12-22 00:27:35.073  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.web.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:27:35.073  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2020-12-22 00:27:35.073  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.web.ProductController.post(com.mrtsuo.model.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2020-12-22 00:27:35.074  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-12-22 00:27:35.074  INFO 90586 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-12-22 00:27:35.094  INFO 90586 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-12-22 00:27:35.094  INFO 90586 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-12-22 00:27:35.106  INFO 90586 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2020-12-22 00:27:35.114  INFO 90586 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-12-22 00:27:35.338  INFO 90586 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-12-22 00:27:35.389  INFO 90586 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2020-12-22 00:27:35.399  INFO 90586 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9527 (http)
+2020-12-22 00:27:35.401  INFO 90586 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 2.631 seconds (JVM running for 287.121)
+2020-12-22 00:29:14.958  INFO 90586 --- [http-nio-9527-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-12-22 00:29:14.959  INFO 90586 --- [http-nio-9527-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2020-12-22 00:29:14.989  INFO 90586 --- [http-nio-9527-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 30 ms
+2020-12-22 00:29:15.000  INFO 90586 --- [http-nio-9527-exec-1] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/admin, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.loginPage, args=[]}
+2020-12-22 00:29:15.009  INFO 90586 --- [http-nio-9527-exec-1] com.mrtsuo.aspect.LogAspect              : Result : admin/login
+2020-12-22 00:29:19.333  INFO 90586 --- [http-nio-9527-exec-2] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/admin/login, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.LoginController.login, args=[amber, 123, org.apache.catalina.session.StandardSessionFacade@1af0c4d0, {}]}
+2020-12-22 00:29:19.358  INFO 90586 --- [http-nio-9527-exec-2] com.mrtsuo.aspect.LogAspect              : Result : admin/index
+2020-12-22 00:29:23.556  INFO 90586 --- [http-nio-9527-exec-4] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/admin/news, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.NewsController.news, args=[Page request [number: 0, size 5, sort: updateTime: DESC], News(id=null, title=null, picture=null, content=null, shareStatement=false, published=false, createTime=null, updateTime=null), {news=News(id=null, title=null, picture=null, content=null, shareStatement=false, published=false, createTime=null, updateTime=null), org.springframework.validation.BindingResult.news=org.springframework.validation.BeanPropertyBindingResult: 0 errors}]}
+2020-12-22 00:29:23.617  INFO 90586 --- [http-nio-9527-exec-4] com.mrtsuo.aspect.LogAspect              : Result : admin/news
+2020-12-22 00:29:26.990  INFO 90586 --- [http-nio-9527-exec-5] com.mrtsuo.aspect.LogAspect              : Request : { url=http://localhost:9527/admin/news/input, ip=0:0:0:0:0:0:0:1, classMethod=com.mrtsuo.web.NewsController.input, args=[{}]}
+2020-12-22 00:29:26.991  INFO 90586 --- [http-nio-9527-exec-5] com.mrtsuo.aspect.LogAspect              : Result : admin/news-input
+2020-12-22 00:29:36.782 ERROR 90586 --- [http-nio-9527-exec-7] c.m.handler.ControllerExceptionHandler   : Request URL : http://localhost:9527/admin/news, Exception : {}
+
+org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'news' on field 'picture': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@7a0faf4]; codes [typeMismatch.news.picture,typeMismatch.picture,typeMismatch.java.sql.Blob,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [news.picture,picture]; arguments []; default message [picture]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.sql.Blob' for property 'picture'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.sql.Blob' for property 'picture': no matching editors or conversion strategy found]
+	at org.springframework.web.method.annotation.ModelAttributeMethodProcessor.resolveArgument(ModelAttributeMethodProcessor.java:117)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:872)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:661)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2020-12-22 00:29:36.783  WARN 90586 --- [http-nio-9527-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'news' on field 'picture': rejected value [org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile@7a0faf4]; codes [typeMismatch.news.picture,typeMismatch.picture,typeMismatch.java.sql.Blob,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [news.picture,picture]; arguments []; default message [picture]]; default message [Failed to convert property value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.sql.Blob' for property 'picture'; nested exception is java.lang.IllegalStateException: Cannot convert value of type 'org.springframework.web.multipart.support.StandardMultipartHttpServletRequest$StandardMultipartFile' to required type 'java.sql.Blob' for property 'picture': no matching editors or conversion strategy found]

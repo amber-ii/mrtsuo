@@ -14,7 +14,7 @@ import org.commonmark.renderer.html.AttributeProviderContext;
 import org.commonmark.renderer.html.AttributeProviderFactory;
 import org.commonmark.renderer.html.HtmlRenderer;
 
-import com.mrtsuo.model.News;
+import com.mrtsuo.domain.News;
 
 public class MarkdownUtils {
 	/**

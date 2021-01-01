@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
-import com.mrtsuo.model.Product;
-import com.mrtsuo.model.Type;
+import com.mrtsuo.domain.Product;
+import com.mrtsuo.domain.Type;
 
 public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
 	Product findByName(String name);

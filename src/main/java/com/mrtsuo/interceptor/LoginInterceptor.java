@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.mrtsuo.model.User;
+import com.mrtsuo.domain.User;
 
 /**
  * 攔截未登入的訪問

@@ -3,7 +3,7 @@ package com.mrtsuo.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mrtsuo.model.User;
+import com.mrtsuo.domain.User;
 import com.mrtsuo.repository.UserRepository;
 import com.mrtsuo.service.UserService;
 import com.mrtsuo.util.MD5Utils;

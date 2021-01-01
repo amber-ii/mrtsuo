@@ -3,7 +3,7 @@ package com.mrtsuo.service;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import com.mrtsuo.model.Product;
+import com.mrtsuo.domain.Product;
 import com.mrtsuo.vo.ProductQuery;
 
 public interface ProductService {
