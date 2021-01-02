@@ -8,5 +8,6 @@ public class PatisserieApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(PatisserieApplication.class, args);
+	
 	}
 }

@@ -7,6 +7,7 @@ import java.util.UUID;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -70,7 +71,7 @@ public class NewsController {
 		model.addAttribute("news", newsService.getNews(id));
 		return INPUT;
 	}
-
+	
 //	新增、修改
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes,
@@ -80,9 +81,13 @@ public class NewsController {
 			// 準備變數放入實體類 放入資料庫
 			String filename = null;
 			// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-//			String path = "file:///Users/amber/mrtsuopat/src/main/resources/static/image/";
-//			String path = request.getSession().getServletContext().getRealPath("/image");
-			String path = request.getSession().getServletContext().getRealPath("static" + File.separator + "image");
+//			測試環境
+//			String path = "/Users/amber/mrtsuopat/src/main/resources/static/image/";
+			
+			
+			String path = request.getSession().getServletContext().getRealPath("");
+//			String path = request.getSession().getServletContext().getRealPath("static" + File.separator + "image");
+			
 			// 2.獲取原始檔名
 			String oldFileName = multipartFile.getOriginalFilename();
 
@@ -139,5 +144,4 @@ public class NewsController {
 		attributes.addFlashAttribute("message", "刪除成功");
 		return REDIRECT_LIST;
 	}
-//	
 }

@@ -115,9 +115,8 @@ public class ProductController {
 		// 準備變數放入實體類 放入資料庫
 		String filename = null;
 		// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-//			String path = "file:///Users/amber/mrtsuopat/src/main/resources/static/image/";
-//		String path = request.getSession().getServletContext().getRealPath("/image");
-		String path = request.getSession().getServletContext().getRealPath("static" + File.separator + "image");
+//		String path = "file:///Users/amber/mrtsuopat/src/main/resources/static/image/";
+		String path = request.getSession().getServletContext().getRealPath("");
 		// 2.獲取原始檔名
 		String oldFileName = multipartFile.getOriginalFilename();
 
@@ -156,7 +155,7 @@ public class ProductController {
 		// 準備變數放入實體類 放入資料庫
 		String filename = null;
 		// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-		String path = request.getSession().getServletContext().getRealPath("/image");
+		String path = request.getSession().getServletContext().getRealPath("");
 		// 2.獲取原始檔名
 		String oldFileName = multipartFile.getOriginalFilename();
 
