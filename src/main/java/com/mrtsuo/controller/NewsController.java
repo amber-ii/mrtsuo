@@ -90,7 +90,7 @@ public class NewsController {
 			
 			String oldFileName = multipartFile.getOriginalFilename();
 			String newFileName = UUID.randomUUID() + oldFileName;
-			File targetFile = new File(path, newFileName);
+			File targetFile = new File(path+newFileName);
 			try {
 				multipartFile.transferTo(targetFile);
 				filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
