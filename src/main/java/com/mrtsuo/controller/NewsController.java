@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -71,8 +72,7 @@ public class NewsController {
 		model.addAttribute("news", newsService.getNews(id));
 		return INPUT;
 	}
-	
-	
+
 //	新增、修改
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes,
@@ -83,14 +83,24 @@ public class NewsController {
 			String filename = null;
 //			測試環境
 //			String path = "/Users/amber/mrtsuopat/src/main/resources/static/image/";
-			String path = "/Users/amber/uploadImage/";
+//			String path = "/Users/amber/uploadImage/";
 //			String path = request.getSession().getServletContext().getRealPath("");
 //			String path = request.getSession().getServletContext().getRealPath("");
 //			String path = request.getRequestURL().toString() + "/image/";
-			
+
 			String oldFileName = multipartFile.getOriginalFilename();
 			String newFileName = UUID.randomUUID() + oldFileName;
-			File targetFile = new File(path+newFileName);
+//			File targetFile = new File(path,newFileName);
+			File aa = new File(ResourceUtils.getURL("classpath:").getPath());
+			if (!aa.exists()) {
+				aa = new File("");
+			}
+			File targetFile = new File(aa.getAbsolutePath(), "static/image/upload/");
+			if(!targetFile.exists()){
+				targetFile.mkdirs();
+			     //在开发测试模式时，得到地址为：{项目跟目录}/target/static/images/upload/
+			    //在打成jar正式发布时，得到的地址为:{发布jar包目录}/static/images/upload/
+			}
 			try {
 				multipartFile.transferTo(targetFile);
 				filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
@@ -98,9 +108,8 @@ public class NewsController {
 				news.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
 			} catch (IOException e) {
 				e.printStackTrace();
-				
+
 			}
-			
 
 			n = newsService.saveNews(news);
 
