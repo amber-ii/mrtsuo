@@ -25,6 +25,7 @@ public class Product{
     private Type type;
 
     private String picture;
+    private String url;
 
 	
 

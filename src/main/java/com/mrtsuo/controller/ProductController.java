@@ -115,8 +115,11 @@ public class ProductController {
 		// 準備變數放入實體類 放入資料庫
 		String filename = null;
 		// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-//		String path = "file:///Users/amber/mrtsuopat/src/main/resources/static/image/";
-		String path = request.getSession().getServletContext().getRealPath("");
+//		String path = "/Users/amber/uploadImage/";
+//		String path = request.getSession().getServletContext().getRealPath(request.getRequestURI());
+		
+//		String path = request.getSession().getServletContext().getRealPath("uploadImage");
+		String path = "/Users/amber/uploadImage/";
 		// 2.獲取原始檔名
 		String oldFileName = multipartFile.getOriginalFilename();
 
@@ -134,6 +137,7 @@ public class ProductController {
 		}
 		filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
 		product.setPicture(filename);
+		product.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
 
 		product.setType(typeService.getType(product.getType().getId()));
 		Product p = productService.saveProduct(product);

@@ -72,6 +72,7 @@ public class NewsController {
 		return INPUT;
 	}
 	
+	
 //	新增、修改
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes,
@@ -80,31 +81,26 @@ public class NewsController {
 		if (news.getId() == null) {
 			// 準備變數放入實體類 放入資料庫
 			String filename = null;
-			// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
 //			測試環境
 //			String path = "/Users/amber/mrtsuopat/src/main/resources/static/image/";
+			String path = "/Users/amber/uploadImage/";
+//			String path = request.getSession().getServletContext().getRealPath("");
+//			String path = request.getSession().getServletContext().getRealPath("");
+//			String path = request.getRequestURL().toString() + "/image/";
 			
-			
-			String path = request.getSession().getServletContext().getRealPath("");
-//			String path = request.getSession().getServletContext().getRealPath("static" + File.separator + "image");
-			
-			// 2.獲取原始檔名
 			String oldFileName = multipartFile.getOriginalFilename();
-
 			String newFileName = UUID.randomUUID() + oldFileName;
-
 			File targetFile = new File(path, newFileName);
-
-			// 寫入 上傳
 			try {
 				multipartFile.transferTo(targetFile);
-
+				filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
+				news.setPicture(filename);
+				news.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
 			} catch (IOException e) {
 				e.printStackTrace();
 				
 			}
-			filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
-			news.setPicture(filename);
+			
 
 			n = newsService.saveNews(news);
 

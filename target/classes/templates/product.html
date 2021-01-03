@@ -81,7 +81,7 @@
 				<div class="ui grid">
 					<div class="ui center aligned four wide column post"
 						th:each="product : ${page.content}">
-						<img src="image/kingkom.jpg" th:src="@{${product.picture}}" alt=""
+						<img src="image/kingkom.jpg" th:src="@{'/uploadImage/'+${product.picture}}" alt=""
 							width="80%">
 
 						<p class="m-opacity-mini m-padded-tb-small2"

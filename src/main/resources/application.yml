@@ -5,10 +5,12 @@ spring:
     prefix: classpath:/templates/
     cache: false
   profiles:
-    active: pro
+    active: dev
 
   http:
     multipart:
       enabled: true
       max-file-size: 200MB
       max-request-size: 215MB
+      location: /Users/amber/uploadImage/
+      
