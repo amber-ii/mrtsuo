@@ -95,12 +95,12 @@ public class NewsController {
 			if (!aa.exists()) {
 				aa = new File("");
 			}
-			File targetFile = new File(aa.getAbsolutePath(), "static/image/upload/");
-			if(!targetFile.exists()){
-				targetFile.mkdirs();
+			File targetFile = new File(aa.getAbsolutePath() + "/static/image/",newFileName);
+//			if(!targetFile.exists()){
+//				targetFile.mkdirs();
 			     //在开发测试模式时，得到地址为：{项目跟目录}/target/static/images/upload/
 			    //在打成jar正式发布时，得到的地址为:{发布jar包目录}/static/images/upload/
-			}
+//			}
 			try {
 				multipartFile.transferTo(targetFile);
 				filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫

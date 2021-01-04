@@ -5,7 +5,7 @@ spring:
     prefix: classpath:/templates/
     cache: false
   profiles:
-    active: pro
+    active: dev
 
   http:
     multipart:
@@ -13,8 +13,8 @@ spring:
       max-file-size: 200MB
       max-request-size: 215MB
       #location: /Users/amber/mrtsuopat/src/main/resources/static/image/
-  resources:
-    static-locations:
-    - classpath:/META-INF/resources/,classpath:static/,file:static/,classpath:/resources/,file:{http.multipart.location}   
+  #resources:
+   # static-locations:
+    #- classpath:/META-INF/resources/,classpath:static/,file:static/,classpath:/resources/,file:{http.multipart.location}   
   mvc:
     static-path-pattern: /**
