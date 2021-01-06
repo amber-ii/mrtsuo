@@ -14,8 +14,9 @@ spring:
 logging:
   level:
     root: warn
-    com.lrm: info
+    com.mrtsuo: info
   file: log/patisserie-pro.log
-server:
-  port: 8081
+#server:
+  #port: 8081
+
   

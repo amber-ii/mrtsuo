@@ -1,3 +1,5 @@
+uploadpic:
+  path: /Users/amber/uploadpic/
 spring:
   thymeleaf:
     mode: HTML
@@ -13,8 +15,9 @@ spring:
       max-file-size: 200MB
       max-request-size: 215MB
       #location: /Users/amber/mrtsuopat/src/main/resources/static/image/
-  #resources:
-   # static-locations:
-    #- classpath:/META-INF/resources/,classpath:static/,file:static/,classpath:/resources/,file:{http.multipart.location}   
+      
   mvc:
     static-path-pattern: /**
+  resources:
+    static-locations:
+    - file:${uploadpic.path} 

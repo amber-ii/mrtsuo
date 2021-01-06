@@ -2,6 +2,10 @@ package com.mrtsuo.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +18,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,6 +78,14 @@ public class NewsController {
 		return INPUT;
 	}
 
+	
+	
+	
+	
+	
+	@Value("${uploadpic.path}")
+	private String uploadPicPath;
+
 //	新增、修改
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes,
@@ -80,7 +93,21 @@ public class NewsController {
 		News n;
 		if (news.getId() == null) {
 			// 準備變數放入實體類 放入資料庫
-			String filename = null;
+			
+			 String filename = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+		        try {
+		 
+		 
+		            try (InputStream inputStream = multipartFile.getInputStream()) {
+		                Files.copy(inputStream, Paths.get(uploadPicPath + filename), // 这里指定了下载的位置
+		                    StandardCopyOption.REPLACE_EXISTING);
+		            }
+		        }
+		        catch (IOException e) {
+		            throw new Exception("失败！" + filename, e);
+		        }
+		        
+		        
 //			測試環境
 //			String path = "/Users/amber/mrtsuopat/src/main/resources/static/image/";
 //			String path = "/Users/amber/uploadImage/";
@@ -88,30 +115,32 @@ public class NewsController {
 //			String path = request.getSession().getServletContext().getRealPath("");
 //			String path = request.getRequestURL().toString() + "/image/";
 
-			String oldFileName = multipartFile.getOriginalFilename();
-			String newFileName = UUID.randomUUID() + oldFileName;
-//			File targetFile = new File(path,newFileName);
-			File aa = new File(ResourceUtils.getURL("classpath:").getPath());
-			if (!aa.exists()) {
-				aa = new File("");
-			}
-			File targetFile = new File(aa.getAbsolutePath() + "/static/image/",newFileName);
+//			String oldFileName = multipartFile.getOriginalFilename();
+//			String newFileName = UUID.randomUUID() + oldFileName;
+////			File targetFile = new File(path,newFileName);
+//			File aa = new File(ResourceUtils.getURL("classpath:").getPath());
+//			if (!aa.exists()) {
+//				aa = new File("");
+//			}
+//			File targetFile = new File(aa.getAbsolutePath() + "/static/image/", newFileName);
+//			File targetFile = new File(aa.getAbsolutePath() + "/photo/",newFileName);
 //			if(!targetFile.exists()){
 //				targetFile.mkdirs();
-			     //在开发测试模式时，得到地址为：{项目跟目录}/target/static/images/upload/
-			    //在打成jar正式发布时，得到的地址为:{发布jar包目录}/static/images/upload/
+			// 在开发测试模式时，得到地址为：{项目跟目录}/target/static/images/upload/
+			// 在打成jar正式发布时，得到的地址为:{发布jar包目录}/static/images/upload/
 //			}
-			try {
-				multipartFile.transferTo(targetFile);
-				filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
-				news.setPicture(filename);
-				news.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
-			} catch (IOException e) {
-				e.printStackTrace();
-
-			}
+//			try {
+//				multipartFile.transferTo(targetFile);
+//				filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
+//				news.setPicture(filename);
+//				news.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//
+//			}
 
 			n = newsService.saveNews(news);
+			
 
 		} else {
 			n = newsService.updateNews(news.getId(), news);
