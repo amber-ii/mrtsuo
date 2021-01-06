@@ -92,21 +92,29 @@ public class NewsController {
 			HttpServletRequest request) throws Exception {
 		News n;
 		if (news.getId() == null) {
-			// 準備變數放入實體類 放入資料庫
-			
-			 String filename = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-		        try {
+			String oldFileName = multipartFile.getOriginalFilename();
+//			 String filename = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+			 String newFileName = UUID.randomUUID() + oldFileName;
+			 File targetFile = new File(uploadPicPath,newFileName);
+			 
+			 try {
+					multipartFile.transferTo(targetFile);
+					news.setPicture(newFileName);
+//					news.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
+				} catch (IOException e) {
+					e.printStackTrace();
+	
+				}
+//			File targetFile = new File(path,newFileName);
 		 
-		 
-		            try (InputStream inputStream = multipartFile.getInputStream()) {
-		                Files.copy(inputStream, Paths.get(uploadPicPath + filename), // 这里指定了下载的位置
-		                    StandardCopyOption.REPLACE_EXISTING);
-		                news.setPicture(filename);
-		            }
-		        }
-		        catch (IOException e) {
-		            throw new Exception("失败！" + filename, e);
-		        }
+//		            try (InputStream inputStream = multipartFile.getInputStream()) {
+//		                Files.copy(inputStream, Paths.get(uploadPicPath + filename), // 这里指定了下载的位置
+//		                    StandardCopyOption.REPLACE_EXISTING);
+//		                news.setPicture(filename);
+//		            }
+//		        catch (IOException e) {
+//		            throw new Exception("失败！" + filename, e);
+//		        }
 		        
 		        
 //			測試環境

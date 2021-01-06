@@ -9,15 +9,16 @@ spring:
   profiles:
     active: pro
 
+
   http:
     multipart:
       enabled: true
       max-file-size: 200MB
       max-request-size: 215MB
-      #location: /Users/amber/mrtsuopat/src/main/resources/static/image/
       
   mvc:
     static-path-pattern: /**
   resources:
     static-locations:
-    - file:${uploadpic.path} 
+    - file:${uploadpic.path}
+     
