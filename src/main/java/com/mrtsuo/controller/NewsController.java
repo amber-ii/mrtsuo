@@ -101,6 +101,7 @@ public class NewsController {
 		            try (InputStream inputStream = multipartFile.getInputStream()) {
 		                Files.copy(inputStream, Paths.get(uploadPicPath + filename), // 这里指定了下载的位置
 		                    StandardCopyOption.REPLACE_EXISTING);
+		                news.setPicture(filename);
 		            }
 		        }
 		        catch (IOException e) {
