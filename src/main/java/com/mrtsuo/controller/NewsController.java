@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Scanner;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -93,18 +94,19 @@ public class NewsController {
 		News n;
 		if (news.getId() == null) {
 			String oldFileName = multipartFile.getOriginalFilename();
-//			 String filename = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+//			 String oldFileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 			 String newFileName = UUID.randomUUID() + oldFileName;
 			 File targetFile = new File(uploadPicPath,newFileName);
+			 
 			 
 			 try {
 					multipartFile.transferTo(targetFile);
 					news.setPicture(newFileName);
-//					news.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
 				} catch (IOException e) {
 					e.printStackTrace();
 	
 				}
+			 n = newsService.saveNews(news);
 //			File targetFile = new File(path,newFileName);
 		 
 //		            try (InputStream inputStream = multipartFile.getInputStream()) {
@@ -148,7 +150,6 @@ public class NewsController {
 //
 //			}
 
-			n = newsService.saveNews(news);
 			
 
 		} else {

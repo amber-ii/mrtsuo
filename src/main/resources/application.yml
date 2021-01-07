@@ -1,5 +1,7 @@
 uploadpic:
-  path: /Users/amber/uploadpic/
+   path: /Users/amber/mrtsuopat/target/uploadpic/
+  #path: /Users/amber/uploadpic/
+  
 spring:
   thymeleaf:
     mode: HTML
