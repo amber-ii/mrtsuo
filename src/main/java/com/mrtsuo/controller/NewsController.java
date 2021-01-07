@@ -79,36 +79,45 @@ public class NewsController {
 		return INPUT;
 	}
 
-	
-	
-	
-	
-	
+//	新增、修改
+
 	@Value("${uploadpic.path}")
 	private String uploadPicPath;
 
-//	新增、修改
 	@PostMapping("/news")
-	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes,
-			HttpServletRequest request) throws Exception {
+	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes)
+			throws Exception {
 		News n;
 		if (news.getId() == null) {
 			String oldFileName = multipartFile.getOriginalFilename();
-//			 String oldFileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			 String newFileName = UUID.randomUUID() + oldFileName;
-			 File targetFile = new File(uploadPicPath,newFileName);
-			 
-			 
-			 try {
-					multipartFile.transferTo(targetFile);
-					news.setPicture(newFileName);
-				} catch (IOException e) {
-					e.printStackTrace();
-	
-				}
-			 n = newsService.saveNews(news);
+			String newFileName = UUID.randomUUID() + oldFileName;
+			String home = System.getProperty("user.home");
+			File f = new File(home + File.separator + "uploadpic" + File.separator);
+			File targetFile = new File(f, newFileName);
+
+			try {
+				multipartFile.transferTo(targetFile);
+				news.setPicture(newFileName);
+			} catch (IOException e) {
+				e.printStackTrace();
+
+			}
+			n = newsService.saveNews(news);
+		} else {
+			n = newsService.updateNews(news.getId(), news);
+		}
+
+		if (n == null) {
+			attributes.addFlashAttribute("message", "操作失敗");
+		} else {
+			attributes.addFlashAttribute("message", "操作成功");
+		}
+		return REDIRECT_LIST;
+	}
+
 //			File targetFile = new File(path,newFileName);
-		 
+//			 String oldFileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+
 //		            try (InputStream inputStream = multipartFile.getInputStream()) {
 //		                Files.copy(inputStream, Paths.get(uploadPicPath + filename), // 这里指定了下载的位置
 //		                    StandardCopyOption.REPLACE_EXISTING);
@@ -117,8 +126,7 @@ public class NewsController {
 //		        catch (IOException e) {
 //		            throw new Exception("失败！" + filename, e);
 //		        }
-		        
-		        
+
 //			測試環境
 //			String path = "/Users/amber/mrtsuopat/src/main/resources/static/image/";
 //			String path = "/Users/amber/uploadImage/";
@@ -137,8 +145,8 @@ public class NewsController {
 //			File targetFile = new File(aa.getAbsolutePath() + "/photo/",newFileName);
 //			if(!targetFile.exists()){
 //				targetFile.mkdirs();
-			// 在开发测试模式时，得到地址为：{项目跟目录}/target/static/images/upload/
-			// 在打成jar正式发布时，得到的地址为:{发布jar包目录}/static/images/upload/
+	// 在开发测试模式时，得到地址为：{项目跟目录}/target/static/images/upload/
+	// 在打成jar正式发布时，得到的地址为:{发布jar包目录}/static/images/upload/
 //			}
 //			try {
 //				multipartFile.transferTo(targetFile);
@@ -149,20 +157,6 @@ public class NewsController {
 //				e.printStackTrace();
 //
 //			}
-
-			
-
-		} else {
-			n = newsService.updateNews(news.getId(), news);
-		}
-
-		if (n == null) {
-			attributes.addFlashAttribute("message", "操作失敗");
-		} else {
-			attributes.addFlashAttribute("message", "操作成功");
-		}
-		return REDIRECT_LIST;
-	}
 
 //	新增、修改(原)
 //	@PostMapping("/news")
