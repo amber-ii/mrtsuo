@@ -81,8 +81,6 @@ public class NewsController {
 
 //	新增、修改
 
-	@Value("${uploadpic.path}")
-	private String uploadPicPath;
 
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes)
