@@ -9,7 +9,7 @@ spring:
     prefix: classpath:/templates/
     cache: false
   profiles:
-    active: pro
+    active: dev
 
 
   http:
@@ -22,5 +22,5 @@ spring:
     static-path-pattern: /**
   resources:
     static-locations:
-    - file:${uploadpic.path}
+    - file:${user.home}/uploadpic/
      
