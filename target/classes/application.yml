@@ -5,7 +5,7 @@ spring:
     prefix: classpath:/templates/
     cache: false
   profiles:
-    active: dev
+    active: pro
 
 
   http:
