@@ -40,7 +40,7 @@ public class WebConfig implements WebMvcConfigurer {
                 "classpath:/static/image/",
                 "classpath:/static/css/",
                 "classpath:/static/js/",
-                "file:///Users/uploadpic/"
+                "file:/Users/uploadpic/"
                 );
 	}
 

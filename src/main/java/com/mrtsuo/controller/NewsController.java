@@ -87,9 +87,9 @@ public class NewsController {
 		if (news.getId() == null) {
 			String oldFileName = multipartFile.getOriginalFilename();
 			String newFileName = UUID.randomUUID() + oldFileName;
-			String home = System.getProperty("user.home");
-			File f = new File(home + File.separator + "uploadpic" + File.separator);
-			File targetFile = new File(f, newFileName);
+//			String home = System.getProperty("${HOME}");
+//			File f = new File(home + File.separator + "uploadpic" + File.separator);
+			File targetFile = new File(File.separator + "Users" + File.separator + "uploadpic", newFileName);
 
 			try {
 				multipartFile.transferTo(targetFile);
