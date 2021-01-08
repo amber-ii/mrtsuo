@@ -11,6 +11,7 @@
 /Users/amber/mrtsuopat/src/main/java/com/mrtsuo/interceptor/WebConfig.java
 /Users/amber/mrtsuopat/src/main/java/com/mrtsuo/repository/NewsRepository.java
 /Users/amber/mrtsuopat/src/main/java/com/mrtsuo/repository/FileDBRepository.java
+/Users/amber/mrtsuopat/src/main/java/com/mrtsuo/util/FileHandleUtil.java
 /Users/amber/mrtsuopat/src/main/java/com/mrtsuo/controller/LoginController.java
 /Users/amber/mrtsuopat/src/main/java/com/mrtsuo/repository/ProductRepository.java
 /Users/amber/mrtsuopat/src/main/java/com/mrtsuo/service/NewsService.java
