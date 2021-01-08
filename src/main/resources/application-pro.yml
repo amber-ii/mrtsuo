@@ -16,9 +16,9 @@ logging:
     root: warn
     com.mrtsuo: info
   file: log/patisserie-pro.log
-server:
-  tomcat:
-    basedir: logistics/tomcat
+#server:
+  #tomcat:
+    #basedir: logistics/tomcat
        
   
 

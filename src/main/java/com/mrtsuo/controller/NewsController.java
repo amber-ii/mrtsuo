@@ -91,19 +91,19 @@ public class NewsController {
 			String newFileName = UUID.randomUUID() + oldFileName;
 //			String home = System.getProperty("${HOME}");
 //			File f = new File(home + File.separator + "uploadpic" + File.separator);
-			File path = new File(ResourceUtils.getURL("classpath:").getPath());
-			String gitPath = path.getParentFile().getParent() + File.separator + "logistics"
-					+ File.separator + "uploads" + File.separator;
+//			File path = new File(ResourceUtils.getURL("classpath:").getPath());
+//			String gitPath = path.getParentFile().getParent() + File.separator + "logistics"
+//					+ File.separator + "uploads" + File.separator;
 //			/app/logistics/tomcat/work/Tomcat/localhost/ROOT/file:/app/target/logistics/uploads/543fcbab-3871-415f-ad2b-d4fb655febbaall.jpg
-			File targetFile = new File(gitPath, newFileName);
+			File targetFile = new File(File.separator + "Users" + File.separator + "amber" + File.separator + "uploads"  + File.separator, newFileName);
 			news.setPicture(newFileName);
+			n = newsService.saveNews(news);
 			try {
 				multipartFile.transferTo(targetFile);
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			n = newsService.saveNews(news);
 		} else {
 			n = newsService.updateNews(news.getId(), news);
 		}

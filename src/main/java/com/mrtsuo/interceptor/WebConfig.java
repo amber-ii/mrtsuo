@@ -31,34 +31,29 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration 
 public class WebConfig implements WebMvcConfigurer {
-//	@Override
-//	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry.addResourceHandler("/resources/**",
-//        		"/static/**",
-//        		"/image/**", 
-//        		"/css/**",
-//                "/js/**",
-//                "/uploadpic/**").addResourceLocations(
-//                "classpath:/META-INF/resources/",
-//                "classpath:/static/image/",
-//                "classpath:/static/css/",
-//                "classpath:/static/js/",
-//                "file:/Users/uploadpic/"
-//                );
-//	}
 	@Override
-	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	      File path = null;
-	      try {
-	         path = new File(ResourceUtils.getURL("classpath:").getPath());
-	      } catch (FileNotFoundException e) {
-	         e.printStackTrace();
-	      }
-	      String gitPath=path.getParentFile().getParent()+File.separator+"logistics"+File.separator+"uploads"+File.separator;
-	      registry.addResourceHandler("/uploads/**").addResourceLocations(gitPath);
-	      registry.addResourceHandler("/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
-//	      super.addResourceHandlers(registry);
-	   }
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler(
+                "/uploads/**").addResourceLocations(
+                
+                "file:/Users/amber/uploads/"
+                );
+	}
+	
+//	registry.addResourceHandler("/uploads/**").addResourceLocations("file:/Users/liuyanzhao/Documents/uploads/");
+//	@Override
+//	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//	      File path = null;
+//	      try {
+//	         path = new File(ResourceUtils.getURL("classpath:").getPath());
+//	      } catch (FileNotFoundException e) {
+//	         e.printStackTrace();
+//	      }
+//	      String gitPath=path.getParentFile().getParent()+File.separator+"logistics"+File.separator+"uploads"+File.separator;
+//	      registry.addResourceHandler("/uploads/**").addResourceLocations(gitPath);
+//	      registry.addResourceHandler("/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
+////	      super.addResourceHandlers(registry);
+//	   }
 
 
 	@Override
