@@ -80,8 +80,6 @@ public class NewsController {
 	}
 
 //	新增、修改
-
-
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes)
 			throws Exception {
@@ -98,7 +96,6 @@ public class NewsController {
 				news.setPicture(newFileName);
 			} catch (IOException e) {
 				e.printStackTrace();
-
 			}
 			n = newsService.saveNews(news);
 		} else {

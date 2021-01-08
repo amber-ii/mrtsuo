@@ -26,8 +26,23 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 控制器的過濾設置
  * 
  */
-@Configuration // 定義此類為配置文件
+@Configuration 
 public class WebConfig implements WebMvcConfigurer {
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**",
+        		"/static/**",
+        		"/image/**", 
+        		"/css/**",
+                "/js/**",
+                "/uploadpic/**").addResourceLocations(
+                "classpath:/META-INF/resources/",
+                "classpath:/static/image/",
+                "classpath:/static/css/",
+                "classpath:/static/js/",
+                "file:///Users/uploadpic/"
+                );
+	}
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -105,19 +120,7 @@ public class WebConfig implements WebMvcConfigurer {
 		return null;
 	}
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
-        registry.addResourceHandler("/resources/**","/static/**","/image/**", "/css/**",
-                "/js/**",
-                "/uploadpic/**").addResourceLocations(
-                "classpath:/META-INF/resources/",
-                "classpath:/static/image/",
-                "classpath:/static/css/",
-                "classpath:/static/js/",
-                "file:/Users/amber/uploadpic/"
-                );
-	}
+	
 }
 
 	
