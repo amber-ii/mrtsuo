@@ -54,7 +54,7 @@ public class WebConfig implements WebMvcConfigurer {
 	      } catch (FileNotFoundException e) {
 	         e.printStackTrace();
 	      }
-	      String gitPath=path.getParentFile().getParentFile().getParent()+File.separator+"logistics"+File.separator+"uploads"+File.separator;
+	      String gitPath=path.getParentFile().getParent()+File.separator+"logistics"+File.separator+"uploads"+File.separator;
 	      registry.addResourceHandler("/uploads/**").addResourceLocations(gitPath);
 	      registry.addResourceHandler("/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
 //	      super.addResourceHandlers(registry);

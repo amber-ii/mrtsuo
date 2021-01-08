@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.jboss.jandex.Main;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
@@ -83,6 +84,7 @@ public class NewsController {
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes)
 			throws Exception {
+		
 		News n;
 		if (news.getId() == null) {
 			String oldFileName = multipartFile.getOriginalFilename();
@@ -90,12 +92,14 @@ public class NewsController {
 //			String home = System.getProperty("${HOME}");
 //			File f = new File(home + File.separator + "uploadpic" + File.separator);
 			File path = new File(ResourceUtils.getURL("classpath:").getPath());
-			String gitPath=path.getParentFile().getParentFile().getParent()+File.separator+"logistics"+File.separator+"uploads"+File.separator;
+			String gitPath = path.getParentFile().getParent() + File.separator + "logistics"
+					+ File.separator + "uploads" + File.separator;
+//			/app/logistics/tomcat/work/Tomcat/localhost/ROOT/file:/app/target/logistics/uploads/543fcbab-3871-415f-ad2b-d4fb655febbaall.jpg
 			File targetFile = new File(gitPath, newFileName);
-
+			news.setPicture(newFileName);
 			try {
 				multipartFile.transferTo(targetFile);
-				news.setPicture(newFileName);
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
