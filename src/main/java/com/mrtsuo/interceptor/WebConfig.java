@@ -1,11 +1,14 @@
 package com.mrtsuo.interceptor;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.util.ResourceUtils;
 import org.springframework.validation.MessageCodesResolver;
 import org.springframework.validation.Validator;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -28,21 +31,35 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration 
 public class WebConfig implements WebMvcConfigurer {
+//	@Override
+//	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/resources/**",
+//        		"/static/**",
+//        		"/image/**", 
+//        		"/css/**",
+//                "/js/**",
+//                "/uploadpic/**").addResourceLocations(
+//                "classpath:/META-INF/resources/",
+//                "classpath:/static/image/",
+//                "classpath:/static/css/",
+//                "classpath:/static/js/",
+//                "file:/Users/uploadpic/"
+//                );
+//	}
 	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**",
-        		"/static/**",
-        		"/image/**", 
-        		"/css/**",
-                "/js/**",
-                "/uploadpic/**").addResourceLocations(
-                "classpath:/META-INF/resources/",
-                "classpath:/static/image/",
-                "classpath:/static/css/",
-                "classpath:/static/js/",
-                "file:/Users/uploadpic/"
-                );
-	}
+	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	      File path = null;
+	      try {
+	         path = new File(ResourceUtils.getURL("classpath:").getPath());
+	      } catch (FileNotFoundException e) {
+	         e.printStackTrace();
+	      }
+	      String gitPath=path.getParentFile().getParentFile().getParent()+File.separator+"logistics"+File.separator+"uploads"+File.separator;
+	      registry.addResourceHandler("/uploads/**").addResourceLocations(gitPath);
+	      registry.addResourceHandler("/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
+//	      super.addResourceHandlers(registry);
+	   }
+
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {

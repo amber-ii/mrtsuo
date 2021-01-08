@@ -89,7 +89,9 @@ public class NewsController {
 			String newFileName = UUID.randomUUID() + oldFileName;
 //			String home = System.getProperty("${HOME}");
 //			File f = new File(home + File.separator + "uploadpic" + File.separator);
-			File targetFile = new File(File.separator + "Users" + File.separator + "uploadpic", newFileName);
+			File path = new File(ResourceUtils.getURL("classpath:").getPath());
+			String gitPath=path.getParentFile().getParentFile().getParent()+File.separator+"logistics"+File.separator+"uploads"+File.separator;
+			File targetFile = new File(gitPath, newFileName);
 
 			try {
 				multipartFile.transferTo(targetFile);
