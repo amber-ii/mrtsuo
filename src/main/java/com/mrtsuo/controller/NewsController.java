@@ -11,6 +11,7 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.FileUtils;
 import org.jboss.jandex.Main;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -84,26 +85,38 @@ public class NewsController {
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes)
 			throws Exception {
-		
 		News n;
 		if (news.getId() == null) {
 			String oldFileName = multipartFile.getOriginalFilename();
 			String newFileName = UUID.randomUUID() + oldFileName;
-//			String home = System.getProperty("${HOME}");
-//			File f = new File(home + File.separator + "uploadpic" + File.separator);
-//			File path = new File(ResourceUtils.getURL("classpath:").getPath());
-//			String gitPath = path.getParentFile().getParent() + File.separator + "logistics"
-//					+ File.separator + "uploads" + File.separator;
-//			/app/logistics/tomcat/work/Tomcat/localhost/ROOT/file:/app/target/logistics/uploads/543fcbab-3871-415f-ad2b-d4fb655febbaall.jpg
-			File targetFile = new File(File.separator + "Users" + File.separator + "amber" + File.separator + "uploads"  + File.separator, newFileName);
+			
+			File path = new File(ResourceUtils.getURL("classpath:").getPath());
+			if(!path.exists()) {
+			    path = new File("");
+			}
+			File upload = new File(path.getAbsolutePath(),"static/upload/" + newFileName);
+//			if(!upload.exists()) {
+//			    upload.mkdirs();
+//			}
 			news.setPicture(newFileName);
-			n = newsService.saveNews(news);
+			
+//			FileUtils.copyInputStreamToFile(inputStream, uploadFile);
 			try {
-				multipartFile.transferTo(targetFile);
+				multipartFile.transferTo(upload);
 				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+
+			n = newsService.saveNews(news);
+//			File targetFile = new File(File.separator + "Users" + File.separator + "amber" + File.separator + "uploads"  + File.separator, newFileName);
+			
+//			try {
+//				multipartFile.transferTo(targetFile);
+//				
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
 		} else {
 			n = newsService.updateNews(news.getId(), news);
 		}
@@ -116,48 +129,6 @@ public class NewsController {
 		return REDIRECT_LIST;
 	}
 
-//			File targetFile = new File(path,newFileName);
-//			 String oldFileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-
-//		            try (InputStream inputStream = multipartFile.getInputStream()) {
-//		                Files.copy(inputStream, Paths.get(uploadPicPath + filename), // 这里指定了下载的位置
-//		                    StandardCopyOption.REPLACE_EXISTING);
-//		                news.setPicture(filename);
-//		            }
-//		        catch (IOException e) {
-//		            throw new Exception("失败！" + filename, e);
-//		        }
-
-//			測試環境
-//			String path = "/Users/amber/mrtsuopat/src/main/resources/static/image/";
-//			String path = "/Users/amber/uploadImage/";
-//			String path = request.getSession().getServletContext().getRealPath("");
-//			String path = request.getSession().getServletContext().getRealPath("");
-//			String path = request.getRequestURL().toString() + "/image/";
-
-//			String oldFileName = multipartFile.getOriginalFilename();
-//			String newFileName = UUID.randomUUID() + oldFileName;
-////			File targetFile = new File(path,newFileName);
-//			File aa = new File(ResourceUtils.getURL("classpath:").getPath());
-//			if (!aa.exists()) {
-//				aa = new File("");
-//			}
-//			File targetFile = new File(aa.getAbsolutePath() + "/static/image/", newFileName);
-//			File targetFile = new File(aa.getAbsolutePath() + "/photo/",newFileName);
-//			if(!targetFile.exists()){
-//				targetFile.mkdirs();
-	// 在开发测试模式时，得到地址为：{项目跟目录}/target/static/images/upload/
-	// 在打成jar正式发布时，得到的地址为:{发布jar包目录}/static/images/upload/
-//			}
-//			try {
-//				multipartFile.transferTo(targetFile);
-//				filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
-//				news.setPicture(filename);
-//				news.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//
-//			}
 
 //	新增、修改(原)
 //	@PostMapping("/news")

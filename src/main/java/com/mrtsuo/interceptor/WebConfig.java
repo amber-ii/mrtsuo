@@ -29,32 +29,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * 控制器的過濾設置
  * 
  */
-@Configuration 
+@Configuration
 public class WebConfig implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler(
-                "/uploads/**").addResourceLocations(
-                
-                "file:/Users/amber/uploads/"
-                );
-	}
-	
-//	registry.addResourceHandler("/uploads/**").addResourceLocations("file:/Users/liuyanzhao/Documents/uploads/");
-//	@Override
-//	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//	      File path = null;
-//	      try {
-//	         path = new File(ResourceUtils.getURL("classpath:").getPath());
-//	      } catch (FileNotFoundException e) {
-//	         e.printStackTrace();
-//	      }
-//	      String gitPath=path.getParentFile().getParent()+File.separator+"logistics"+File.separator+"uploads"+File.separator;
-//	      registry.addResourceHandler("/uploads/**").addResourceLocations(gitPath);
-//	      registry.addResourceHandler("/**").addResourceLocations(ResourceUtils.CLASSPATH_URL_PREFIX+"/static/");
-////	      super.addResourceHandlers(registry);
-//	   }
+		registry.addResourceHandler("/uploads/**").addResourceLocations(
 
+				"file:/Users/amber/uploads/");
+	}
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -132,7 +114,4 @@ public class WebConfig implements WebMvcConfigurer {
 		return null;
 	}
 
-	
 }
-
-	

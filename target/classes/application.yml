@@ -1,5 +1,3 @@
-web:
- upload-path: /Users/amber/uploads/
 spring:
   thymeleaf:
     mode: HTML
@@ -20,6 +18,6 @@ spring:
     static-path-pattern: /**
   resources:
     static-locations:
-    - classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/,file:${web.upload-path}
+    - classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/,file:/static/
 
 
