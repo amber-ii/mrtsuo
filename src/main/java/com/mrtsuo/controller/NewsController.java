@@ -33,6 +33,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.mrtsuo.domain.News;
 import com.mrtsuo.service.NewsService;
 
+
 @Controller
 @RequestMapping("/admin")
 public class NewsController {
@@ -95,9 +96,9 @@ public class NewsController {
 			    path = new File("");
 			}
 			File upload = new File(path.getAbsolutePath(),"static/upload/" + newFileName);
-//			if(!upload.exists()) {
-//			    upload.mkdirs();
-//			}
+			if(!upload.exists()) {
+			    upload.mkdirs();
+			}
 			news.setPicture(newFileName);
 			
 //			FileUtils.copyInputStreamToFile(inputStream, uploadFile);
