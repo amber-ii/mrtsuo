@@ -95,11 +95,11 @@ public class NewsController {
 			if(!path.exists()) {
 			    path = new File("");
 			}
-			File upload = new File(path.getAbsolutePath(),"static/upload/");
+			File upload = new File(path.getAbsolutePath(),"static/image/");
 			if(!upload.exists()) {
 			    upload.mkdirs();
 			}
-			File uploadFile = new File(path.getAbsolutePath(),"static/upload/"+newFileName);
+			File uploadFile = new File(path.getAbsolutePath(),"static/image/"+newFileName);
 			news.setPicture(newFileName);
 			
 //			FileUtils.copyInputStreamToFile(inputStream, uploadFile);
