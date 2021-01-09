@@ -3,6 +3,7 @@ package com.mrtsuo.controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -83,15 +84,27 @@ public class NewsController {
 		return INPUT;
 	}
 
+	private static String UPLOAD_PATH = "File/image/upload";
+
 //	新增、修改
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes)
 			throws Exception {
 		News n;
 		if (news.getId() == null) {
-			String oldFileName = multipartFile.getOriginalFilename();
-			InputStream is = multipartFile.getInputStream();
-			String newFileName = UUID.randomUUID() + oldFileName;
+
+			try {
+				String oldFileName = multipartFile.getOriginalFilename();
+				String newFileName = UUID.randomUUID() + oldFileName;
+				System.out.println(newFileName);
+
+				InputStream inputStream = multipartFile.getInputStream();
+				Path directory = Paths.get(UPLOAD_PATH);
+				if (!Files.exists(directory)) {
+					Files.createDirectories(directory);
+				}
+				long copy = Files.copy(inputStream, directory.resolve(newFileName));
+				news.setPicture(newFileName);
 
 //			File path = new File(ResourceUtils.getURL("classpath:").getPath());
 //			if(!path.exists()) {
@@ -103,15 +116,15 @@ public class NewsController {
 //			}
 //			File uploadFile = new File(path.getAbsolutePath(),"static/image/"+newFileName);
 
-			ApplicationHome ah = new ApplicationHome(getClass());
-			File uploadFile = new File(ah.getSource().getParentFile(), "static/image/" + newFileName);
-			news.setPicture(newFileName);
+//			ApplicationHome ah = new ApplicationHome(getClass());
+//			File uploadFile = new File(ah.getSource().getParentFile() + "static/image/", newFileName);
 
 //			FileUtils.copyInputStreamToFile(inputStream, uploadFile);
-			try {
-//				Files.copy(is,uploadFile.resolve(newFileName));
-				multipartFile.transferTo(uploadFile);
-
+//			try {
+////				Files.copy(is,uploadFile.resolve(newFileName));
+//				multipartFile.transferTo(uploadFile);
+////				Files.copy(is,uploadFile);
+//				;
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -125,7 +138,9 @@ public class NewsController {
 //			} catch (IOException e) {
 //				e.printStackTrace();
 //			}
-		} else {
+		} else
+
+		{
 			n = newsService.updateNews(news.getId(), news);
 		}
 
@@ -136,7 +151,6 @@ public class NewsController {
 		}
 		return REDIRECT_LIST;
 	}
-
 //	新增、修改(原)
 //	@PostMapping("/news")
 //	public String post(News news, RedirectAttributes attributes) {
