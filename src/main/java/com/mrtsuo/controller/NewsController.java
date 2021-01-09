@@ -84,60 +84,24 @@ public class NewsController {
 		return INPUT;
 	}
 
-	private static String UPLOAD_PATH = "/Users/amber/mrtsuopat/File/image/upload/";
-
 //	新增、修改
 	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes)
 			throws Exception {
 		News n;
 		if (news.getId() == null) {
-
+			String oldFileName = multipartFile.getOriginalFilename();
+			String newFileName = UUID.randomUUID() + oldFileName;
+			File targetFile = new File(
+					File.separator + "Users" + File.separator + "amber" + File.separator + "upload" + File.separator,
+					newFileName);
+			news.setPicture(newFileName);
 			try {
-				String oldFileName = multipartFile.getOriginalFilename();
-				String newFileName = UUID.randomUUID() + oldFileName;
-				System.out.println(newFileName);
-
-				InputStream inputStream = multipartFile.getInputStream();
-				Path directory = Paths.get(UPLOAD_PATH);
-				if (!Files.exists(directory)) {
-					Files.createDirectories(directory);
-				}
-				long copy = Files.copy(inputStream, directory.resolve(newFileName));
-				news.setPicture(newFileName);
-
-//			File path = new File(ResourceUtils.getURL("classpath:").getPath());
-//			if(!path.exists()) {
-//			    path = new File("");
-//			}
-//			File upload = new File(path.getAbsolutePath(),"static/image/");
-//			if(!upload.exists()) {
-//			    upload.mkdirs();
-//			}
-//			File uploadFile = new File(path.getAbsolutePath(),"static/image/"+newFileName);
-
-//			ApplicationHome ah = new ApplicationHome(getClass());
-//			File uploadFile = new File(ah.getSource().getParentFile() + "static/image/", newFileName);
-
-//			FileUtils.copyInputStreamToFile(inputStream, uploadFile);
-//			try {
-////				Files.copy(is,uploadFile.resolve(newFileName));
-//				multipartFile.transferTo(uploadFile);
-////				Files.copy(is,uploadFile);
-//				;
+				multipartFile.transferTo(targetFile);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 			n = newsService.saveNews(news);
-//			File targetFile = new File(File.separator + "Users" + File.separator + "amber" + File.separator + "uploads"  + File.separator, newFileName);
-
-//			try {
-//				multipartFile.transferTo(targetFile);
-//				
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
 		} else
 
 		{
