@@ -84,7 +84,7 @@ public class NewsController {
 		return INPUT;
 	}
 
-	private static String UPLOAD_PATH = "File/image/upload";
+	private static String UPLOAD_PATH = "/Users/amber/mrtsuopat/File/image/upload/";
 
 //	新增、修改
 	@PostMapping("/news")
