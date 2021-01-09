@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Scanner;
@@ -15,6 +16,7 @@ import org.apache.commons.io.FileUtils;
 import org.jboss.jandex.Main;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationHome;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -32,7 +34,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.mrtsuo.domain.News;
 import com.mrtsuo.service.NewsService;
-
 
 @Controller
 @RequestMapping("/admin")
@@ -89,30 +90,35 @@ public class NewsController {
 		News n;
 		if (news.getId() == null) {
 			String oldFileName = multipartFile.getOriginalFilename();
+			InputStream is = multipartFile.getInputStream();
 			String newFileName = UUID.randomUUID() + oldFileName;
-			
-			File path = new File(ResourceUtils.getURL("classpath:").getPath());
-			if(!path.exists()) {
-			    path = new File("");
-			}
-			File upload = new File(path.getAbsolutePath(),"static/image/");
-			if(!upload.exists()) {
-			    upload.mkdirs();
-			}
-			File uploadFile = new File(path.getAbsolutePath(),"static/image/"+newFileName);
+
+//			File path = new File(ResourceUtils.getURL("classpath:").getPath());
+//			if(!path.exists()) {
+//			    path = new File("");
+//			}
+//			File upload = new File(path.getAbsolutePath(),"static/image/");
+//			if(!upload.exists()) {
+//			    upload.mkdirs();
+//			}
+//			File uploadFile = new File(path.getAbsolutePath(),"static/image/"+newFileName);
+
+			ApplicationHome ah = new ApplicationHome(getClass());
+			File uploadFile = new File(ah.getSource().getParentFile(), "static/image/" + newFileName);
 			news.setPicture(newFileName);
-			
+
 //			FileUtils.copyInputStreamToFile(inputStream, uploadFile);
 			try {
+//				Files.copy(is,uploadFile.resolve(newFileName));
 				multipartFile.transferTo(uploadFile);
-				
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 
 			n = newsService.saveNews(news);
 //			File targetFile = new File(File.separator + "Users" + File.separator + "amber" + File.separator + "uploads"  + File.separator, newFileName);
-			
+
 //			try {
 //				multipartFile.transferTo(targetFile);
 //				
@@ -130,7 +136,6 @@ public class NewsController {
 		}
 		return REDIRECT_LIST;
 	}
-
 
 //	新增、修改(原)
 //	@PostMapping("/news")
