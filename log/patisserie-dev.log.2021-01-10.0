@@ -1,0 +1,194 @@
+2021-01-10 23:34:53.512  INFO 68180 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 68180 (/Users/amber/mrtsuopat/target/classes started by amber in /Users/amber/mrtsuopat)
+2021-01-10 23:34:53.596 DEBUG 68180 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2021-01-10 23:34:53.613  INFO 68180 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2021-01-10 23:34:54.066  INFO 68180 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@47837c9d: startup date [Sun Jan 10 23:34:54 CST 2021]; root of context hierarchy
+2021-01-10 23:34:55.455  WARN 68180 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2021-01-10 23:34:57.325  INFO 68180 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9527 (http)
+2021-01-10 23:34:57.346  INFO 68180 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-10 23:34:57.347  INFO 68180 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2021-01-10 23:34:57.514  INFO 68180 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-10 23:34:57.514  INFO 68180 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3448 ms
+2021-01-10 23:34:57.954  INFO 68180 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2021-01-10 23:34:57.971  INFO 68180 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2021-01-10 23:34:57.972  INFO 68180 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2021-01-10 23:34:57.972  INFO 68180 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2021-01-10 23:34:57.972  INFO 68180 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2021-01-10 23:34:58.784  INFO 68180 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2021-01-10 23:34:58.807  INFO 68180 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-01-10 23:34:59.055  INFO 68180 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2021-01-10 23:34:59.105  INFO 68180 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-01-10 23:34:59.142  INFO 68180 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2021-01-10 23:34:59.290  INFO 68180 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2021-01-10 23:35:03.999  INFO 68180 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-01-10 23:35:05.081  INFO 68180 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2021-01-10 23:35:05.511  INFO 68180 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-10 23:35:06.023  INFO 68180 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-01-10 23:35:07.173  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@47837c9d: startup date [Sun Jan 10 23:34:54 CST 2021]; root of context hierarchy
+2021-01-10 23:35:07.286  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.home()
+2021-01-10 23:35:07.302  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product/types/{id}],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.type(org.springframework.data.domain.Pageable,org.springframework.ui.Model,java.lang.Long,com.mrtsuo.domain.Type)
+2021-01-10 23:35:07.304  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/store],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.store()
+2021-01-10 23:35:07.305  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.IndexController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2021-01-10 23:35:07.305  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/newspage],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.newspage(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.domain.News)
+2021-01-10 23:35:07.305  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.product(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2021-01-10 23:35:07.306  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/newspage/{id}],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.newspageByid(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.domain.News,java.lang.Long)
+2021-01-10 23:35:07.307  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:35:07.307  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.LoginController.loginPage()
+2021-01-10 23:35:07.307  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.LoginController.logout(javax.servlet.http.HttpSession)
+2021-01-10 23:35:07.310  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.NewsController.post(com.mrtsuo.domain.News,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:35:07.312  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.NewsController.input(org.springframework.ui.Model)
+2021-01-10 23:35:07.312  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.NewsController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:35:07.313  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.domain.News,org.springframework.ui.Model)
+2021-01-10 23:35:07.313  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.domain.News,org.springframework.ui.Model)
+2021-01-10 23:35:07.314  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.NewsController.editInput(java.lang.Long,org.springframework.ui.Model)
+2021-01-10 23:35:07.321  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.ProductController.post(com.mrtsuo.domain.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:35:07.321  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.ProductController.input(org.springframework.ui.Model)
+2021-01-10 23:35:07.321  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:35:07.322  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2021-01-10 23:35:07.322  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2021-01-10 23:35:07.323  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.domain.Type)
+2021-01-10 23:35:07.323  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.ProductController.editPost(com.mrtsuo.domain.Product,org.springframework.web.multipart.MultipartFile,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2021-01-10 23:35:07.325  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2021-01-10 23:35:07.325  INFO 68180 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2021-01-10 23:35:07.479  INFO 68180 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-01-10 23:35:07.479  INFO 68180 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-01-10 23:35:07.503  INFO 68180 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2021-01-10 23:35:07.542  INFO 68180 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-01-10 23:35:08.952  INFO 68180 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-10 23:35:09.021  INFO 68180 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2021-01-10 23:35:09.119  INFO 68180 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9527 (http)
+2021-01-10 23:35:09.124  INFO 68180 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 16.265 seconds (JVM running for 17.359)
+2021-01-10 23:35:18.754  INFO 68180 --- [http-nio-9527-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2021-01-10 23:35:18.756  INFO 68180 --- [http-nio-9527-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2021-01-10 23:35:18.802  INFO 68180 --- [http-nio-9527-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 46 ms
+2021-01-10 23:36:02.353 ERROR 68180 --- [http-nio-9527-exec-4] c.m.handler.ControllerExceptionHandler   : Request URL : http://localhost:9527/newspage/a4e0f1d6-5ee4-4246-8911-a6a3afe778c0festival.jpg, Exception : {}
+
+org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'news' on field 'id': rejected value [a4e0f1d6-5ee4-4246-8911-a6a3afe778c0festival]; codes [typeMismatch.news.id,typeMismatch.id,typeMismatch.java.lang.Long,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [news.id,id]; arguments []; default message [id]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Long' for property 'id'; nested exception is java.lang.NumberFormatException: For input string: "a4e0f1d6-5ee4-4246-8911-a6a3afe778c0festival"]
+	at org.springframework.web.method.annotation.ModelAttributeMethodProcessor.resolveArgument(ModelAttributeMethodProcessor.java:117)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:158)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:128)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:97)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:827)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:738)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:967)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:198)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:80)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:799)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1457)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+
+2021-01-10 23:36:02.355  WARN 68180 --- [http-nio-9527-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved exception caused by Handler execution: org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors
+Field error in object 'news' on field 'id': rejected value [a4e0f1d6-5ee4-4246-8911-a6a3afe778c0festival]; codes [typeMismatch.news.id,typeMismatch.id,typeMismatch.java.lang.Long,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [news.id,id]; arguments []; default message [id]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Long' for property 'id'; nested exception is java.lang.NumberFormatException: For input string: "a4e0f1d6-5ee4-4246-8911-a6a3afe778c0festival"]
+2021-01-10 23:50:24.473  INFO 68180 --- [Thread-7] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@47837c9d: startup date [Sun Jan 10 23:34:54 CST 2021]; root of context hierarchy
+2021-01-10 23:50:24.479  INFO 68180 --- [Thread-7] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2021-01-10 23:50:24.482  INFO 68180 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-01-10 23:50:25.250  INFO 68180 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 68180 (/Users/amber/mrtsuopat/target/classes started by amber in /Users/amber/mrtsuopat)
+2021-01-10 23:50:25.250 DEBUG 68180 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2021-01-10 23:50:25.250  INFO 68180 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2021-01-10 23:50:25.253  INFO 68180 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@43877b4: startup date [Sun Jan 10 23:50:25 CST 2021]; root of context hierarchy
+2021-01-10 23:51:53.039  INFO 68497 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 68497 (/Users/amber/mrtsuopat/target/classes started by amber in /Users/amber/mrtsuopat)
+2021-01-10 23:51:53.040 DEBUG 68497 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2021-01-10 23:51:53.040  INFO 68497 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: dev
+2021-01-10 23:51:53.380  INFO 68497 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7a94de68: startup date [Sun Jan 10 23:51:53 CST 2021]; root of context hierarchy
+2021-01-10 23:51:54.282  WARN 68497 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2021-01-10 23:51:55.442  INFO 68497 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9527 (http)
+2021-01-10 23:51:55.453  INFO 68497 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-10 23:51:55.455  INFO 68497 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2021-01-10 23:51:55.545  INFO 68497 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-10 23:51:55.545  INFO 68497 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2165 ms
+2021-01-10 23:51:55.779  INFO 68497 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2021-01-10 23:51:55.783  INFO 68497 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2021-01-10 23:51:55.784  INFO 68497 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2021-01-10 23:51:55.784  INFO 68497 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2021-01-10 23:51:55.784  INFO 68497 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2021-01-10 23:51:56.181  INFO 68497 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2021-01-10 23:51:56.196  INFO 68497 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2021-01-10 23:51:56.376  INFO 68497 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2021-01-10 23:51:56.377  INFO 68497 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2021-01-10 23:51:56.379  INFO 68497 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2021-01-10 23:51:56.407  INFO 68497 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2021-01-10 23:51:57.340  INFO 68497 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-01-10 23:51:57.787  INFO 68497 --- [restartedMain] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2021-01-10 23:51:57.981  INFO 68497 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-10 23:51:58.318  INFO 68497 --- [restartedMain] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2021-01-10 23:51:59.411  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7a94de68: startup date [Sun Jan 10 23:51:53 CST 2021]; root of context hierarchy
+2021-01-10 23:51:59.572  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.home()
+2021-01-10 23:51:59.573  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product/types/{id}],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.type(org.springframework.data.domain.Pageable,org.springframework.ui.Model,java.lang.Long,com.mrtsuo.domain.Type)
+2021-01-10 23:51:59.574  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/store],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.store()
+2021-01-10 23:51:59.574  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.IndexController.search(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2021-01-10 23:51:59.574  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/product],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.product(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2021-01-10 23:51:59.575  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/newspage],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.newspage(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.domain.News)
+2021-01-10 23:51:59.575  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/newspage/{id}],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.IndexController.newspageByid(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.domain.News,java.lang.Long)
+2021-01-10 23:51:59.577  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:51:59.577  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.LoginController.loginPage()
+2021-01-10 23:51:59.577  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.LoginController.logout(javax.servlet.http.HttpSession)
+2021-01-10 23:51:59.580  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.NewsController.input(org.springframework.ui.Model)
+2021-01-10 23:51:59.581  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.NewsController.post(com.mrtsuo.domain.News,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:51:59.581  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.NewsController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:51:59.581  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.NewsController.search(org.springframework.data.domain.Pageable,com.mrtsuo.domain.News,org.springframework.ui.Model)
+2021-01-10 23:51:59.581  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.NewsController.news(org.springframework.data.domain.Pageable,com.mrtsuo.domain.News,org.springframework.ui.Model)
+2021-01-10 23:51:59.582  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/news/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.NewsController.editInput(java.lang.Long,org.springframework.ui.Model)
+2021-01-10 23:51:59.586  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.ProductController.input(org.springframework.ui.Model)
+2021-01-10 23:51:59.586  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.ProductController.post(com.mrtsuo.domain.Product,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:51:59.586  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/delete],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.ProductController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2021-01-10 23:51:59.586  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/search],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.ProductController.search(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery)
+2021-01-10 23:51:59.586  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}/input],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.ProductController.editInput(java.lang.Long,org.springframework.ui.Model)
+2021-01-10 23:51:59.587  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products],methods=[GET]}" onto public java.lang.String com.mrtsuo.controller.ProductController.products(org.springframework.data.domain.Pageable,org.springframework.ui.Model,com.mrtsuo.vo.ProductQuery,com.mrtsuo.domain.Type)
+2021-01-10 23:51:59.587  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/products/{id}],methods=[POST]}" onto public java.lang.String com.mrtsuo.controller.ProductController.editPost(com.mrtsuo.domain.Product,org.springframework.web.multipart.MultipartFile,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpServletRequest)
+2021-01-10 23:51:59.589  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2021-01-10 23:51:59.590  INFO 68497 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2021-01-10 23:51:59.644  INFO 68497 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-01-10 23:51:59.644  INFO 68497 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-01-10 23:51:59.661  INFO 68497 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2021-01-10 23:51:59.699  INFO 68497 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2021-01-10 23:52:00.669  INFO 68497 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-10 23:52:00.744  INFO 68497 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2021-01-10 23:52:00.805  INFO 68497 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9527 (http)
+2021-01-10 23:52:00.809  INFO 68497 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 8.24 seconds (JVM running for 8.756)
+2021-01-10 23:52:13.751  INFO 68497 --- [http-nio-9527-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2021-01-10 23:52:13.752  INFO 68497 --- [http-nio-9527-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2021-01-10 23:52:13.786  INFO 68497 --- [http-nio-9527-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 34 ms

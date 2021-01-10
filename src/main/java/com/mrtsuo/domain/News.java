@@ -25,7 +25,6 @@ public class News {
 	@Lob
 	private String picture;
 
-	private String url;
 	@Basic(fetch = FetchType.LAZY)
 	@Lob
 	private String content;

@@ -2,29 +2,14 @@ package com.mrtsuo.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.Scanner;
 import java.util.UUID;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.io.FileUtils;
-import org.jboss.jandex.Main;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.ApplicationHome;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.ResourceUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -86,6 +71,34 @@ public class NewsController {
 
 //	新增、修改
 	@PostMapping("/news")
+	public String post(News news, RedirectAttributes attributes) {
+		News n;
+		if (news.getId() == null) {
+			n = newsService.saveNews(news);
+		} else {
+			n = newsService.updateNews(news.getId(), news);
+		}
+		if (n == null) {
+			attributes.addFlashAttribute("message", "操作失敗");
+		} else {
+			attributes.addFlashAttribute("message", "操作成功");
+		}
+		return REDIRECT_LIST;
+	}
+
+//	刪除
+	@GetMapping("/news/{id}/delete")
+	public String delete(@PathVariable Long id, RedirectAttributes attributes) {
+		newsService.deleteNews(id);
+		attributes.addFlashAttribute("message", "刪除成功");
+		return REDIRECT_LIST;
+	}
+
+
+
+// 選擇文件上傳，heroku不支援儲存，暫不用。 
+	/**
+	@PostMapping("/news")
 	public String post(@RequestParam("img") MultipartFile multipartFile, News news, RedirectAttributes attributes)
 			throws Exception {
 		News n;
@@ -115,28 +128,5 @@ public class NewsController {
 		}
 		return REDIRECT_LIST;
 	}
-//	新增、修改(原)
-//	@PostMapping("/news")
-//	public String post(News news, RedirectAttributes attributes) {
-//		News n;
-//		if (news.getId() == null) {
-//			n = newsService.saveNews(news);
-//		} else {
-//			n = newsService.updateNews(news.getId(), news);
-//		}
-//		if (n == null) {
-//			attributes.addFlashAttribute("message", "操作失敗");
-//		} else {
-//			attributes.addFlashAttribute("message", "操作成功");
-//		}
-//		return REDIRECT_LIST;
-//	}
-
-//	刪除
-	@GetMapping("/news/{id}/delete")
-	public String delete(@PathVariable Long id, RedirectAttributes attributes) {
-		newsService.deleteNews(id);
-		attributes.addFlashAttribute("message", "刪除成功");
-		return REDIRECT_LIST;
-	}
+	*/
 }

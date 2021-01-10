@@ -14,10 +14,10 @@ spring:
       max-file-size: 200MB
       max-request-size: 200MB
       
-  mvc:
-    static-path-pattern: /**
-  resources:
-    static-locations:
-    - classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/,file:/Users/amber/upload/
+  #mvc:
+    #static-path-pattern: /**
+  #resources:
+    #static-locations:
+   #- classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/
 
 

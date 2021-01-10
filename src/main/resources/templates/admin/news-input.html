@@ -40,8 +40,7 @@
 	<div class="m-container m-padded-tb-big">
 		<div class="ui container">
 		<!-- 表格 -->
-			<form id="news-form" class="ui form" action="#" method="post" th:object="${news}" th:action="@{/admin/news}" 
-				enctype="multipart/form-data">
+			<form id="news-form" class="ui form" action="#" method="post" th:object="${news}" th:action="@{/admin/news}">
 				<input type="hidden" name="published" th:value="*{published}">
 				<input type="hidden" name="id" th:value=*{id}>
 
@@ -64,7 +63,7 @@
 				<div class="field">
 					<div class="ui left labeled input">
 						<label class="ui teal basic label">圖片</label>
-					<input type="file" name="img" th:value="*{picture}"
+					<input type="text" name="picture" th:value="*{picture}"
 							placeholder="圖片引用地址">
 					</div>
 				</div>

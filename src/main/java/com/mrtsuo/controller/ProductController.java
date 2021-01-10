@@ -32,7 +32,7 @@ import com.mrtsuo.vo.ProductQuery;
 @RequestMapping("/admin")
 public class ProductController {
 	/**
-	 * 商品(後台)
+	 * 後台商品管理
 	 */
 
 	@Autowired
@@ -81,26 +81,27 @@ public class ProductController {
 	}
 
 //	新增
-//	@PostMapping("/products")
-//	public String post(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
-//		Product product1 = productService.getProductByName(product.getName());
-//		if (product1 != null) {
-//			result.rejectValue("name", "nameError", "不能添加重複的產品");
-//		}
-//		if (result.hasErrors()) {
-//			return INPUT;
-//		}
-//		
-//		product.setType(typeService.getType(product.getType().getId()));
-//		Product p = productService.saveProduct(product);
-//		if (p == null) {
-//			attributes.addFlashAttribute("message", "新增失敗");
-//		} else {
-//			attributes.addFlashAttribute("message", "新增成功");
-//		}
-//		return REDIRECT_LIST;
-//	}
-
+	@PostMapping("/products")
+	public String post(@Valid Product product, BindingResult result, RedirectAttributes attributes) {
+		Product product1 = productService.getProductByName(product.getName());
+		if (product1 != null) {
+			result.rejectValue("name", "nameError", "不能添加重複的產品");
+		}
+		if (result.hasErrors()) {
+			return INPUT;
+		}
+		
+		product.setType(typeService.getType(product.getType().getId()));
+		Product p = productService.saveProduct(product);
+		if (p == null) {
+			attributes.addFlashAttribute("message", "新增失敗");
+		} else {
+			attributes.addFlashAttribute("message", "新增成功");
+		}
+		return REDIRECT_LIST;
+	}
+	/**
+//	選擇文件上傳，heroku不支援儲存，暫不用。
 	@PostMapping("/products")
 	public String post(@Valid Product product, @RequestParam("img") MultipartFile multipartFile, BindingResult result,
 			RedirectAttributes attributes, HttpServletRequest request) {
@@ -112,33 +113,17 @@ public class ProductController {
 			return INPUT;
 		}
 
-		// 準備變數放入實體類 放入資料庫
-		String filename = null;
-		// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-//		String path = "/Users/amber/uploadImage/";
-//		String path = request.getSession().getServletContext().getRealPath(request.getRequestURI());
-		
-//		String path = request.getSession().getServletContext().getRealPath("uploadImage");
-		String path = "/Users/amber/uploadImage/";
-		// 2.獲取原始檔名
 		String oldFileName = multipartFile.getOriginalFilename();
-
 		String newFileName = UUID.randomUUID() + oldFileName;
-
-		File targetFile = new File(path, newFileName);
-
-		// 寫入 上傳
+		File targetFile = new File(
+				File.separator + "Users" + File.separator + "amber" + File.separator + "upload" + File.separator,
+				newFileName);
 		try {
 			multipartFile.transferTo(targetFile);
-
 		} catch (IOException e) {
 			e.printStackTrace();
-
 		}
-		filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
-		product.setPicture(filename);
-		product.setUrl("https://mrtsuopat.herokuapp.com/uploadImage/" + newFileName);
-
+		product.setPicture(newFileName);
 		product.setType(typeService.getType(product.getType().getId()));
 		Product p = productService.saveProduct(product);
 		if (p == null) {
@@ -148,35 +133,14 @@ public class ProductController {
 		}
 		return REDIRECT_LIST;
 	}
-
+*/
 //	修改
 	@PostMapping("/products/{id}")
-	public String editPost(@Valid Product product, @RequestParam("img") MultipartFile multipartFile,
-			BindingResult result, @PathVariable Long id, RedirectAttributes attributes, HttpServletRequest request) {
+	public String editPost(@Valid Product product,
+			BindingResult result, @PathVariable Long id, RedirectAttributes attributes) {
 		if (result.hasErrors()) {
 			return INPUT;
 		}
-		// 準備變數放入實體類 放入資料庫
-		String filename = null;
-		// 1.定義上傳的目標路徑"static" + File.separator + "upload" 靜態資原始檔夾 分隔符 存放img的資料夾
-		String path = request.getSession().getServletContext().getRealPath("");
-		// 2.獲取原始檔名
-		String oldFileName = multipartFile.getOriginalFilename();
-
-		String newFileName = UUID.randomUUID() + oldFileName;
-
-		File targetFile = new File(path, newFileName);
-
-		// 寫入 上傳
-		try {
-			multipartFile.transferTo(targetFile);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-			return INPUT;
-		}
-		filename = newFileName; // 將處理好的上傳的檔案的名字傳入變數存進資料庫
-		product.setPicture(filename);
 		Product p = productService.updateProduct(id, product);
 		if (p == null) {
 			attributes.addFlashAttribute("message", "更新失敗");
@@ -193,5 +157,4 @@ public class ProductController {
 		attributes.addFlashAttribute("message", "刪除成功");
 		return REDIRECT_LIST;
 	}
-
 }
