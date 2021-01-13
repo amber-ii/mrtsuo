@@ -1,0 +1,4 @@
+2021-01-08 22:50:17.604  INFO 63668 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Starting PatisserieApplication on AmberLinde-MacBook-Pro.local with PID 63668 (/Users/amber/mrtsuopat/target/classes started by amber in /Users/amber/mrtsuopat)
+2021-01-08 22:50:17.609  INFO 63668 --- [restartedMain] com.mrtsuo.PatisserieApplication         : The following profiles are active: pro
+2021-01-08 22:50:17.941  WARN 63668 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
+2021-01-08 22:50:43.467  INFO 63668 --- [restartedMain] com.mrtsuo.PatisserieApplication         : Started PatisserieApplication in 26.076 seconds (JVM running for 811.294)

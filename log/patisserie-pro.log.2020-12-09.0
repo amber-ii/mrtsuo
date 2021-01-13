@@ -1,2 +1,0 @@
-2020-12-09 00:08:23.403  WARN 3147 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
-2020-12-09 22:45:58.619  WARN 3147 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.mrtsuo]' package. Please check your configuration.
